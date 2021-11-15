@@ -1,2 +1,3 @@
 <?php
-include 'index.html';
+include './Router/index.php';
+
