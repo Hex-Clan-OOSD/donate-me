@@ -12,7 +12,11 @@ body{
     
 }
 .signin-form{
-    width: 300px;
+    width: 400px;
+    
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 50px 30px 50px 30px;
+    border-radius: 5px;
 }
 .spacer{
     height: 10px;
