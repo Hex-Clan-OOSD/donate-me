@@ -15,8 +15,13 @@
   <body >
     <?php
     require_once ('./Database/db.php');
-    if(isset($_GET['email']) & isset($_GET['password'])){
+    if(isset($_GET['email']) and isset($_GET['password'])){
       $db = Database::getDbObject();
+      if($db->loginUser($_GET['email'],$_GET['password'])){
+        echo "Logged";
+      }else{
+          echo "Wrone password";
+      }
     }
     ?>
     
