@@ -13,18 +13,24 @@
   <link rel="stylesheet" href="./styles/login_styles.css"/>
   </head>
   <body >
+    <?php
+    require_once ('./Database/db.php');
+    if(isset($_GET['email']) & isset($_GET['password'])){
+      $db = Database::getDbObject();
+    }
+    ?>
     
     
-<form class="form-signin signin-form" onsubmit="login(event)">
+<form class="form-signin signin-form" method="GET" action="login.php">
   <h1 class="main-title">Donate me</h1>
   <h3 class="h4 mb-3 font-weight-normal">Sign in to Continue</h3>
   <label for="inputEmail" class="sr-only">Email</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus name="email">
   <div class="spacer">
 
   </div>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
   <div class="spacer">
 
   </div>
@@ -43,6 +49,6 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.j
 integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
 crossorigin="anonymous"
 ></script>
-<script src="./login.js"></script>
+
   </body>
 </html>
