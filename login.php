@@ -15,10 +15,15 @@
   <body >
     <?php
     require_once ('./Database/db.php');
+
+
     if(isset($_GET['email']) and isset($_GET['password'])){
       $db = Database::getDbObject();
       if($db->loginUser($_GET['email'],$_GET['password'])){
-        echo "Logged";
+          session_start();
+          $_SESSION['username'] = $_GET['email'];
+          header("Location: dashboard.php");
+          die();
       }else{
           echo "Wrone password";
       }
