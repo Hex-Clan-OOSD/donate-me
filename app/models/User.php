@@ -5,11 +5,17 @@
             $this->db = new Database;
         }
 
-        public function getUsers(){
-            $this->db->query('SELECT * FROM login_details');
-            $result = $this->db->resultSet();
+        // Find the user by email
+        public function findUserByEmail($email){
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->bind(':email',$email);
+            $row = $this->db->singleRow();
 
-            return $result;
+            if($this->db->rowCount()>0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 ?>
