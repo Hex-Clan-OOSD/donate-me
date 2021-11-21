@@ -64,19 +64,17 @@
                 if(empty($data['first_name_err']) && empty($data['last_name_err']) && empty($data['email_err']) && 
                     empty($data['password_err']) && empty($data['confirm_password_err'])){
                         // Validation sucessful
-                        $data = [
-                            'first_name' => '',
-                            'last_name' => '',
-                            'email' => '',
-                            'password' => '',
-                            'confirm_password' => '',
-                            'first_name_err' => '',
-                            'last_name_err' => '',
-                            'email_err' => '',
-                            'password_err' => '',
-                            'confirm_password_err' => '',
-                        ];
-                        die("SUCCESS");
+                        
+                        // Hashed the Password
+                        $hash_password = password_hash($data['password'],PASSWORD_DEFAULT);
+                        $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
+                        $hash_password,'user');
+                        if($result){
+                            die("Successfully added!");
+                        }else{
+                            die("Error in adding the user!");
+                        }
+                        
                 }else{
                     // Load the view with errors
                     
