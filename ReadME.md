@@ -14,4 +14,12 @@
 
 #### DBName - donate_me
 
+#### Table name - login_details
 
+#### id - INT, AI
+
+#### username - VARCHAR(20)
+
+#### password - VARCHAR(255)
+
+#### role - VARCHAR(10)
