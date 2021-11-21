@@ -43,21 +43,23 @@
   </div>
 
   <div style="padding-right: 3%; padding-left: 3%;">
-    <form>
+    <form action="<?php echo URLROOT;?>/users/signin" method="post">
 
       <div class="form-row">
         <div class="col">
-          <label for="inputEmail4" class="formTitle">Email</label>
-          <input type="text" class="form-control" id="inputEmail4" placeholder="xyz@abc.com"
-            <?php echo (!empty($data['email_err']))?'is_invalid':''?> value="<?php echo $data['email']?>">
+          <label for="email" class="formTitle">Email</label>
+          <input type="text" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
+            placeholder="xyz@abc.com" name="email" <?php echo (!empty($data['email_err']))?'is_invalid':''?>
+            value="<?php echo $data['email']?>">
           <span class="invalid-feedback"><?php echo $data['email_err']?></span>
         </div>
       </div>
       <div class="form-row">
         <div class="col">
-          <label for="inputPassword4" class="formTitle">Password </label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="******"
-            <?php echo (!empty($data['password_err']))?'is_invalid':''?> value="<?php echo $data['password']?>">
+          <label for="password" class="formTitle">Password </label>
+          <input type="password" class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
+            placeholder="******" name="password" <?php echo (!empty($data['password_err']))?'is_invalid':''?>
+            value="<?php echo $data['password']?>">
           <span class="invalid-feedback"><?php echo $data['password_err']?></span>
         </div>
 
