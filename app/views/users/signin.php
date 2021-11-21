@@ -14,9 +14,11 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
+     
       <a class="navbar-brand" href="#">
         <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top"> DONATE ME
       </a>
+   
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,6 +41,7 @@
 
   <div style="padding: 25px;">
     <h1 class="text-center main-title">Donate me</h1>
+    <?php flash('register_success')?>
     <h2 class="text-center">Sign in</h2>
   </div>
 

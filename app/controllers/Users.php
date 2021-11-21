@@ -64,13 +64,13 @@
                 if(empty($data['first_name_err']) && empty($data['last_name_err']) && empty($data['email_err']) && 
                     empty($data['password_err']) && empty($data['confirm_password_err'])){
                         // Validation sucessful
-                        
                         // Hashed the Password
                         $hash_password = password_hash($data['password'],PASSWORD_DEFAULT);
                         $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
                         $hash_password,'user');
                         if($result){
-                            die("Successfully added!");
+                            flash('register_success','You are registered sucessfully!');
+                            redirect('users/signin');
                         }else{
                             die("Error in adding the user!");
                         }
@@ -96,7 +96,6 @@
                     'password_err' => '',
                     'confirm_password_err' => '',
                 ];
-
 
                 $this->view('users/register',$data);
                 
@@ -129,15 +128,23 @@
                 }elseif(strlen($data['password'])<8){
                     $data['password_err'] = "Password must be at least 8 characters!";
                 }
+
+               
                 if(empty($data['email_err']) && empty($data['password_err'])){
                         // Validation sucessful
-                        $data = [
-                            
-                            'email' => '',
-                            'password' => '',
-                           
-                        ];
-                        die("SUCCESS");
+                         // Check whether the user is availble
+                        if(!$this->userModel->findUserByEmail($data['email'])){
+                            $data['email_err'] = "No user found!";
+                        }else{
+                            $loggedInUser = $this->userModel->signInTheUser($data['email'],$data['password']);
+                            if($loggedInUser){
+                                $this->createUserSession($loggedInUser);
+                            }else{
+                                $data['password_err'] = 'Password Incorrect';
+                                $this->view('users/signin',$data);
+                            }
+                        }
+                        
                 }else{
                     // Load the view with errors
                     $this->view('users/signin',$data);
@@ -145,19 +152,44 @@
             }else{
                 // Init data
                 $data = [
-                   
                     'email' => '',
                     'password' => '',
                     'email_err' => '',
                     'password_err' => '',
-                    
                 ];
-
                 $this->view('users/signin',$data);
-                
             }
-            
         }
+
+        public function signout(){
+            unset($_SESSION['user_id']);
+            unset($_SESSION['first_name']);
+            unset($_SESSION['last_name']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_role']);
+            session_destroy();
+            redirect('users/signin');
+        }
+        
+        public function isLoggedIn(){
+            if(isset($_SESSION['user_id'])){
+                return true;
+            }
+            return false;
+        }
+
+        private function createUserSession($user){
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['first_name'] = $user->first_name;
+            $_SESSION['last_name'] = $user->last_name;
+            $_SESSION['user_email'] = $user->email;
+            $_SESSION['user_role'] = $user->role;
+            
+            // Redirect to the protected page
+            redirect('pages/index');
+        }
+
+
     }
     
 ?>
