@@ -22,4 +22,12 @@
             unset($_SESSION[$name. '_class']);
         }
     }
+
+    // Helper function to get whether a user is logged in or not
+    function isLoggedIn(){
+        if(isset($_SESSION['user_id'])){
+            return true;
+        }
+        return false;
+    }
 ?>
