@@ -14,5 +14,14 @@
 
 #### DBName - donate_me (Create the database using the phpmyadmin)
 
-#### Table creation query - CREATE TABLE `donate_me`.`users` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(20) NOT NULL , `last_name` VARCHAR(20) NOT NULL , `email` VARCHAR(50) NOT NULL , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(10) NOT NULL , `created_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+#### Users Table Creating query
 
+CREATE TABLE \`donate_me\`.\`users\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \`first_name\` VARCHAR(20) NOT NULL , \`last_name\` VARCHAR(20) NOT NULL , \`email\` VARCHAR(50) NOT NULL , \`password\` VARCHAR(255) NOT NULL , \`role\` VARCHAR(10) NOT NULL , \`created_at\` TIMESTAMP NOT NULL , PRIMARY KEY (\`id\`)) ENGINE = InnoDB;
+
+#### Requests table creation query
+
+CREATE TABLE \`donate_me\`.\`requests\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \`title\` VARCHAR(50) NOT NULL , \`description\` VARCHAR(500) NOT NULL , \`total_amount\` INT NOT NULL , \`collected_amount\` INT NOT NULL , \`user_id\` INT NOT NULL , \`status\` VARCHAR(10) NOT NULL , \`created_at\` TIMESTAMP NOT NULL , PRIMARY KEY (\`id\`)) ENGINE = InnoDB;
+
+#### Donations table creation query
+
+CREATE TABLE \`donate_me\`.\`donations\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \`request_id\` INT NOT NULL , \`user_id\` INT NOT NULL , \`amount\` INT NOT NULL , \`status\` VARCHAR(10) NOT NULL , \`created_at\` TIMESTAMP NOT NULL , PRIMARY KEY (\`id\`)) ENGINE = InnoDB;
