@@ -170,13 +170,6 @@
             session_destroy();
             redirect('users/signin');
         }
-        
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
-            }
-            return false;
-        }
 
         private function createUserSession($user){
             $_SESSION['user_id'] = $user->id;
