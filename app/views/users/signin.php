@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   <title>HexClan</title>
-  <link rel="stylesheet" href="./styles/signup_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/login_styles.css" />
 </head>
 
 <body>
