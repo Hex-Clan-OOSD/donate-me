@@ -12,14 +12,7 @@
 
 ### Database Configurations
 
-#### DBName - donate_me
+#### DBName - donate_me (Create the database using the phpmyadmin)
 
-#### Table name - login_details
+#### Table creation query - CREATE TABLE `donate_me`.`users` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(20) NOT NULL , `last_name` VARCHAR(20) NOT NULL , `email` VARCHAR(50) NOT NULL , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(10) NOT NULL , `created_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-#### id - INT, AI
-
-#### username - VARCHAR(20)
-
-#### password - VARCHAR(255)
-
-#### role - VARCHAR(10)
