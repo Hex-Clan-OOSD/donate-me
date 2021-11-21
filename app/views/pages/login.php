@@ -10,26 +10,9 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="./styles/login_styles.css"/>
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/login_styles.css"/>
   </head>
   <body >
-    <?php
-    require_once ('./Database/db.php');
-
-
-    if(isset($_GET['email']) and isset($_GET['password'])){
-      $db = Database::getDbObject();
-      if($db->loginUser($_GET['email'],$_GET['password'])){
-          session_start();
-          $_SESSION['username'] = $_GET['email'];
-          header("Location: dashboard.php");
-          die();
-      }else{
-          echo "Wrone password";
-      }
-    }
-    ?>
-    
     
 <form class="form-signin signin-form" method="GET" action="login.php">
   <h1 class="main-title">Donate me</h1>
