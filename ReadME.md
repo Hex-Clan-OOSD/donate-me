@@ -9,3 +9,9 @@
 ### Do not change app/config/config.php and app/lib/Core.php files
 
 ### Add the php view in the app/views according to the Enddpoints
+
+### Database Configurations
+
+#### DBName - donate_me
+
+
