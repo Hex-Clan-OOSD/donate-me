@@ -33,5 +33,17 @@
             }
             return false;
         }
+
+        //Sign in the user
+        public function signInTheUser($email,$password){
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->bind(':email',$email);
+            $row = $this->db->singleRow();
+            if(password_verify($password,$row->password)){
+                return $row;
+            }else{
+                return false;
+            }
+        }
     }
 ?>
