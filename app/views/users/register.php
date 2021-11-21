@@ -44,42 +44,48 @@
     </div>
 
     <div style="padding-right: 3%; padding-left: 3%;">
-        <form>
+        <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
-                    <label for="inputFirstName4" class="formTitle">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name"
-                        <?php echo (!empty($data['first_name_err']))?'is_invalid':''?>
-                        value="<?php echo $data['first_name']?>">
+                    <label for="first_name" class="formTitle">First Name</label>
+                    <input type="text"
+                        class="form-control <?php echo (!empty($data['first_name_err'])) ? 'is-invalid' : ''; ?>"
+                        placeholder="First Name" name="first_name" value="<?php echo $data['first_name']?>">
                     <span class="invalid-feedback"><?php echo $data['first_name_err']?></span>
                 </div>
                 <div class="col">
-                    <label for="inputLastName4" class="formTitle">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName4" placeholder="Last Name"
-                        <?php echo (!empty($data['last_name_err']))?'is_invalid':''?>
-                        value="<?php echo $data['last_name']?>">
+                    <label for="last_name" class="formTitle">Last Name</label>
+                    <input type="text"
+                        class="form-control <?php echo (!empty($data['last_name_err'])) ? 'is-invalid' : ''; ?>"
+                        placeholder="Last Name" name="last_name" value="<?php echo $data['last_name']?>">
                     <span class="invalid-feedback"><?php echo $data['last_name_err']?></span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
-                    <label for="inputEmail4" class="formTitle">Email</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="xyz@abc.com"
-                        <?php echo (!empty($data['email_err']))?'is_invalid':''?> value="<?php echo $data['email']?>">
+                    <label for="email" class="formTitle">Email</label>
+                    <input type="text"
+                        class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
+                        placeholder="xyz@abc.com" name="email" <?php echo (!empty($data['email_err']))?'is_invalid':''?>
+                        value="<?php echo $data['email']?>">
                     <span class="invalid-feedback"><?php echo $data['email_err']?></span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
-                    <label for="inputPassword4" class="formTitle">Password </label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="******"
+                    <label for="password" class="formTitle">Password </label>
+                    <input type="password"
+                        class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
+                        placeholder="******" name="password"
                         <?php echo (!empty($data['password_err']))?'is_invalid':''?>
                         value="<?php echo $data['password']?>">
                     <span class="invalid-feedback"><?php echo $data['password_err']?></span>
                 </div>
                 <div class="col">
-                    <label for="reinputPassword4" class="formTitle">Repeat Password </label>
-                    <input type="password" class="form-control" id="reinputPassword4" placeholder="******"
+                    <label for="confirm_password" class="formTitle">Confirm Password </label>
+                    <input type="password"
+                        class="form-control <?php echo (!empty($data['confirm_password_err'])) ? 'is-invalid' : ''; ?>"
+                        placeholder="******" name="confirm_password"
                         <?php echo (!empty($data['confirm_password_err']))?'is_invalid':''?>
                         value="<?php echo $data['confirm_password']?>">
                     <span class="invalid-feedback"><?php echo $data['confirm_password_err']?></span>
