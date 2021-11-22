@@ -1,10 +1,10 @@
 <?php
- class Home extends Controller{
+ class Request extends Controller{
      public function __construct(){
         
      }
      public function index(){
-         $this->view('home/index');
+         $this->view('request/index');
          
      }
      
