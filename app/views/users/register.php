@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>HexClan</title>
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
 <body class="hero-image">
-<?php require APPROOT . '/views/inc/land_navbar.php';?>
-
-    <div style="padding-left: 15%; padding-top:15px; width:40%;">
-        <h1 class="text-center main-title">Donate me</h1>
-        <h2 class="text-center">Register</h2>
+    <?php require APPROOT . '/views/inc/land_navbar.php';?>
+    <div style="padding-left: 15%; padding-top:50px; width:40%;margin-bottom:20px;">
+        <h2 class="text-left">Register</h2>
     </div>
-
-    <div style="margin-right: 3%; padding-left: 15%; width: 40%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 35%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">

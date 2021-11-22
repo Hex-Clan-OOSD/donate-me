@@ -1,0 +1,39 @@
+body{
+    
+    font-size: 20px;
+    font-style: Verdana, Tahoma, sans-serif;
+    background-color: #f1f2f4;
+}
+
+h2{
+    margin-bottom: 20px;
+    color: #474E69;
+    padding-left: 5%;
+}
+
+
+.button-submit{
+    margin-top: 20px;
+
+}
+
+.form-row{
+    padding-top: 10px;
+}
+
+.form-group{
+    padding-top: 10px;
+}
+
+.card{
+    padding-bottom: 50px;
+    margin: 1%;
+	margin-right: auto; margin-left: auto; width: 40%; 
+	padding-top: 11px;
+}
+
+#title{
+    padding-bottom: 0px;
+}
+
+
