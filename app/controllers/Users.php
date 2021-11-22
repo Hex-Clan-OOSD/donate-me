@@ -190,6 +190,28 @@
             }
         }
 
+        // Get the other details of the user
+        public function moredetails(){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+            }else{
+                $data = [
+                    'phone_number' => '',
+                    'address_line_1' => '',
+                    'address_line_2' => '',
+                    'city_town' => '',
+                    'postal_code' => '',
+                    'state' => '',
+                    'phone_number_err' => '',
+                    'address_line_1_err' => '',
+                    'address_line_2_err' => '',
+                    'city_town_err' => '',
+                    'postal_code_err' => '',
+                    'state_err' => '',
+                ];
+                $this->view('users/moredetails',$data);
+            }
+        }
+
         public function signout(){
             unset($_SESSION['user_id']);
             unset($_SESSION['first_name']);
