@@ -41,7 +41,7 @@
     <div class="card-header">
       <h5 class="card-title"><h3>Requests</h3></h5>
       <p class="card-text">Lorem ipsum dolor sit amet,incididunt ut labore et dolore magna aliqua. </p>
-      <a href="<?php echo URLROOT ?>/request/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New</a>
+      <a href="<?php echo URLROOT ?>/requests/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New</a>
     </div>
   </div>
 

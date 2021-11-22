@@ -19,8 +19,8 @@
     <div class="card" id="title">
         <h2>Details</h2>
     </div>
-    
 
+    
     <div class="card">
 
 
@@ -28,30 +28,40 @@
 
 
             <div style="padding-right: 5%; padding-left: 5%;">
-                <form action="<?php echo URLROOT;?>/users/register" method="post">
+                <form action="<?php echo URLROOT;?>/requests/add" method="post">
+                <?php flash('request_added')?>
+                <?php flash('request_add_err')?>
                     <div class="form-row">
                         <div class="col">
-                            <label for="Title" class="formTitle">Title</label>
-                            <input type="text" class="form-control" placeholder="Title" name="Title">
+                            <label for="title" class="formTitle">Title</label>
+                            <input type="text"
+                                class="form-control <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>"
+                                placeholder="Title" name="title" value="<?php echo $data['title']?>">
+                            <span class="invalid-feedback"><?php echo $data['title_err']?></span>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col">
-                            <label for="Amount" class="formTitle">Amount</label>
-                            <input type="text" class="form-control" placeholder="Amount or Estimated Amount"
-                                name="Amount">
+                            <label for="amount" class="formTitle">Amount</label>
+                            <input type="text"
+                                class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
+                                placeholder="Amount or Estimated Amount" name="amount"
+                                value="<?php echo $data['amount']?>">
+                            <span class="invalid-feedback"><?php echo $data['amount_err']?></span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="discription">Discription</label>
-                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"
-                            placeholder="Discription"></textarea>
+                        <label for="description">Description</label>
+                        <textarea
+                            class="form-control rounded-0 <?php echo (!empty($data['description_err'])) ? 'is-invalid' : ''; ?>"
+                            rows="10" name="description" placeholder="Description"></textarea>
+                        <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
 
-                    <button type="button" class="btn btn-primary button-submit">Submit</button>
 
+                    <button class="btn btn-primary button-submit" type="submit">Submit</button>
             </div>
         </div>
 
