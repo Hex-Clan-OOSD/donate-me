@@ -42,6 +42,7 @@
   <div style="padding: 25px;">
     <h1 class="text-center main-title">Donate me</h1>
     <?php flash('register_success')?>
+    <?php flash('not_sign_in')?>
     <h2 class="text-center">Sign in</h2>
   </div>
 
