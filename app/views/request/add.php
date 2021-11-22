@@ -15,7 +15,11 @@
 
 <body>
     <?php require APPROOT . '/views/inc/request_navbar.php';?>
-    <h2>Details</h2>
+
+    <div class="card" id="title">
+        <h2>Details</h2>
+    </div>
+    
 
     <div class="card">
 
