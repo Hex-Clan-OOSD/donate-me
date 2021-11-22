@@ -82,8 +82,18 @@
                         $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
                         $hash_password,'user');
                         if($result){
-                            flash('register_success','You are registered sucessfully!');
-                            redirect('users/signin');
+                            $user = $this->userModel->signInTheUser($data['email'],$data['password']);
+                            if($user){
+                                $this->createUserSession($user);
+                                if(empty($user->phone_number)){
+                                    redirect('users/moredetails');
+                                }else{
+                                    // Redirect to the protected page
+                                    redirect('requests/index');
+                                }
+                                
+                            }
+                            
                         }else{
                             die("Error in adding the user!");
                         }
@@ -167,6 +177,12 @@
                             $loggedInUser = $this->userModel->signInTheUser($data['email'],$data['password']);
                             if($loggedInUser){
                                 $this->createUserSession($loggedInUser);
+                                if(empty($loggedInUser->phone_number)){
+                                    redirect('users/moredetails'); 
+                                }else{
+                                    // Redirect to the protected page
+                                    redirect('requests/index');
+                                }  
                             }else{
                                 $data['password_err'] = 'Password Incorrect';
                                 // Load the view with errors
@@ -192,6 +208,9 @@
 
         // Get the other details of the user
         public function moredetails(){
+            if(!isset($_SESSION['user_id'])){
+                redirect('/');
+            }
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 // Process the form
                
@@ -247,7 +266,15 @@
                         empty($data['postal_code_err']) && empty($data['state_err'])){
                     
                     // Validation sucessfull
+
                     // Add to the database
+                    $result = $this->userModel->addOtherDetails($data['phone_number'],$data['address_line_1'],
+                        $data['address_line_2'],$data['city_town'],$data['postal_code'],$data['state'],$_SESSION['user_id']);
+                    
+                    if($result){
+                        // Redirect to the protected page
+                        redirect('requests/index');
+                    }
 
                 }else{
                     $this->view('users/moredetails',$data);
@@ -289,8 +316,7 @@
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
             
-            // Redirect to the protected page
-            redirect('requests/index');
+            
         }
 
 
