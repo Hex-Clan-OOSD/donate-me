@@ -14,7 +14,7 @@
         $message = "Have a good night!";
         $time = date('H');
         if($time < 20){
-            $message = "Have a good day!";
+            $message = "Have a Good Day!";
         }
          $data = [
              'name'=>$_SESSION['first_name']." ".$_SESSION['last_name'],
