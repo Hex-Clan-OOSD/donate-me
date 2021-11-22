@@ -41,14 +41,14 @@
   <div class="card2 card text-center">
     <div class="card-header">
       <h5 class="card-title"><h3>Need Help!</h3></h5>
-      <p class="card-text">Lorem ipsum dolor sit amet,incididunt ut labore et dolore magna aliqua. </p>
-      <a href="<?php echo URLROOT ?>/requests/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New</a>
+      <p class="card-text">Do you need something to do and you don't have money? Don't worry! There are so many people to help. </p>
+      <a href="<?php echo URLROOT ?>/requests/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New Request</a>
     </div>
   </div>
 
   <div class="card3 card">
     <div class="card-header">
-      <h3>Requests</h3>
+      <h3>Recent Requests</h3>
     </div>
     <?php foreach($data['requests'] as $request) : ?>
     <div class="card-body">
@@ -68,7 +68,7 @@
         <?php echo $request->description?>
         </h6>
         <br>
-        <h6 class="text-muted">Request by <?php echo $request->first_name;?></h6>
+        <h6 class="text-muted">Request by <?php echo $request->first_name." ".$request->last_name;?></h6>
         <a href="" class="btn btn-outline-secondary btn-sm">See more...</a>
         <hr>
         
