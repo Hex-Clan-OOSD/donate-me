@@ -92,9 +92,12 @@
                                     redirect('requests/index');
                                 }
                                 
+                            }else{
+                                // Show a flash message that the database is not connected
                             }
                             
                         }else{
+                            // Todo : Show a flash message
                             die("Error in adding the user!");
                         }
                         
