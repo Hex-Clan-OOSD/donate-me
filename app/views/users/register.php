@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
-<body style="background-image:url(<?php echo URLROOT?>/images/signup_page_image.jpg)">
+<body class="register-body hero-image">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -38,7 +38,7 @@
         </div>
     </nav>
 
-    <div style="padding: 25px;">
+    <div style="padding: 25px; width:50%;">
         <h1 class="text-center main-title">Donate me</h1>
         <h2 class="text-center">Sign Up</h2>
     </div>
