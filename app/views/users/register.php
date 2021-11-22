@@ -38,12 +38,12 @@
         </div>
     </nav>
 
-    <div style="padding: 25px; width:50%;">
+    <div style="padding: 25px; width:20%;">
         <h1 class="text-center main-title">Donate me</h1>
-        <h2 class="text-center">Sign Up</h2>
+        <h2 class="text-center">Register</h2>
     </div>
 
-    <div style="margin-right: 3%; padding-left: 3%; width: 50%;">
+    <div style="margin-right: 3%; padding-left: 60px; width: 20%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
@@ -84,6 +84,8 @@
                         value="<?php echo $data['password']?>">
                     <span class="invalid-feedback"><?php echo $data['password_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="confirm_password" class="formTitle">Confirm Password </label>
                     <input type="password"
