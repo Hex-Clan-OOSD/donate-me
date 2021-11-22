@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <title>HexClan</title>
-    <link rel="stylesheet" href="./styles/signup_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/more_details_styles.css"/>
 </head>
 
-<body>
-<?php require APPROOT . '/views/inc/land_navbar.php';?>
+<body class="hero-image">
+    <?php require APPROOT . '/views/inc/land_navbar.php';?>
 
-    <div style="padding: 25px;">
-        <h1 class="text-center main-title">Donate me</h1>
-        <h2 class="text-center">Add Other Details</h2>
+    <div style="padding-left: 15%; padding-top:50px; width:40%;margin-bottom:20px;">
+        <h2 class="text-left">Add Other Details</h2>
     </div>
 
-    <div style="padding-right: 3%; padding-left: 3%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 35%;" >
         <form action="<?php echo URLROOT;?>/users/moredetails" method="post">
             <div class="form-row">
                 <div class="col">
@@ -29,6 +28,8 @@
                         placeholder="Phone Number" name="phone_number" value="<?php echo $data['phone_number']?>">
                     <span class="invalid-feedback"><?php echo $data['phone_number_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="address_line_1" class="formTitle">Address Line 1</label>
                     <input type="text"
@@ -48,7 +49,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col">
+                <div class="col-7">
                     <label for="city_town" class="formTitle">City or Town</label>
                     <input type="text"
                         class="form-control <?php echo (!empty($data['city_town_err'])) ? 'is-invalid' : ''; ?>"
@@ -66,6 +67,8 @@
                         value="<?php echo $data['postal_code']?>">
                     <span class="invalid-feedback"><?php echo $data['postal_code_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="state" class="formTitle">State</label>
                     <input type="text"
@@ -76,7 +79,7 @@
                     <span class="invalid-feedback"><?php echo $data['state_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit">Next</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top:10px;">Register</button>
         </form>
     </div>
 
