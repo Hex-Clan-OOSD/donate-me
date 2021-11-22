@@ -1,0 +1,10 @@
+.hero-image {
+    background-image: url(../images/signup_page_image.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.form-row {
+    margin-top: 13px;
+}
