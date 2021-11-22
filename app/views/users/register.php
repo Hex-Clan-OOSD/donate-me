@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
-<body>
+<body class="hero-image">
 <?php require APPROOT . '/views/inc/land_navbar.php';?>
 
     <div style="padding-left: 15%; padding-top:15px; width:40%;">
