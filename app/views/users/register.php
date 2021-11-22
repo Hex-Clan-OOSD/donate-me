@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <title>HexClan</title>
-    <link rel="stylesheet" href="./styles/signup_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
 <body>
 <?php require APPROOT . '/views/inc/land_navbar.php';?>
 
-    <div style="padding: 25px;">
+    <div style="padding-left: 15%; padding-top:15px; width:40%;">
         <h1 class="text-center main-title">Donate me</h1>
-        <h2 class="text-center">Sign Up</h2>
+        <h2 class="text-center">Register</h2>
     </div>
 
-    <div style="padding-right: 3%; padding-left: 3%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 40%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
@@ -29,6 +29,8 @@
                         placeholder="First Name" name="first_name" value="<?php echo $data['first_name']?>">
                     <span class="invalid-feedback"><?php echo $data['first_name_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="last_name" class="formTitle">Last Name</label>
                     <input type="text"
@@ -37,6 +39,7 @@
                     <span class="invalid-feedback"><?php echo $data['last_name_err']?></span>
                 </div>
             </div>
+
             <div class="form-row">
                 <div class="col">
                     <label for="email" class="formTitle">Email</label>
@@ -57,6 +60,8 @@
                         value="<?php echo $data['password']?>">
                     <span class="invalid-feedback"><?php echo $data['password_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="confirm_password" class="formTitle">Confirm Password </label>
                     <input type="password"
@@ -67,7 +72,7 @@
                     <span class="invalid-feedback"><?php echo $data['confirm_password_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px;">Register</button>
         </form>
     </div>
 
