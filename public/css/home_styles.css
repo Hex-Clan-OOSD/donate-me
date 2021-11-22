@@ -12,8 +12,12 @@
 }
 .card1{
     margin-bottom: 2%;
-    padding: 2% 2% 2% 2%;
+    padding: 2%;
 }
+.card3{
+    margin-top: 2%;
+}
+
 .request-pic{
     width: 100px;
     
