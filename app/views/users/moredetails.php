@@ -20,7 +20,7 @@
     </div>
 
     <div style="padding-right: 3%; padding-left: 3%;">
-        <form action="<?php echo URLROOT;?>/users/register" method="post">
+        <form action="<?php echo URLROOT;?>/users/moredetails" method="post">
             <div class="form-row">
                 <div class="col">
                     <label for="phone_number" class="formTitle">Phone number</label>
