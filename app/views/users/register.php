@@ -38,12 +38,12 @@
         </div>
     </nav>
 
-    <div style="padding: 15%; width:30%;">
+    <div style="padding-left: 15%; padding-top:15px; width:40%;">
         <h1 class="text-center main-title">Donate me</h1>
         <h2 class="text-center">Register</h2>
     </div>
 
-    <div style="margin-right: 3%; padding-left: 15%; width: 30%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 40%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
