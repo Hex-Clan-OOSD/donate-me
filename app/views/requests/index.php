@@ -38,13 +38,45 @@
     </div>
   </div>
 
-  <div class="card text-center">
+  <div class="card2 card text-center">
     <div class="card-header">
-      <h5 class="card-title"><h3>Requests</h3></h5>
+      <h5 class="card-title"><h3>Need Help!</h3></h5>
       <p class="card-text">Lorem ipsum dolor sit amet,incididunt ut labore et dolore magna aliqua. </p>
       <a href="<?php echo URLROOT ?>/requests/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New</a>
     </div>
   </div>
+
+  <div class="card3 card">
+    <div class="card-header">
+      <h3>Requests</h3>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <h5>1. Title</h5>
+        <br>
+        <div class="row text-muted">
+          <div class="col-lg-6">
+            <h6>Total Amount: </h6>
+          </div>
+          <div class="col-lg-6">
+            <h6>Amount Collected: </h6>
+          </div>
+        </div>
+        <br>
+        <h6 class="text-muted"> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u
+         t aliquip ex ea commodo consequat.
+        </h6>
+        <br>
+        <h6 class="text-muted">Request by Supun Amarasinghe</h6>
+        <a href="" class="btn btn-outline-secondary btn-sm">See more...</a>
+        
+      </blockquote>
+    </div>
+  </div>
+
 
     
   </section>
