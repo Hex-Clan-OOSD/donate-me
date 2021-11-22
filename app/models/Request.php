@@ -22,5 +22,18 @@
 
         }
 
+        // Get all the requests
+        public function getApprovedRequests(){
+            $this->db->query('SELECT *,
+                              requests.id as requestId,
+                              users.id as userId
+                              FROM requests
+                              INNER JOIN users
+                              ON requests.user_id = users.id
+                              ORDER BY requests.created_at DESC');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
     }
 ?>
