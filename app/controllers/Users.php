@@ -193,6 +193,66 @@
         // Get the other details of the user
         public function moredetails(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
+                // Process the form
+               
+                // Sanitize the POST data
+                $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+                $data = [
+                    'phone_number' => trim($_POST['phone_number']),
+                    'address_line_1' => trim($_POST['address_line_1']),
+                    'address_line_2' => trim($_POST['address_line_2']),
+                    'city_town' => trim($_POST['city_town']),
+                    'postal_code' => trim($_POST['postal_code']),
+                    'state' => trim($_POST['state']),
+                    'phone_number_err' => '',
+                    'address_line_1_err' => '',
+                    'address_line_2_err' => '',
+                    'city_town_err' => '',
+                    'postal_code_err' => '',
+                    'state_err' => '',
+                ];
+
+                // Phone number validation
+                if(empty($data['phone_number'])){
+                    $data['phone_number_err'] = "Phone number is required!";
+                }elseif(strlen($data['phone_number'])!=10){
+                    $data['phone_number_err'] = "Invalid phone number!";
+                }
+
+                // Address line validation
+                if(empty($data['address_line_1'])){
+                    $data['address_line_1_err'] = "Address line 1 is required!";
+                }
+                if(empty($data['address_line_2'])){
+                    $data['address_line_2_err'] = "Address line 2 is required!";
+                }
+
+                // City town validation
+                if(empty($data['city_town'])){
+                    $data['city_town_err'] = "City/Town is required!";
+                }
+
+                // Postal code validation
+                if(empty($data['postal_code'])){
+                    $data['postal_code_err'] = "Postal Code is required!";
+                }
+
+                // State validation
+                if(empty($data['state'])){
+                    $data['state_err'] = "State is required!";
+                }
+
+                if(empty($data['phone_number_err']) && empty($data['address_line_1_err']) && 
+                    empty($data['address_line_2_err']) && empty($data['city_town_err']) &&
+                        empty($data['postal_code_err']) && empty($data['state_err'])){
+                    
+                    // Validation sucessfull
+                    // Add to the database
+
+                }else{
+                    $this->view('users/moredetails',$data);
+                }
+
             }else{
                 $data = [
                     'phone_number' => '',
