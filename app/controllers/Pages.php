@@ -7,8 +7,6 @@
          $this->view('pages/index' );
          
      }
-     public function login(){
-         $this->view('pages/login');
-     }
+    
 
  }
