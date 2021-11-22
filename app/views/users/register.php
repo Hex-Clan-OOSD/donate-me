@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
-<body background="">
+<body style="background-image:url(<?php echo URLROOT?>/images/signup_page_image.jpg)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -43,7 +43,7 @@
         <h2 class="text-center">Sign Up</h2>
     </div>
 
-    <div style="padding-right: 3%; padding-left: 3%;">
+    <div style="margin-right: 3%; padding-left: 3%; width: 50%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
@@ -53,6 +53,8 @@
                         placeholder="First Name" name="first_name" value="<?php echo $data['first_name']?>">
                     <span class="invalid-feedback"><?php echo $data['first_name_err']?></span>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col">
                     <label for="last_name" class="formTitle">Last Name</label>
                     <input type="text"
@@ -61,6 +63,7 @@
                     <span class="invalid-feedback"><?php echo $data['last_name_err']?></span>
                 </div>
             </div>
+
             <div class="form-row">
                 <div class="col">
                     <label for="email" class="formTitle">Email</label>
@@ -91,7 +94,7 @@
                     <span class="invalid-feedback"><?php echo $data['confirm_password_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit"l>Register</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px;">Register</button>
         </form>
     </div>
 
