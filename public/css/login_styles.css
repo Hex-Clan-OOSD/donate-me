@@ -1,0 +1,33 @@
+.hero-image {
+    background-image: url(../images/signin-image.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.card {
+    width: 30%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 80%);
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-radius: 8px;
+}
+
+.form {
+    opacity: 100%;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+.h2 {
+    opacity: 100%;
+}
+
+.title {
+    padding-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    border-radius: 2px;
+}
