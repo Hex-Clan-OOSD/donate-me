@@ -26,9 +26,9 @@
     <div class="card-bod">
       <div class="row">
       <div class= "col-lg-6">
-      <h3><?php echo $data['date'] ?>, 22nd November 2021,</h3>
-      <h2>Good Morning!</h2>
-      <h2><?php echo $data['name'] ?></h2>
+      <h4><?php echo $data['date'] ?></h4>
+      <h2><?php echo $data['message']?></h2>
+      <h3><?php echo $data['name'] ?></h3>
       </div>
       <div class= "pic col-lg-6">
         <img class="request-pic" src="<?php echo URLROOT;?>./images/homepic.png" alt="donate">
