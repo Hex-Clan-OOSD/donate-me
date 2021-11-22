@@ -4,7 +4,7 @@
         $this->loginModel = $this->model('User');
      }
      public function index(){
-         if(isset($_SESSION['user_id'])){
+         if(isLoggedIn()){
             redirect('requests');
          }
          $this->view('pages/index' );
