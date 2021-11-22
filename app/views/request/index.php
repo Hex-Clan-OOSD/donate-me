@@ -41,7 +41,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-user"><?php echo $_SESSION['first_name']?></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">Recent Donates</a>
