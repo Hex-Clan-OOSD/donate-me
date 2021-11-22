@@ -1,4 +1,4 @@
-<nav class="nav navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%;padding-right:15%">
+<nav class="nav navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%;padding-right:15%;font-size:1rem;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="<?php echo URLROOT;?>./images/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
