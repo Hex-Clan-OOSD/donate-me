@@ -29,7 +29,7 @@
         <div class="col">
           <label for="email" class="formTitle">Email</label>
           <input type="text" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
-            placeholder="xyz@abc.com" name="email" <?php echo (!empty($data['email_err']))?'is_invalid':''?>
+            placeholder="xyz@abc.com" name="email"
             value="<?php echo $data['email']?>">
           <span class="invalid-feedback"><?php echo $data['email_err']?></span>
         </div>
@@ -38,7 +38,7 @@
         <div class="col">
           <label for="password" class="formTitle">Password </label>
           <input type="password" class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
-            placeholder="******" name="password" <?php echo (!empty($data['password_err']))?'is_invalid':''?>
+            placeholder="******" name="password" 
             value="<?php echo $data['password']?>">
           <span class="invalid-feedback"><?php echo $data['password_err']?></span>
         </div>
