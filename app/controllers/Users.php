@@ -208,7 +208,7 @@
             $_SESSION['user_role'] = $user->role;
             
             // Redirect to the protected page
-            redirect('pages/index');
+            redirect('request/index');
         }
 
 
