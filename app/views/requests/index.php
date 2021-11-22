@@ -50,32 +50,32 @@
     <div class="card-header">
       <h3>Requests</h3>
     </div>
+    <?php foreach($data['requests'] as $request) : ?>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <h5>1. Title</h5>
+        <h5><?php echo $request->title;?></h5>
         <br>
         <div class="row text-muted">
           <div class="col-lg-6">
-            <h6>Total Amount: </h6>
+            <h6>Total Amount: <?php echo $request->total_amount;?></h6>
           </div>
           <div class="col-lg-6">
-            <h6>Amount Collected: </h6>
+            <h6>Amount Collected: <?php echo $request->collected_amount;?></h6>
           </div>
         </div>
         <br>
         <h6 class="text-muted"> 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u
-         t aliquip ex ea commodo consequat.
+        <?php echo $request->description?>
         </h6>
         <br>
-        <h6 class="text-muted">Request by Supun Amarasinghe</h6>
+        <h6 class="text-muted">Request by <?php echo $request->first_name;?></h6>
         <a href="" class="btn btn-outline-secondary btn-sm">See more...</a>
         
       </blockquote>
     </div>
+    <?php endforeach; ?>
   </div>
+ 
 
 
     
