@@ -211,7 +211,7 @@
 
         // Get the other details of the user
         public function moredetails(){
-            if(!isset($_SESSION['user_id'])){
+            if(!isLoggedIn()){
                 redirect('');
             }
             if($_SERVER['REQUEST_METHOD']=='POST'){
