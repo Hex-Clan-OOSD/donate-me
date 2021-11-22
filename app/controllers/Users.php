@@ -209,7 +209,7 @@
         // Get the other details of the user
         public function moredetails(){
             if(!isset($_SESSION['user_id'])){
-                redirect('/');
+                redirect('');
             }
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 // Process the form
