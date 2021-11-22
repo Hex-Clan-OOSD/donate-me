@@ -8,9 +8,9 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
-
+  
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
 
   <title>HexClan</title>
 </head>
@@ -41,7 +41,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-user"><?php echo $_SESSION['first_name']?></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">Recent Donates</a>
@@ -58,21 +58,37 @@
     </div>
   </nav>
 
-  <section class="colored-section bg-light text-white" id="Home">
+  <!-- Home Section -->
+  <section class="colored-section bg-light text-dark" id="Home">
 
-    <div class="row text-dark text-center">
-      <div class="col-lg-6 ">
-        <h2>Requests</h2>
-
+  <div class="card1 card">
+    <div class="card-bod">
+      <div class="row">
+      <div class= "col-lg-6">
+      <h3>Monday, 22nd November 2021,</h3>
+      <h2>Good Morning!</h2>
+      <h2>Chamod</h2>
       </div>
-      <div class="col-lg-6">
-        <form class="d-flex">
-
-          <button class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i> Create New</button>
-        </form>
+      <div class= "pic col-lg-6">
+        <img class="request-pic" src="<?php echo URLROOT;?>./images/homepic.png" alt="donate">
+      </div>
       </div>
     </div>
+  </div>
+
+  <div class="card text-center">
+    <div class="card-header">
+      <h5 class="card-title"><h3>Requests</h3></h5>
+      <p class="card-text">Lorem ipsum dolor sit amet,incididunt ut labore et dolore magna aliqua. </p>
+      <a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New</a>
+    </div>
+  </div>
+
+    
   </section>
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
