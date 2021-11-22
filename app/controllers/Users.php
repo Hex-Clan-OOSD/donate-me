@@ -82,8 +82,18 @@
                         $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
                         $hash_password,'user');
                         if($result){
-                            flash('register_success','You are registered sucessfully!');
-                            redirect('users/signin');
+                            $user = $this->userModel->signInTheUser($data['email'],$data['password']);
+                            if($user){
+                                $this->createUserSession($user);
+                                if(!isset($user->phone_number)){
+                                    redirect('users/moredetails');
+                                }else{
+                                    // Redirect to the protected page
+                                    redirect('requests/index');
+                                }
+                                
+                            }
+                            
                         }else{
                             die("Error in adding the user!");
                         }
@@ -167,6 +177,9 @@
                             $loggedInUser = $this->userModel->signInTheUser($data['email'],$data['password']);
                             if($loggedInUser){
                                 $this->createUserSession($loggedInUser);
+
+                                // Redirect to the protected page
+                                redirect('requests/index');
                             }else{
                                 $data['password_err'] = 'Password Incorrect';
                                 // Load the view with errors
@@ -289,8 +302,7 @@
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
             
-            // Redirect to the protected page
-            redirect('requests/index');
+            
         }
 
 
