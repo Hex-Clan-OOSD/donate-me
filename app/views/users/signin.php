@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>HexClan</title>
   <link rel="stylesheet" href="<?php echo URLROOT;?>./css/login_styles.css" />
 </head>
 
 <body>
-<?php require APPROOT . '/views/inc/land_navbar.php';?>
+  <?php require APPROOT . '/views/inc/land_navbar.php';?>
 
   <div style="padding: 25px;">
     <h1 class="text-center main-title">Donate me</h1>
