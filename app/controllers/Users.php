@@ -39,6 +39,8 @@
                 // Validate the email
                 if(empty($data['email'])){
                     $data['email_err'] = "Email is Required!";
+                }elseif(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+                    $data['email_err'] = "Invalid Email!";
                 }else{
                     // Check whether the email is already in the database
                     if($this->userModel->findUserByEmail($data['email'])){
@@ -48,9 +50,20 @@
                 // Validate the Password
                 if(empty($data['password'])){
                     $data['password_err'] = "Password is Required!";
-                }elseif(strlen($data['password'])<8){
+                }elseif(strlen($data['password'])<=8){
                     $data['password_err'] = "Password must be at least 8 characters!";
+                }elseif(strlen($data['password'])>15){
+                    $data['password_err'] = "Password cannot be more than 15 characters!";
+                }elseif(!preg_match("#[0-9]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 number!";
+                }else if(!preg_match("#[A-Z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Capital character!";
+                }else if(!preg_match("#[a-z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Lowercase character!";
+                }else if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/',$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 special character!";
                 }
+
                 // Validate the Confirm Password
                 if(empty($data['confirm_password'])){
                     $data['confirm_password_err'] = "Confirm Password is Required!";
@@ -121,12 +134,25 @@
                 // Validate the email
                 if(empty($data['email'])){
                     $data['email_err'] = "Email is Required!";
+                }elseif(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+                    $data['email_err'] = "Invalid Email!";
                 }
+               
                 // Validate the Password
                 if(empty($data['password'])){
                     $data['password_err'] = "Password is Required!";
-                }elseif(strlen($data['password'])<8){
+                }elseif(strlen($data['password'])<=8){
                     $data['password_err'] = "Password must be at least 8 characters!";
+                }elseif(strlen($data['password'])>15){
+                    $data['password_err'] = "Password cannot be more than 15 characters!";
+                }elseif(!preg_match("#[0-9]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 number!";
+                }else if(!preg_match("#[A-Z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Capital character!";
+                }else if(!preg_match("#[a-z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Lowercase character!";
+                }else if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/',$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 special character!";
                 }
 
                
@@ -135,12 +161,15 @@
                          // Check whether the user is availble
                         if(!$this->userModel->findUserByEmail($data['email'])){
                             $data['email_err'] = "No user found!";
+                            // Load the view with errors
+                            $this->view('users/signin',$data);
                         }else{
                             $loggedInUser = $this->userModel->signInTheUser($data['email'],$data['password']);
                             if($loggedInUser){
                                 $this->createUserSession($loggedInUser);
                             }else{
                                 $data['password_err'] = 'Password Incorrect';
+                                // Load the view with errors
                                 $this->view('users/signin',$data);
                             }
                         }
