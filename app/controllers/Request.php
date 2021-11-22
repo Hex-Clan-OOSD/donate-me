@@ -7,7 +7,11 @@
         }
      }
      public function index(){
-         $this->view('request/index');   
+         $data = [
+             'name'=>$_SESSION['first_name']." ".$_SESSION['last_name'],
+             'date'=>date("l"),
+         ];
+         $this->view('request/index',$data);   
      }
      public function add(){
          $this->view('request/add');
