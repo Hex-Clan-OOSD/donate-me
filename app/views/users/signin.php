@@ -12,17 +12,19 @@
   <link rel="stylesheet" href="<?php echo URLROOT;?>./css/login_styles.css" />
 </head>
 
-<body>
-  <?php require APPROOT . '/views/inc/land_navbar.php';?>
+<body class="hero-image">
+<?php require APPROOT . '/views/inc/land_navbar.php';?>
 
-  <div style="padding: 25px;">
-    <h1 class="text-center main-title">Donate me</h1>
+<div class="card title">
+  <div>
     <?php flash('register_success')?>
     <?php flash('not_sign_in')?>
     <h2 class="text-center">Sign in</h2>
   </div>
+</div>
 
-  <div style="padding-right: 3%; padding-left: 3%;">
+<div class="card">
+  <div class="form">
     <form action="<?php echo URLROOT;?>/users/signin" method="post">
 
       <div class="form-row">
@@ -34,7 +36,7 @@
           <span class="invalid-feedback"><?php echo $data['email_err']?></span>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row" style="padding-top: 10px;">
         <div class="col">
           <label for="password" class="formTitle">Password </label>
           <input type="password" class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
@@ -44,9 +46,10 @@
         </div>
 
       </div>
-      <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+      <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 20px;">Register</button>
     </form>
   </div>
+</div>
 
 
 
