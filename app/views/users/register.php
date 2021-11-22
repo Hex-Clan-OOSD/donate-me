@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <title>HexClan</title>
-    <link rel="stylesheet" href="./styles/signup_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
 </head>
 
-<body>
+<body background="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -91,7 +91,7 @@
                     <span class="invalid-feedback"><?php echo $data['confirm_password_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit"l>Register</button>
         </form>
     </div>
 
