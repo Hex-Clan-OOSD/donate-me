@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
     <link rel="stylesheet" href="<?php echo URLROOT;?>./css/request_add_form_styles.css" />
     <title>Details</title>
+    <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 
 <body>

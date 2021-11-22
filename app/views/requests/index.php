@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
 
   <title>HexClan</title>
+  <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 
 <body>
