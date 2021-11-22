@@ -9,6 +9,8 @@
      public function index(){
          $this->view('request/index');   
      }
-     
+     public function add(){
+         $this->view('request/add');
+     }
 
  }
