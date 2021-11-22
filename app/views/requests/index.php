@@ -70,10 +70,14 @@
         <br>
         <h6 class="text-muted">Request by <?php echo $request->first_name;?></h6>
         <a href="" class="btn btn-outline-secondary btn-sm">See more...</a>
+        <hr>
         
       </blockquote>
     </div>
     <?php endforeach; ?>
+    <div class="card-body text-muted text-right">
+      <a href="" class="btn btn-dark">See more Requests</a>
+    </div>
   </div>
  
 
