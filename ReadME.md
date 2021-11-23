@@ -27,3 +27,7 @@ CREATE TABLE \`donate_me\`.\`requests\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \
 #### Donations table creation query
 
 CREATE TABLE \`donate_me\`.\`donations\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \`request_id\` INT NOT NULL , \`user_id\` INT NOT NULL , \`amount\` INT NOT NULL , \`status\` VARCHAR(10) NOT NULL , \`created_at\` TIMESTAMP NOT NULL , PRIMARY KEY (\`id\`)) ENGINE = InnoDB;
+
+#### Notifications table creation query
+
+CREATE TABLE \`donate_me\`.\`notifications\` ( \`id\` INT NOT NULL AUTO_INCREMENT , \`title\` VARCHAR(50) NOT NULL , \`description\` VARCHAR(250) NOT NULL , \`status\` VARCHAR(10) NOT NULL , \`user_id\` INT NOT NULL , \`created_at\` TIMESTAMP NOT NULL , PRIMARY KEY (\`id\`)) ENGINE = InnoDB;

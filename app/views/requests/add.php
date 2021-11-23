@@ -21,7 +21,7 @@
         <h2>Details</h2>
     </div>
 
-    
+
     <div class="card">
 
 
@@ -30,8 +30,8 @@
 
             <div style="padding-right: 5%; padding-left: 5%;">
                 <form action="<?php echo URLROOT;?>/requests/add" method="post">
-                <?php flash('request_added')?>
-                <?php flash('request_add_err')?>
+                    <?php flash('request_added')?>
+                    <?php flash('request_add_err')?>
                     <div class="form-row">
                         <div class="col">
                             <label for="title" class="formTitle">Title</label>
