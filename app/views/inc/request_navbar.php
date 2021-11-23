@@ -15,9 +15,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo URLROOT ?>/requests">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="">Requests</a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link active" href="<?php echo URLROOT ?>/notifications"><i class="fa fa-bell"></i><span
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill  <?php echo $_SESSION['not_unr']=='0'?'bg-success':'bg-danger';?>">
@@ -33,6 +31,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Recent Donates</a>
+            <a class="dropdown-item" href="#">My Requests</a>
             <a class="dropdown-item" href="#">Settings</a>
             <a>
               <hr class="dropdown-divider"></a>
