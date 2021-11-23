@@ -18,7 +18,6 @@
 
 <div class="card title">
   <div>
-    <?php flash('register_success')?>
     <?php flash('not_sign_in')?>
     <h2 class="text-center">Sign in</h2>
   </div>

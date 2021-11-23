@@ -82,6 +82,7 @@
                         $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
                         $hash_password,'user');
                         if($result){
+                            // When sign in user session get created
                             $user = $this->userModel->signInTheUser($data['email'],$data['password']);
                             if($user){
                                 $this->createUserSession($user);
@@ -212,6 +213,7 @@
         // Get the other details of the user
         public function moredetails(){
             if(!isLoggedIn()){
+                // Redirect to the home route
                 redirect('');
             }
             if($_SERVER['REQUEST_METHOD']=='POST'){

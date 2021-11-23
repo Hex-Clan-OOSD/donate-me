@@ -2,8 +2,8 @@
  class Requests extends Controller{
      public function __construct(){
         if(!isLoggedIn()){
-            redirect('users/signin');
             flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
+            redirect('users/signin');
         }else{
             $this->userModel = $this->model('Request');
         }
