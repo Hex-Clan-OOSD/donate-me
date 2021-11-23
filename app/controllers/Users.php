@@ -305,6 +305,7 @@
         }
 
         public function signout(){
+            unset($_SESSION['not_unr']);
             unset($_SESSION['user_id']);
             unset($_SESSION['first_name']);
             unset($_SESSION['last_name']);
@@ -315,6 +316,7 @@
         }
 
         private function createUserSession($user){
+            
             $_SESSION['user_id'] = $user->id;
             $_SESSION['first_name'] = $user->first_name;
             $_SESSION['last_name'] = $user->last_name;
