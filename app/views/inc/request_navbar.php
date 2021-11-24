@@ -1,9 +1,9 @@
 <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark"
   style="padding-left: 15%;padding-right:15%;font-size:1rem;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="<?php echo URLROOT ?>/pages/index">
       <img src="<?php echo URLROOT;?>./images/logo.png" alt="" width="30" height="24"
-        class="d-inline-block align-text-top">
+        class="d-inline-block align-text-top" >
       DONATE ME
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
