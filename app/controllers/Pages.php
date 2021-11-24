@@ -4,9 +4,6 @@
         
      }
      public function index(){
-         if(isLoggedIn()){
-            redirect('requests');
-         }
          $this->view('pages/index' );
          
      }
