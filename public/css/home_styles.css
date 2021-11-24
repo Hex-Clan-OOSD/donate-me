@@ -1,0 +1,26 @@
+.colored-section{
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;   
+}
+.card1{
+    margin-bottom: 2%;
+    padding: 2%;
+}
+.card3{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.request-pic{
+    width: 100px;
+    
+}
+.pic{
+    padding-left: 25% ;
+    padding-top: 2%
+}
+hr{
+    margin-bottom: -1rem;
+
+}
