@@ -2,6 +2,11 @@
 
 # DONATE ME - Online donation Platform
 
+![GitHub language count](https://img.shields.io/github/languages/count/Hex-Clan-OOSD/donate-me)
+![GitHub top language](https://img.shields.io/github/languages/top/Hex-Clan-OOSD/donate-me)
+![Lines of code](https://img.shields.io/tokei/lines/github/Hex-Clan-OOSD/donate-me)
+![GitHub repo size](https://img.shields.io/github/repo-size/Hex-Clan-OOSD/donate-me)
+
 Donate me is an online donation platform that helps people to find foods, Money, tech equipments and so many other things.
 All the information that are displayed by the users are run through a validation process. So the people can ensure that their money is not
 going to wrong hands. This project was done with for the evaluation process in Object Oriented Software Development module. This project
