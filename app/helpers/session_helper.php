@@ -30,4 +30,17 @@
         }
         return false;
     }
+
+    // Helper function to get whether a user is an Admin or a Normal User
+    function isAdmin(){
+        if(isset($_SESSION['user_role'])){
+            if($_SESSION['user_role'] == 'admin'){
+                return true;
+            }
+            return false;
+        }else{
+            return false;
+        }
+    }
+
 ?>
