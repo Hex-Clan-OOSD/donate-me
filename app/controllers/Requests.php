@@ -104,4 +104,16 @@
          
      }
 
+
+     public function pendingrequests(){
+        if(!isLoggedIn()){
+            flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
+            redirect('users/signin');
+        }if(!isAdmin()){
+            redirect('requests');
+        }else{
+            $this->view('requests/pending');
+        }
+     }
+
  }
