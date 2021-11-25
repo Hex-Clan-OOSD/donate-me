@@ -14,6 +14,15 @@
             }
         }
 
+        public function userverifications(){
+            if(!isLoggedIn()){
+                flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
+                redirect('users/signin');
+            }else{
+                $this->view('users/verifications');
+            }
+        }
+
         public function register(){
             // Check for POST
             if($_SERVER['REQUEST_METHOD']=='POST'){

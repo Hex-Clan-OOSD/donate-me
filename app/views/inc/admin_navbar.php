@@ -13,13 +13,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">User verifications</a>
+          <a class="nav-link active" aria-current="page"  href="<?php echo URLROOT ?>/users/userverifications">User verifications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Pending requests</a>
+          <a class="nav-link" aria-current="page"  href="<?php echo URLROOT ?>/requests/pendingrequests">Pending requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Pending donations</a>
+          <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/donations/pendingdonations">Pending donations</a>
         </li>
        
         <!-- <li class="nav-item">
@@ -29,7 +29,7 @@
             </span></a>
         </li> -->
         <li class="nav-item dropdown" style="margin-left: 20px;">
-          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button"
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
             data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user"><?php echo " ".$_SESSION['first_name']?></i>
           </a>
