@@ -104,6 +104,7 @@
          
      }
 
+
      public function pendingrequests(){
         if(!isLoggedIn()){
             flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');

@@ -5,6 +5,7 @@
             $this->userModel = $this->model('User');
         }
 
+
         public function admin(){
             if(!isLoggedIn()){
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
@@ -22,6 +23,7 @@
                 $this->view('users/verifications');
             }
         }
+
 
         public function register(){
             // Check for POST
@@ -108,12 +110,16 @@
                                     redirect('users/moredetails');
                                 }else{
                                     // Redirect to the protected page
+
                                     if(isAdmin()){
                                         redirect('users/admin');
                                     }else{
                                         redirect('requests/index');
                                     }
                                     
+
+                                    redirect('requests/index');
+
                                 }
                                 
                             }else{
@@ -208,6 +214,7 @@
                                     redirect('users/moredetails'); 
                                 }else{
                                     // Redirect to the protected page
+
                                     // If the user is an admin user then the user is navigate to a protected admin page
                                     if(isAdmin()){
                                         redirect('users/admin');
@@ -215,6 +222,9 @@
                                         redirect('requests/index');
                                     }
                                     
+
+                                    redirect('requests/index');
+
                                 }  
                             }else{
                                 $data['password_err'] = 'Password Incorrect';
