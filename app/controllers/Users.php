@@ -11,7 +11,12 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $this->view('users/admin');
+                if(isAdmin()){
+                    $this->view('users/admin');
+                }else{
+                    redirect('');
+                }
+                
             }
         }
 
@@ -216,14 +221,12 @@
                                     // Redirect to the protected page
 
                                     // If the user is an admin user then the user is navigate to a protected admin page
-                                    if(isAdmin()){
+                                    if($loggedInUser->role == 'admin'){
                                         redirect('users/admin');
                                     }else{
                                         redirect('requests/index');
                                     }
                                     
-
-                                    redirect('requests/index');
 
                                 }  
                             }else{
