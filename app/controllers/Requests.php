@@ -1,4 +1,5 @@
 <?php
+require_once (APPROOT . '/views/inc/navbar.php');
  class Requests extends Controller{
      public function __construct(){
         if(!isLoggedIn()){
@@ -26,6 +27,7 @@
          ];
          $unreadNotifications = $this->notificationModel->getNotifications($_SESSION['user_id'],'unread');
          $_SESSION['not_unr'] = sizeof($unreadNotifications);
+         $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
      public function add(){

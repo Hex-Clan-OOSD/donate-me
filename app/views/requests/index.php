@@ -17,9 +17,6 @@
 </head>
 
 <body>
-
-<?php require APPROOT . '/views/inc/request_navbar.php';?>
-
   <!-- Home Section -->
   <section class="colored-section bg-light text-dark" id="Home">
 
