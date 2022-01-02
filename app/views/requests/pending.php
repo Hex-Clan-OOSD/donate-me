@@ -9,14 +9,120 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
 
   <title>HexClan</title>
   <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 <body>
     <?php require APPROOT . '/views/inc/admin_navbar.php';?>
-    <h1>Pending Requests</h1>
+    <section class="colored-section bg-light text-dark" id="Home">
+
+      <div class="card card-image">
+        <img class="verify-img" src="<?php echo URLROOT;?>../images/verification-img.jpg" alt="pic" />
+      </div>
+      <br>
+      <h1>Pending Requests</h1>
+      <div class="card">
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Dimuth Karunarathna</h3>
+                <br>
+                <h5>No.118, Nilawadana Road, Homagama, </h5>
+                <h5>Colombo 08</h5>
+                <h5>071 92 54 679</h5>
+              </div>
+              <div class= "col-lg-6">
+                <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type 
+                specimen book. 
+                </p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class= "col-lg-6">  
+                <button type="button" class="btn btn-danger btn-block">Decline</button>
+              </div>
+              <div class= "col-lg-6">
+                <button type="button" class="btn btn-success btn-block">Verify</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Dimuth Karunarathna</h3>
+                <br>
+                <h5>No.118, Nilawadana Road, Homagama, </h5>
+                <h5>Colombo 08</h5>
+                <h5>071 92 54 679</h5>
+              </div>
+              <div class= "col-lg-6">
+                <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type 
+                specimen book. 
+                </p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class= "col-lg-6">  
+                <button type="button" class="btn btn-danger btn-block">Decline</button>
+              </div>
+              <div class= "col-lg-6">
+                <button type="button" class="btn btn-success btn-block">Verify</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Dimuth Karunarathna</h3>
+                <br>
+                <h5>No.118, Nilawadana Road, Homagama, </h5>
+                <h5>Colombo 08</h5>
+                <h5>071 92 54 679</h5>
+              </div>
+              <div class= "col-lg-6">
+                <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type 
+                specimen book. 
+                </p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class= "col-lg-6">  
+                <button type="button" class="btn btn-danger btn-block">Decline</button>
+              </div>
+              <div class= "col-lg-6">
+                <button type="button" class="btn btn-success btn-block">Verify</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+      
+      </div>
+
+    </section>
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>

@@ -9,14 +9,17 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
 
   <title>HexClan</title>
   <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 <body>
     <?php require APPROOT . '/views/inc/admin_navbar.php';?>
-    <h1>User verifications</h1>
+    <h1>User Verifications</h1>
+
+    
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
