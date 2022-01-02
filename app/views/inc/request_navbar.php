@@ -2,7 +2,7 @@
   style="padding-left: 15%;padding-right:15%;font-size:1rem;">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo URLROOT ?>/pages/index">
-      <img src="<?php echo URLROOT;?>./images/logo.png" alt="" width="30" height="24"
+      <img src="<?php echo URLROOT;?>/images/logo.png" alt="" width="30" height="24"
         class="d-inline-block align-text-top" >
       DONATE ME
     </a>
