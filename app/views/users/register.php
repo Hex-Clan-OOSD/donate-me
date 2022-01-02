@@ -18,7 +18,7 @@
     <div style="padding-left: 15%; padding-top:50px; width:40%;margin-bottom:20px;">
         <h2 class="text-left">Register</h2>
     </div>
-    <div style="margin-right: 3%; padding-left: 15%; width: 35%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 45%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
