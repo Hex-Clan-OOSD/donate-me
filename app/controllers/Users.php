@@ -1,5 +1,5 @@
 <?php
-    
+    require_once (APPROOT . '/views/inc/navbar.php');
     class Users extends Controller{
         public function __construct(){
             $this->userModel = $this->model('User');
@@ -12,6 +12,7 @@
                 redirect('users/signin');
             }else{
                 if(isAdmin()){
+                    $navbar = new AdminUserNavbar();
                     $this->view('users/admin');
                 }else{
                     redirect('');
@@ -130,11 +131,7 @@
 
                                     if(isAdmin()){
                                         redirect('users/admin');
-                                    }else{
-                                        redirect('requests/index');
                                     }
-                                    
-
                                     redirect('requests/index');
 
                                 }
