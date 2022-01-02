@@ -18,7 +18,7 @@
     <div style="padding-left: 15%; padding-top:50px; width:40%;margin-bottom:20px;">
         <h2 class="text-left">Register</h2>
     </div>
-    <div style="margin-right: 3%; padding-left: 15%; width: 35%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 45%;">
         <form action="<?php echo URLROOT;?>/users/register" method="post">
             <div class="form-row">
                 <div class="col">
@@ -131,8 +131,9 @@
                     <span class="invalid-feedback"><?php echo $data['state_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px;">Register</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px; margin-bottom: 10px;">Register</button>
         </form>
+        <br>
     </div>
 
 
