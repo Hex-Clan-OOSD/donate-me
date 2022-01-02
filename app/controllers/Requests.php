@@ -30,6 +30,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
          $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
+
      public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // Process the form
@@ -106,7 +107,6 @@ require_once (APPROOT . '/views/inc/navbar.php');
          
      }
 
-
      public function pendingrequests(){
         if(!isLoggedIn()){
             flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
@@ -114,7 +114,11 @@ require_once (APPROOT . '/views/inc/navbar.php');
         }if(!isAdmin()){
             redirect('requests');
         }else{
-            $this->view('requests/pending');
+            $requests = $this->requestModel->getUnverifiedRequests();
+            $data = [
+                'requests'=>$requests,
+            ];
+            $this->view('requests/pending',$data);
         }
      }
 

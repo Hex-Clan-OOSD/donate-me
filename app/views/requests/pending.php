@@ -23,100 +23,50 @@
       </div>
       <br>
       <h1>Pending Requests</h1>
+      
       <div class="card">
-        <div class="card1">
-          <div>
-            <div class="row">
-              <div class= "col-lg-6">
-                <h3>Dimuth Karunarathna</h3>
-                <br>
-                <h5>No.118, Nilawadana Road, Homagama, </h5>
-                <h5>Colombo 08</h5>
-                <h5>071 92 54 679</h5>
+        <?php foreach($data['requests'] as $request) : ?>
+          <form action="<?php echo URLROOT;?>/requests/confirm/<?php $request->requestId; ?>"method="post">
+            <div class="card1">
+            <div>
+              <div class="row">
+                <div class= "col-lg-6">
+                  <h3><?php echo $request->title?></h3>
+                  <br>
+                  <h5>Rs: <?php echo $request->total_amount?></h5>
+                  <p>Published by,</p>
+                  <h5><? echo $request->first_name.' '.$request->last_name?></h5>
+                  <h5><?php echo $request->phone_number?></h5>
+                  <div>
+                     <h5><?php echo $request->address_line_1?></h5>
+                      <h5><?php echo $request->address_line_2?></h5>
+                      <h5><?php echo $request->city_town?></h5>
+                      <h5><?php echo $request->postal_code?></h5>
+                      <h5><?php echo $request->state?></h5>
+                  </div>
+                </div>
+                <div class= "col-lg-6">
+                  <p>
+                  <?php echo $request->description?>
+                  </p>
+                </div>
               </div>
-              <div class= "col-lg-6">
-                <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type 
-                specimen book. 
-                </p>
+              <br>
+              <div class="row">
+                <div class= "col-lg-6">  
+                  <button type="button" class="btn btn-danger btn-block">Decline</button>
+                </div>
+                <div class= "col-lg-6">
+                  <button type="button" class="btn btn-success btn-block">Verify</button>
+                </div>
               </div>
             </div>
-            <br>
-            <div class="row">
-              <div class= "col-lg-6">  
-                <button type="button" class="btn btn-danger btn-block">Decline</button>
-              </div>
-              <div class= "col-lg-6">
-                <button type="button" class="btn btn-success btn-block">Verify</button>
-              </div>
-            </div>
+            <hr>
           </div>
-          <hr>
-        </div>
-        <div class="card1">
-          <div>
-            <div class="row">
-              <div class= "col-lg-6">
-                <h3>Dimuth Karunarathna</h3>
-                <br>
-                <h5>No.118, Nilawadana Road, Homagama, </h5>
-                <h5>Colombo 08</h5>
-                <h5>071 92 54 679</h5>
-              </div>
-              <div class= "col-lg-6">
-                <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type 
-                specimen book. 
-                </p>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class= "col-lg-6">  
-                <button type="button" class="btn btn-danger btn-block">Decline</button>
-              </div>
-              <div class= "col-lg-6">
-                <button type="button" class="btn btn-success btn-block">Verify</button>
-              </div>
-            </div>
-          </div>
-          <hr>
-        </div>
-        <div class="card1">
-          <div>
-            <div class="row">
-              <div class= "col-lg-6">
-                <h3>Dimuth Karunarathna</h3>
-                <br>
-                <h5>No.118, Nilawadana Road, Homagama, </h5>
-                <h5>Colombo 08</h5>
-                <h5>071 92 54 679</h5>
-              </div>
-              <div class= "col-lg-6">
-                <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type 
-                specimen book. 
-                </p>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class= "col-lg-6">  
-                <button type="button" class="btn btn-danger btn-block">Decline</button>
-              </div>
-              <div class= "col-lg-6">
-                <button type="button" class="btn btn-success btn-block">Verify</button>
-              </div>
-            </div>
-          </div>
-          <hr>
-        </div>
+          </form>
+         <?php endforeach; ?>
+        
+       
       
       </div>
 
