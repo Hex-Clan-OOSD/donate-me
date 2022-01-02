@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>HexClan</title>
     <?php require APPROOT . '/views/inc/favicon.php';?>
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/signup_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/signup_styles.css" />
 </head>
 
 <body class="hero-image">
