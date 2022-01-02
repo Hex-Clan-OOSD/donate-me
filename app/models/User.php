@@ -5,6 +5,15 @@
             $this->dbAdapter = new DatabaseAdapter();
         }
 
+        // Get unverified users
+        public function getUnVerifiedUsers(){
+            $this->dbAdapter->query('SELECT * FROM users WHERE role=:role AND verified=:verified');
+            $this->dbAdapter->bind(':role','user');
+            $this->dbAdapter->bind(':verified',NULL);
+            $results = $this->dbAdapter->resultSet();
+            return $results;
+        }
+
         // Verify the user
         public function verifyUser($user_id){
             $this->dbAdapter->query('UPDATE users SET verfied= :status WHERE id = :userId');

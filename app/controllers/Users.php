@@ -37,7 +37,8 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $this->view('users/verifications');
+                $data = $this->userModel->getUnVerifiedUsers();
+                $this->view('users/verifications',$data);
             }
         }
 
