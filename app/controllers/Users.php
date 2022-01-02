@@ -5,6 +5,17 @@
             $this->userModel = $this->model('User');
         }
 
+        public function verifyUser($user_id){
+            if(!isAdmin()){
+                redirect('/signin');
+            }else{
+                $result = $this->userModel->verifyUser($user_id);
+                if($result){
+                    redirect('users/userverifications');
+                }
+            }
+
+        }
 
         public function admin(){
             if(!isLoggedIn()){
@@ -26,7 +37,8 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $this->view('users/verifications');
+                $data = $this->userModel->getUnVerifiedUsers();
+                $this->view('users/verifications',$data);
             }
         }
 
