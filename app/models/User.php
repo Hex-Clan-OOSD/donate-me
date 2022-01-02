@@ -19,33 +19,24 @@
         }
 
         //Register the user
-        public function registerUser($firstName,$lastName,$email,$password,$role){
-            $this->db->query('INSERT INTO users (first_name,last_name,email,password,role) 
-            VALUES (:first_name,:last_name,:email,:password,:role)');
+        public function registerUser($firstName,$lastName,$email,$password,$role,
+            $phone_number,$address_line_1,$address_line_2, $city_town,$postal_code,$state){
+            $this->db->query('INSERT INTO users (first_name,last_name,email,password,role,phone_number,
+            address_line_1,address_line_2,city_town,postal_code,state) 
+            VALUES (:first_name,:last_name,:email,:password,:role,:phone_number,:address_line_1,
+            :address_line_2,:city_town,:postal_code,:state)');
             $this->db->bind(':first_name',$firstName);
             $this->db->bind(':last_name',$lastName);
             $this->db->bind(':email',$email);
             $this->db->bind(':last_name',$lastName);
             $this->db->bind(':password',$password);
             $this->db->bind(':role',$role);
-            if($this->db->execute()){
-                return true;
-            }
-            return false;
-        }
-
-        //Add the other details of the user
-        public function addOtherDetails($phone_number,$address_line_1,$address_line_2,
-            $city_town,$postal_code,$state,$user_id){
-            $this->db->query('UPDATE users SET phone_number=:phone_number,address_line_1=:address_line_1,
-            address_line_2=:address_line_2,city_town=:city_town,postal_code=:postal_code,state=:state WHERE id=:id;');
             $this->db->bind(':phone_number',$phone_number);
             $this->db->bind(':address_line_1',$address_line_1);
             $this->db->bind(':address_line_2',$address_line_2);
             $this->db->bind(':city_town',$city_town);
             $this->db->bind(':postal_code',$postal_code);
             $this->db->bind(':state',$state);
-            $this->db->bind(':id',$user_id);
             if($this->db->execute()){
                 return true;
             }
