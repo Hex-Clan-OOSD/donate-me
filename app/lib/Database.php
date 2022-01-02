@@ -7,33 +7,11 @@
     * Return rows and results
     */
 
-    class DatabaseAdapter{
-        private $databse;
-
-        public function __construct()
-        {
-            $this->databse = new Database();
-        }
-
-        // Prepare statement with the queryies
-        public function query($sql){
-            $this->databse->query($sql);
-        }
-
-        // Binding the values
-        public function bind($param,$value,$type=null){
-            
-        }
-    
-
-    }
-
     class Database{
         private $host = DB_HOST;
         private $user = DB_USER;
         private $password = DB_PASSWORD;
         private $dbname = DB_NAME;
-
         private $database_handler;
         private $statement;
         private $error;
