@@ -131,8 +131,9 @@
                     <span class="invalid-feedback"><?php echo $data['state_err']?></span>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px;">Register</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px; margin-bottom: 10px;">Register</button>
         </form>
+        <br>
     </div>
 
 
