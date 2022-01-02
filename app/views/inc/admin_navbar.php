@@ -22,7 +22,7 @@
           <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/donations/pendingdonations">Pending donations</a>
         </li>
        
-        <!-- <li class="nav-item">
+        <!-- <li class="nav-item">a
           <a class="nav-link active" href="<?php echo URLROOT ?>/notifications"><i class="fa fa-bell"></i><span
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill  <?php echo $_SESSION['not_unr']=='0'?'bg-success':'bg-danger';?>">
               <?php echo $_SESSION['not_unr'];?>
