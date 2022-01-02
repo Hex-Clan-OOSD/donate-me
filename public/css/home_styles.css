@@ -24,7 +24,6 @@ hr{
     margin-bottom: -1rem;
 
 }
-
 .card-image{
     overflow-y: hidden;
     height: 250px;
@@ -33,4 +32,7 @@ hr{
 }
 .verify-img{
     margin-top: -210px;
+}
+.img-bill {
+    height: 250px;
 }
