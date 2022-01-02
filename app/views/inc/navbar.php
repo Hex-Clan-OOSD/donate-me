@@ -1,4 +1,7 @@
 <?php
+
+// Decorator design pattern is used in here
+
 abstract class Navbar{
     protected $html_component;
 }

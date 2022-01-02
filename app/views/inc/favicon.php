@@ -1,1 +1,1 @@
-<link rel="icon" type="image/x-icon" href="<?php echo URLROOT;?>./images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="<?php echo URLROOT;?>/images/favicon.ico">

@@ -10,7 +10,7 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
 
   <title>HexClan</title>
   <?php require APPROOT . '/views/inc/favicon.php';?>
@@ -29,7 +29,7 @@
       <h3><?php echo $data['name'] ?></h3>
       </div>
       <div class= "pic col-lg-6">
-        <img class="request-pic" src="<?php echo URLROOT;?>./images/homepic.png" alt="donate">
+        <img class="request-pic" src="<?php echo URLROOT;?>/images/homepic.png" alt="donate">
       </div>
       </div>
     </div>
