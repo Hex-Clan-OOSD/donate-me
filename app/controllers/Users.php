@@ -5,6 +5,17 @@
             $this->userModel = $this->model('User');
         }
 
+        public function verifyUser($user_id){
+            if(!isAdmin()){
+                redirect('/signin');
+            }else{
+                $result = $this->userModel->verifyUser($user_id);
+                if($result){
+                    redirect('users/userverifications');
+                }
+            }
+
+        }
 
         public function admin(){
             if(!isLoggedIn()){

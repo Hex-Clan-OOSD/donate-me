@@ -51,3 +51,9 @@ Notifications table creation query
 ~~~~sql
 CREATE TABLE `donate_me`.`notifications` ( `id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , `description` VARCHAR(250) NOT NULL , `status` VARCHAR(10) NOT NULL , `user_id` INT NOT NULL , `created_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ~~~~
+
+Users table modification quer
+
+~~~~sql
+ALTER TABLE `users` ADD `verified` VARCHAR(10) NULL AFTER `created_at`;
+~~~~

@@ -5,6 +5,17 @@
             $this->dbAdapter = new DatabaseAdapter();
         }
 
+        // Verify the user
+        public function verifyUser($user_id){
+            $this->dbAdapter->query('UPDATE users SET verfied= :status WHERE id = :userId');
+            $this->dbAdapter->bind(':status',"verified");
+            $this->dbAdapter->bind(':userId',$user_id);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
         // Find the user by email
         public function findUserByEmail($email){
             $this->dbAdapter->query('SELECT * FROM users WHERE email = :email');
