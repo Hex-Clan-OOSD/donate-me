@@ -9,6 +9,8 @@
             }
         }
 
+        
+
         // Add a donation
         public function adddonation($request_id){
             if($_SERVER['REQUEST_METHOD']=='POST'){
