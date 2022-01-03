@@ -9,9 +9,24 @@
             if(!isAdmin()){
                 redirect('/signin');
             }else{
-                $result = $this->userModel->verifyUser($user_id);
-                if($result){
-                    redirect('users/userverifications');
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    if($_POST["accept-button"]=='confirm'){
+                        $result = $this->userModel->handleUser($user_id,'confirm');
+                        if($result){
+                            redirect('users/userverifications');
+                        }else{
+                            echo 'An error occured!';
+                        }
+                    }else{
+                       $result = $this->userModel->handleUser($user_id,'rejected'); 
+                       if($result){
+                            redirect('users/userverifications');
+                        }else{
+                            echo 'An error occured!';
+                        }
+                    }
+                }else{
+                    echo 'Error occured!';
                 }
             }
 
