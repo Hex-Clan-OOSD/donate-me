@@ -1,0 +1,39 @@
+
+.colored-section {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
+}
+.card1 {
+    margin-bottom: 2%;
+    padding: 2%;
+}
+.landing-svg {
+    height: 250px;
+    padding-left: 30%;
+}
+.landing-img1 {
+    margin-top: -150px;
+    
+}
+.landing-img2 {
+    margin-top: -50px;
+    
+}
+.card-image1 {
+    overflow-y: hidden;
+    height: 300px;
+    margin-top: -2.7%;
+    margin-bottom: 2%;
+    background-attachment: fixed;
+}
+.card-image {
+    overflow-y: hidden;
+    height: 700px;
+    margin-top: 2%;
+    background-attachment: fixed;
+}
+.requests-card{
+    border-radius: 5px;
+    margin-top: 2%;
+}
