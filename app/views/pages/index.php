@@ -19,7 +19,7 @@
 
   <section class="colored-section bg-light text-dark">
     <div class="card card-image1">
-      <img class="landing-img1" src="<?php echo URLROOT;?>../images/landing-img1.jpg" alt="pic" />
+      <img class="landing-img1" src="<?php echo URLROOT;?>/images/landing-img1.jpg" alt="pic" />
     </div>
 
     <div class="row">
@@ -76,7 +76,7 @@
     </div>
 
     <div class="card card-image">
-      <img class="landing-img2" src="<?php echo URLROOT;?>../images/landing-img2.jpg" alt="pic" />
+      <img class="landing-img2" src="<?php echo URLROOT;?>/images/landing-img2.jpg" alt="pic" />
     </div>
 
   </section>
