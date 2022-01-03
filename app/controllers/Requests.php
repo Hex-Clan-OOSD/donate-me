@@ -30,6 +30,35 @@ require_once (APPROOT . '/views/inc/navbar.php');
          $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
+
+     public function confirm($request_id){
+         if(!isAdmin()){
+             redirect('/signin');
+         }else{
+             if($_SERVER['REQUEST_METHOD']=='POST'){
+                 if($_POST["request-button"] == 'confirm'){
+                     $result = $this->requestModel->handleRequest($request_id,'confirm');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }else{
+                    $result = $this->requestModel->handleRequest($request_id,'reject');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }
+            }else{
+
+            }
+        }
+        
+         
+     }
+
      public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // Process the form
@@ -106,7 +135,6 @@ require_once (APPROOT . '/views/inc/navbar.php');
          
      }
 
-
      public function pendingrequests(){
         if(!isLoggedIn()){
             flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
@@ -114,7 +142,11 @@ require_once (APPROOT . '/views/inc/navbar.php');
         }if(!isAdmin()){
             redirect('requests');
         }else{
-            $this->view('requests/pending');
+            $requests = $this->requestModel->getUnverifiedRequests();
+            $data = [
+                'requests'=>$requests,
+            ];
+            $this->view('requests/pending',$data);
         }
      }
 

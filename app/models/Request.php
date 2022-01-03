@@ -22,6 +22,31 @@
 
         }
 
+        // Confirm the requests
+        public function handleRequest($request_id,$status){
+            $this->dbAdapter->query('UPDATE requests SET status=:status WHERE id=:id');
+            $this->dbAdapter->bind(':status',$status);
+            $this->dbAdapter->bind(':id',$request_id);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
+        // Get all pending requests
+        public function getUnverifiedRequests(){
+            $this->dbAdapter->query('SELECT *,
+                                    requests.id as requestId,
+                                    users.id as userId
+                                    From requests 
+                                    INNER JOIN users
+                                    ON requests.user_id = users.id
+                                    WHERE requests.status = :status');
+            $this->dbAdapter->bind(':status','pending');
+            $results = $this->dbAdapter->resultSet();
+            return $results;
+        }
+
         // Get all the requests
         public function getApprovedRequests(){
             $this->dbAdapter->query('SELECT *,
