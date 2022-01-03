@@ -21,17 +21,18 @@
   <section class="colored-section bg-light text-dark" id="Home">
 
     <div class="card card-image">
-      <img class="verify-img" src="<?php echo URLROOT; ?>../images/User_verification.jpg" alt="pic" />
+      <img class="verify-img" src="<?php echo URLROOT; ?>/images/User_verification.jpg" alt="pic" />
     </div>
     <br>
-    <h1>Pending Requests</h1>
+    <h1>Pending User Verifications</h1>
+    <?php for ($i=0; $i <sizeOf($data); $i+=2) {?>
     <div class="row">
       <div class="col-lg-6">
         <div class="card">
           <div class="card1">
             <div class="card-in">
               <div>
-                <h3>Dimuth Karunarathna</h3>
+                <h3><?php $data[$i]->firstName?></h3>
                 <br>
                 <h5>No.118, Nilawadana Road, Homagama, </h5>
                 <h5>Colombo 08</h5>
@@ -76,60 +77,8 @@
         </div>
       </div>
     </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card1">
-            <div class="card-in">
-              <div>
-                <h3>Dimuth Karunarathna</h3>
-                <br>
-                <h5>No.118, Nilawadana Road, Homagama, </h5>
-                <h5>Colombo 08</h5>
-                <h5>071 92 54 679</h5>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col-lg-6">
-                  <button type="button" class="btn btn-danger btn-block">Decline</button>
-                </div>
-                <div class="col-lg-6">
-                  <button type="button" class="btn btn-success btn-block">Verify</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card1">
-            <div class="card-in">
-              <div>
-                <h3>Dimuth Karunarathna</h3>
-                <br>
-                <h5>No.118, Nilawadana Road, Homagama, </h5>
-                <h5>Colombo 08</h5>
-                <h5>071 92 54 679</h5>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col-lg-6">
-                  <button type="button" class="btn btn-danger btn-block">Decline</button>
-                </div>
-                <div class="col-lg-6">
-                  <button type="button" class="btn btn-success btn-block">Verify</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<?php };?>
+    
 
   </section>
 

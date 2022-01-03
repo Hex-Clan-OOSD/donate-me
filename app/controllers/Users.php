@@ -12,6 +12,8 @@
                 $result = $this->userModel->verifyUser($user_id);
                 if($result){
                     redirect('users/userverifications');
+                }else{
+                    echo 'An error occured!';
                 }
             }
 
