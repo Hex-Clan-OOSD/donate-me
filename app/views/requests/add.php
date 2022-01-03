@@ -62,9 +62,8 @@
                         <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
                     <form method="get" action="">Upload Evidence
-                        <!-- <input type="hidden" name="sid" value="1" /> -->
                         <input type="file" name="file1" id="file1" />
-                        <button type="button" id="browse" class="btn btn-primary">Upload</button>
+                        <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
                     </form>
 
 
@@ -102,14 +101,14 @@
 
         </form>
 
-        <script>
+        <!-- <script>
             $(document).ready(function () {
                 $('input[id^=file]').hide();
                 $('#browse').click(function () {
                     $('input[id^=file]').click();
                 })
             });
-        </script>
+        </script> -->
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
