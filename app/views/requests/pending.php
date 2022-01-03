@@ -19,14 +19,14 @@
     <section class="colored-section bg-light text-dark" id="Home">
 
       <div class="card card-image">
-        <img class="verify-img" src="<?php echo URLROOT;?>../images/verification-img.jpg" alt="pic" />
+        <img class="verify-img" src="<?php echo URLROOT;?>/images/verification-img.jpg" alt="pic" />
       </div>
       <br>
       <h1>Pending Requests</h1>
       
       <div class="card">
         <?php foreach($data['requests'] as $request) : ?>
-          <form action="<?php echo URLROOT;?>/requests/confirm/<?php $request->requestId; ?>"method="post">
+          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->requestId; ?>" method="post">
             <div class="card1">
             <div>
               <div class="row">
@@ -54,10 +54,10 @@
               <br>
               <div class="row">
                 <div class= "col-lg-6">  
-                  <button type="button" class="btn btn-danger btn-block">Decline</button>
+                  <button type="submit" value="decline" name="request-button" class="btn btn-danger btn-block">Decline</button>
                 </div>
                 <div class= "col-lg-6">
-                  <button type="button" class="btn btn-success btn-block">Verify</button>
+                  <button type="submit" value="confirm" name="request-button" class="btn btn-success btn-block">Verify</button>
                 </div>
               </div>
             </div>

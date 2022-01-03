@@ -22,6 +22,17 @@
 
         }
 
+        // Confirm the requests
+        public function handleRequest($request_id,$status){
+            $this->dbAdapter->query('UPDATE requests SET status=:status WHERE id=:id');
+            $this->dbAdapter->bind(':status',$status);
+            $this->dbAdapter->bind(':id',$request_id);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
         // Get all pending requests
         public function getUnverifiedRequests(){
             $this->dbAdapter->query('SELECT *,

@@ -31,6 +31,34 @@ require_once (APPROOT . '/views/inc/navbar.php');
          $this->view('requests/index',$data);   
      }
 
+     public function confirm($request_id){
+         if(!isAdmin()){
+             redirect('/signin');
+         }else{
+             if($_SERVER['REQUEST_METHOD']=='POST'){
+                 if($_POST["request-button"] == 'confirm'){
+                     $result = $this->requestModel->handleRequest($request_id,'confirm');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }else{
+                    $result = $this->requestModel->handleRequest($request_id,'reject');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }
+            }else{
+
+            }
+        }
+        
+         
+     }
+
      public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // Process the form
