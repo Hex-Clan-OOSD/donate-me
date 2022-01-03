@@ -38,7 +38,12 @@
                     // Render the page with the errors
                 }
             }else{
-                // Render the view
+                $data = [
+                    'amount'=>'',
+                    'amount_err'=>''
+                ];
+                $this->view('donations/adddonation',$data);
+
             }
 
         }
