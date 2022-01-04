@@ -23,6 +23,19 @@
 
         }
 
+        // Get the request
+        public function getRequest($request_id){
+            $this->dbAdapter->query('SELECT *,
+                                    requests.id as requestId,
+                                    users.id as userId
+                                    From requests 
+                                    INNER JOIN users
+                                    ON requests.user_id = users.id
+                                    WHERE requests.id=:id');
+            $this->dbAdapter->bind(':id',$request_id);
+            return $this->dbAdapter->singleRow();
+        }
+
         // Confirm the requests
         public function handleRequest($request_id,$status){
             $this->dbAdapter->query('UPDATE requests SET status=:status WHERE id=:id');
