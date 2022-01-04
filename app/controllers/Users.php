@@ -5,6 +5,32 @@
             $this->userModel = $this->model('User');
         }
 
+        public function verifyUser($user_id){
+            if(!isAdmin()){
+                redirect('/signin');
+            }else{
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    if($_POST["accept-button"]=='confirm'){
+                        $result = $this->userModel->handleUser($user_id,'confirm');
+                        if($result){
+                            redirect('users/userverifications');
+                        }else{
+                            echo 'An error occured!';
+                        }
+                    }else{
+                       $result = $this->userModel->handleUser($user_id,'rejected'); 
+                       if($result){
+                            redirect('users/userverifications');
+                        }else{
+                            echo 'An error occured!';
+                        }
+                    }
+                }else{
+                    echo 'Error occured!';
+                }
+            }
+
+        }
 
         public function admin(){
             if(!isLoggedIn()){
@@ -26,7 +52,8 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $this->view('users/verifications');
+                $data = $this->userModel->getUnVerifiedUsers();
+                $this->view('users/verifications',$data);
             }
         }
 

@@ -9,14 +9,70 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
 
   <title>HexClan</title>
   <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 <body>
     <?php require APPROOT . '/views/inc/admin_navbar.php';?>
-    <h1>Pending Requests</h1>
+    <section class="colored-section bg-light text-dark" id="Home">
+
+      <div class="card card-image">
+        <img class="verify-img" src="<?php echo URLROOT;?>/images/verification-img.jpg" alt="pic" />
+      </div>
+      <br>
+      <h1>Pending Requests</h1>
+      
+      <div class="card">
+        <?php foreach($data['requests'] as $request) : ?>
+          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->requestId; ?>" method="post">
+            <div class="card1">
+            <div>
+              <div class="row">
+                <div class= "col-lg-6">
+                  <h3><?php echo $request->title?></h3>
+                  <br>
+                  <h5>Rs: <?php echo $request->total_amount?></h5>
+                  <p>Published by,</p>
+                  <h5><? echo $request->first_name.' '.$request->last_name?></h5>
+                  <h5><?php echo $request->phone_number?></h5>
+                  <div>
+                     <h5><?php echo $request->address_line_1?></h5>
+                      <h5><?php echo $request->address_line_2?></h5>
+                      <h5><?php echo $request->city_town?></h5>
+                      <h5><?php echo $request->postal_code?></h5>
+                      <h5><?php echo $request->state?></h5>
+                  </div>
+                </div>
+                <div class= "col-lg-6">
+                  <p>
+                  <?php echo $request->description?>
+                  </p>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class= "col-lg-6">  
+                  <button type="submit" value="decline" name="request-button" class="btn btn-danger btn-block">Decline</button>
+                </div>
+                <div class= "col-lg-6">
+                  <button type="submit" value="confirm" name="request-button" class="btn btn-success btn-block">Verify</button>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+          </form>
+         <?php endforeach; ?>
+        
+       
+      
+      </div>
+
+    </section>
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>

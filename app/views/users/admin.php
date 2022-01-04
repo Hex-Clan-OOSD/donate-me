@@ -9,7 +9,7 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
+  <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
 
   <title>HexClan</title>
   <?php require APPROOT . '/views/inc/favicon.php';?>

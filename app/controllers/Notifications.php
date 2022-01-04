@@ -4,7 +4,7 @@
             if(!isLoggedIn()){
                 redirect('');
             }else{
-                $this->notificationModel = $this->model('Notification');;
+                $this->notificationModel = $this->model('Notification');
             }
         }
 
