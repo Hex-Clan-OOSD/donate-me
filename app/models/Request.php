@@ -74,6 +74,12 @@
             return $results;
         }
 
+        // Get the request count
+        public function getRequestCount(){
+            $this->dbAdapter->query('SELECT * from requests');
+            $this->dbAdapter->execute();
+            return $this->dbAdapter->rowCount();
+        }
         
 
     }
