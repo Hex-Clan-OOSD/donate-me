@@ -38,8 +38,7 @@
                 redirect('users/signin');
             }else{
                 if(isAdmin()){
-                    $navbar = new AdminUserNavbar();
-                    $this->view('users/admin');
+                    redirect('pages/landinguser');
                 }else{
                     redirect('');
                 }
