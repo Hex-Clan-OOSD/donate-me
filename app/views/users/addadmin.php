@@ -15,7 +15,7 @@
   <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 <body>
-    <h1>I am an admin</h1>
+    <h1>Add an admin user</h1>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>

@@ -48,6 +48,7 @@
                 <div class= "col-lg-6">
                   <p>
                   <?php echo $request->description?>
+                  <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/<?php echo $request->filename?>" alt="don-pic">
                   </p>
                 </div>
               </div>
