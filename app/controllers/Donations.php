@@ -37,6 +37,9 @@
                     }
                     
                 }else{
+                    $this->notificationModel->addNotification("Your donation rejected!",
+                            "Your donation was rejected! Please contact our team using email or try to upload the evidenced again with the donation!"
+                            ,$donation->user_id);
                     $this->donationModel->handleDonation($donation_id,'rejected');
                 }
             }
