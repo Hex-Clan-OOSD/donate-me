@@ -6,11 +6,12 @@
         }
 
         public function addNotification($title,$description,$user_id){
-            $this->dbAdapter->query('INSERT INTO notifications (title,description,user_id)
-            VALUES (:title,:description,:user_id)');
+            $this->dbAdapter->query('INSERT INTO notifications (title,description,user_id,status)
+            VALUES (:title,:description,:user_id,:status)');
             $this->dbAdapter->bind(':title',$title);
             $this->dbAdapter->bind(':description',$description);
             $this->dbAdapter->bind(':user_id',$user_id);
+            $this->dbAdapter->bind(':status','unread');
             if($this->dbAdapter->execute()){
                 return true;
             }
