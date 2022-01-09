@@ -5,6 +5,13 @@
             $this->dbAdapter = new DatabaseAdapter();
         }
 
+        // Get the total collected donation amount
+        public function getTotalCollectedAmount(){
+            $this->dbAdapter->query('SELECT collected_amount from requests');
+            $results = $this->dbAdapter->resultSet();
+            return $results;
+        }
+
         // Add the request
         public function addRequest($title,$description,$amount,$user_id,$file_name){
             $this->dbAdapter->query('INSERT INTO requests (title,description,total_amount,collected_amount,user_id,status,filename)

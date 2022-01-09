@@ -17,11 +17,17 @@ require_once (APPROOT . '/views/inc/navbar.php');
 
     public function landinguser(){
         $requestCount = $this->requestModel->getRequestCount();
+        $collectedAmountSet = $this->requestModel->getTotalCollectedAmount();
+        $collectedAmount = 0;
+        foreach ($collectedAmountSet as $item) {
+            $collectedAmount += $item->collected_amount;
+        }
         if(isLoggedIn() && !isAdmin()){
             $navbar = new NormalUserNavbar();
             $data = [
                  'navbar'=>$navbar,
                  'req_count'=>$requestCount,
+                 'amount'=>$collectedAmount,
              ];
              $this->view('pages/index',$data );
         }else if(isLoggedIn() && isAdmin()){
@@ -29,6 +35,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
             $data = [
                  'navbar'=>$navbar,
                  'req_count'=>$requestCount,
+                 'amount'=>$collectedAmount,
              ];
              $this->view('pages/index',$data );
         }else{
