@@ -11,6 +11,10 @@
     //URL root
     define('URLROOT','http://localhost/project');
 
+    // Upload Images location
+    // Change here according to the path
+    define('UPLOAD_IMAGE_PATH',"/Applications/XAMPP/xamppfiles/htdocs/project/public/upload-images/");
+
     //Site name
     define('SITENAME','DonateME');
 ?>

@@ -20,7 +20,7 @@
     <section class="colored-section bg-light text-dark" id="Home">
 
       <div class="card card-image">
-        <img class="verify-img" src="<?php echo URLROOT;?>../images/donate-img.jpg" alt="pic" />
+        <img class="verify-img" src="<?php echo URLROOT;?>/images/donate-img.jpg" alt="pic" />
       </div>
       <br>
       <h1>Pending Donations</h1>
