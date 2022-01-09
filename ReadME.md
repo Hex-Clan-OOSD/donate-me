@@ -69,9 +69,3 @@ Donations table modification query
 ```sql
 ALTER TABLE `donations` ADD `filename` VARCHAR(100) NOT NULL AFTER `status`;
 ```
-
-Modify notifications table
-
-```sql
-ALTER TABLE `notifications` DROP `status`;
-```

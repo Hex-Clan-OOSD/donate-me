@@ -7,6 +7,7 @@
             }else{
                 $this->donationModel = $this->model('Donation');
                 $this->requestModel = $this->model('Request');
+                $this->notificationModel = $this->model('Notification');;
             }
         }
         
@@ -16,14 +17,21 @@
                 redirect('/');
             }else{
                 $donation = $this->donationModel->getADonation($donation_id);
-                print_r($donation);
                 if($_POST["donation-button"] == 'accept'){
                     $request = $this->requestModel->getRequest($donation->request_id);
                     $total_collected = (float) $request->collected_amount + (float) $donation->amount;
+                    $this->notificationModel->addNotification("You donation was approved!",
+                            "Donation for the request ".$request->title." was approved",$donation->user_id);
                     if($total_collected === (float) $request->amount){
+                        $this->notificationModel->addNotification("You received a donation!",
+                            "Donation received for the request ".$request->title." and it is completed"
+                            ,$request->userId);
                         $this->donationModel->handleDonation($donation_id,'confirm');
                         $this->requestModel->updateCollectedAmount($donation->request_id,$total_collected,'finished');
                     }else{
+                        $this->notificationModel->addNotification("You received a donation!",
+                            "Donation received for the request ".$request->title
+                            ,$request->userId);
                         $this->donationModel->handleDonation($donation_id,'confirm');
                         $this->requestModel->updateCollectedAmount($donation->request_id,$total_collected,'confirm');
                     }
