@@ -33,7 +33,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
          $this->view('requests/index',$data);   
      }
 
-     public function  myrequests(){
+     public function myrequests(){
          $data = array();
          $requests = $this->requestModel->getUserRequests(getLoggedInUserId());
          foreach ($requests as $request) {
@@ -41,6 +41,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
              $requestItem = new RequestFactory($donations,$request);
              array_push($data,$requestItem);
          }
+         $navbar = new NormalUserNavbar();
          $this->view('requests/myrequests',$data);
      }
 
