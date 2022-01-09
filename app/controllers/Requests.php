@@ -1,5 +1,6 @@
 <?php
 require_once (APPROOT . '/views/inc/navbar.php');
+require_once (APPROOT . '/factories/RequestFactory.php');
  class Requests extends Controller{
      public function __construct(){
         if(!isLoggedIn()){
@@ -8,6 +9,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
         }else{
             $this->requestModel = $this->model('Request');
             $this->notificationModel = $this->model('Notification');
+            $this->donationModel = $this->model('Donation');
         }
      }
      public function index(){
@@ -32,7 +34,14 @@ require_once (APPROOT . '/views/inc/navbar.php');
      }
 
      public function  myrequests(){
-         $this->view('requests/myrequests');
+         $data = array();
+         $requests = $this->requestModel->getUserRequests(getLoggedInUserId());
+         foreach ($requests as $request) {
+             $donations = $this->donationModel->getDonationsForRequest($request->id);
+             $requestItem = new RequestFactory($donations,$request);
+             array_push($data,$requestItem);
+         }
+         $this->view('requests/myrequests',$data);
      }
 
      public function confirm($request_id){

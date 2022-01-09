@@ -28,64 +28,33 @@
                 <img class="myrequest-svg" src="<?php echo URLROOT;?>/images/myrequest.png" alt="req-svg">
             </div>
         </div>
+        <?php foreach($data as $request) : ?>
         <div class="card1 card card-header">
             <div class="card-bod">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4 class="card-title">1. Request 01</h4>
+                        <h4 class="card-title">1. Request <?php echo $request->getRequestId();?></h4>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing
-                            and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled
-                            it to make a type specimen book.
+                            <?php echo $request->getRequestDescription()?>
                         </p>
                         <button type="button" class="btn btn-dark">Edit </button>
                         <button type="button" class="btn btn-warning">Close</button>
                     </div>
                     <div class="myreq-detail col-lg-6">
-                        <h6>Amount collected: $450</h6>
+                        <h6>Amount collected: Rs: <?php echo $request->getCollectedAmount()?></h6>
                         <br>
                         <h5>Donator's list: </h5>
                         <div class="don-list">
-                            <p>Kamal Neel : $100</p>
-                            <p>Madushan : $50</p>
-                            <p>Aruni : $225</p>
+                            <?php foreach($request->getDonations() as $donation): ?>
+                            <p><?php echo $donation->first_name." ".$donation->last_name ?> : Rs: <?php echo $donation->amount ?></p>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card1 card card-header">
-            <div class="card-bod">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="card-title">2. Request 02</h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing
-                            and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled
-                            it to make a type specimen book.
-                        </p>
-                        <button type="button" class="btn btn-dark">Edit </button>
-                        <button type="button" class="btn btn-warning">Close</button>
-                    </div>
-                    <div class="myreq-detail col-lg-6">
-                        <h6>Amount collected: $450</h6>
-                        <br>
-                        <h5>Donator's list: </h5>
-                        <div class="don-list">
-                            <p>Kamal Neel : $100</p>
-                            <p>Madushan : $50</p>
-                            <p>Aruni : $225</p>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endforeach?>
+        
 
 
     </section>
