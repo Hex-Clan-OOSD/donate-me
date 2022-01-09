@@ -56,3 +56,11 @@ hr {
     width: 40%;
     margin-left: 0%;
   }
+  .notificard{
+      margin-left: -10%;
+      margin-right: -10%;
+  }
+
+  .check {
+    margin-left: 2%;
+  }
