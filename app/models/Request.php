@@ -5,6 +5,14 @@
             $this->dbAdapter = new DatabaseAdapter();
         }
 
+        // Get the user requests for user id
+        public function getUserRequests($user_id){
+            $this->dbAdapter->query('SELECT * from requests WHERE user_id = :user_id');
+            $this->dbAdapter->bind(':user_id',$user_id);
+            $results = $this->dbAdapter->resultSet();
+            return $results;
+        }
+
         // Get the total collected donation amount
         public function getTotalCollectedAmount(){
             $this->dbAdapter->query('SELECT collected_amount from requests');
