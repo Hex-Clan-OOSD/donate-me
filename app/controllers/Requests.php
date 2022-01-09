@@ -31,6 +31,10 @@ require_once (APPROOT . '/views/inc/navbar.php');
          $this->view('requests/index',$data);   
      }
 
+     public function  myrequests(){
+         $this->view('requests/myrequests');
+     }
+
      public function confirm($request_id){
          if(!isAdmin()){
              redirect('/signin');
