@@ -15,7 +15,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
         $monthName = $dateObj->format('F');
         $message = "Have a Good Night!";
         $time = date('H');
-        $requests = $this->requestModel->getApprovedRequests();
+        $requests = $this->requestModel->getApprovedRequests(getLoggedInUserId());
         if($time < 20){
             $message = "Have a Good Day!";
         }

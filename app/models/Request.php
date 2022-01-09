@@ -79,16 +79,17 @@
         }
 
         // Get all the requests
-        public function getApprovedRequests(){
+        public function getApprovedRequests($user_id){
             $this->dbAdapter->query('SELECT *,
                               requests.id as requestId,
                               users.id as userId
                               FROM requests
                               INNER JOIN users
                               ON requests.user_id = users.id
-                              WHERE requests.status = :status
+                              WHERE requests.status = :status AND requests.user_id != :user_id
                               ORDER BY requests.created_at DESC');
             $this->dbAdapter->bind(':status','confirm');
+            $this->dbAdapter->bind(':user_id',$user_id);
             $results = $this->dbAdapter->resultSet();
             return $results;
         }
