@@ -46,10 +46,10 @@
       <div>
         <div class="row">
           <div class="col-lg-6">
-            <h4>Number of Requests we handled: 17 </h4>
+            <h4>Number of Requests we handled: <?php echo $data['req_count']?> </h4>
           </div>
           <div class="col-lg-6 ">
-            <h4>Amount Collected: $2973</h4>
+            <h4>Amount Collected: Rs: <?php echo $data['amount']?></h4>
           </div>
         </div>
       </div>

@@ -53,14 +53,38 @@
                             rows="10" name="description" placeholder="Description"></textarea>
                         <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
-                    
-                    <!-- <input type="hidden" name="sid" value="1" /> -->
-                    <div>
-                        <p>Upload Evidence</p>
-                        <input type="file" name="evidence-image" id="evidence-image" />
-                        
+
+                    <form method="get" action="">Upload Evidence
+                        <input type="file" name="file1" id="file1" />
                         <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
+                    </form>
+
+
+
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">Submit</button>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Submit Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        Do you want to submit?
+                    
+                    
                     <p style="color:#dc3545;font-size:16px"><?php echo $data['file_err']?></p>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit
                     </button>
@@ -93,14 +117,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
         </script>
-         <!-- <script>
-            $(document).ready(function () {
-                $('input[id^=file]').hide();
-                $('#browse').click(function () {
-                    $('input[id^=file]').click();
-                })
-            });
-        </script> -->
+         
 </body>
 
 </html>
