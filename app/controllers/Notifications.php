@@ -12,8 +12,6 @@
         public function index(){
             $this->view('notifications/index' );
         }
-
-        // Add a notification
         
     }
     

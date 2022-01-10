@@ -43,9 +43,4 @@
         }
     }
 
-    // Helper function to get the active user id
-    function getLoggedInUserId(){
-        return $_SESSION['user_id'];
-    }
-
 ?>

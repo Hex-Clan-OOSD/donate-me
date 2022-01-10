@@ -17,7 +17,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
         $monthName = $dateObj->format('F');
         $message = "Have a Good Night!";
         $time = date('H');
-        $requests = $this->requestModel->getApprovedRequests(getLoggedInUserId());
+        $requests = $this->requestModel->getApprovedRequests();
         if($time < 20){
             $message = "Have a Good Day!";
         }
@@ -49,12 +49,9 @@ require_once (APPROOT . '/factories/RequestFactory.php');
          if(!isAdmin()){
              redirect('/signin');
          }else{
-             $request = $this->requestModel->getRequest($request_id);
              if($_SERVER['REQUEST_METHOD']=='POST'){
                  if($_POST["request-button"] == 'confirm'){
                      $result = $this->requestModel->handleRequest($request_id,'confirm');
-                     $this->notificationModel->addNotification('You request confimed!',
-                        'Congratulations!!! You request of '.$request->title.' was approved!',$request->userId);
                      if($result){
                          redirect('requests/pendingrequests');
                      }else{
@@ -62,8 +59,6 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                      }
                 }else{
                     $result = $this->requestModel->handleRequest($request_id,'reject');
-                    $this->notificationModel->addNotification('You request rejected!',
-                        'You request of '.$request->title.' was rejected! Please try to submit it again with proper evidenced!',$request->userId);
                      if($result){
                          redirect('requests/pendingrequests');
                      }else{
@@ -129,7 +124,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                     if($error === 0){
                         $new_file_name = uniqid('',true).'.'.$file_actual_ext;
                         // Change this path
-                        $file_destination = UPLOAD_IMAGE_PATH.$filename;
+                        $file_destination = "/Applications/XAMPP/xamppfiles/htdocs/project/public/upload-images/".$filename;
                         $result = move_uploaded_file($tempname,$file_destination);
                         if($result){
                             $data['file_err'] = "";
@@ -152,6 +147,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                     flash('request_add_err','Error in adding the request. Try again!','alert alert-danger');
                     $this->view('requests/add',$data);
                 }else{
+                   
                     flash('request_added','Request added successfully!');
                      // Init data
                     $data = [
