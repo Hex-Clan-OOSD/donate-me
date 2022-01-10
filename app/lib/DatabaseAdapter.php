@@ -4,7 +4,7 @@ class DatabaseAdapter{
 
         public function __construct()
         {
-            $this->database = Database::getDatabaseInstance();
+            $this->database = new Database();
         }
 
         // Prepare statement with the queryies

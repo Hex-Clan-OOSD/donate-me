@@ -25,49 +25,88 @@
       <br>
       <h1>Pending Donations</h1>
       <div class="card">
-        <?php foreach($data as $donation) : ?>
-          <form action="<?php echo URLROOT;?>/donations/confirmdonation/<?php echo $donation->donationId?>" method="post">
-          <div class="card1">
-              <div>
-                <div class="row">
-                  <div class= "col-lg-6">
-                    <h3><?php echo $donation->first_name.' '?><?php echo $donation->last_name ?></h3>
-                    <br>
-                    <h6><?php echo $donation->address_line_1 ?>, </h6>
-                    <h6><?php echo $donation->address_line_2 ?></h6>
-                    <h6><?php echo $donation->city_town ?></h6>
-                    <h6><?php echo $donation->state ?></h6>
-                    <h6><?php echo $donation->phone_number?></h6>
-                    <br>
-                    <h5>Request: Request <?php echo $donation->donationId ?> </h5>
-                    <p>
-                    <?php echo $donation->description ?> 
-                    </p>
-                    <h5>Donate Amount:  </h5> <p>Rs. <?php echo $donation->amount ?> </p>
-                    <h5>Donate Item:  </h5> <p>-</p>
-                  </div>
-                  <div class= "col-lg-6 ">
-                      <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/<?php echo $donation->filename?>" alt="don-pic">
-                      
-                      <div>
-                        <br>
-                        <button type="submit" name="donation-button" value="accept" class="btn btn-primary btn-block">Accept</button>
-                        
-                        <br>
-                      </div>
-                      <div>
-                      <button type="submit" name="donation-button" value="reject" class="btn btn-warning btn-block">Decline</button>
-                      </div>
-                  </div>
-    
-                </div>
-                
-                
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Thrishali Madhushika</h3>
+                <br>
+                <h6>No.118, Nilawadana Road, Homagama, </h6>
+                <h6>Colombo 08</h6>
+                <h6>071 92 54 679</h6>
+                <br>
+                <h5>Request: Request 01 </h5>
+                <p>
+                It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of using 
+                Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                as opposed
+                </p>
+                <h5>Donate Amount:  </h5> <p>Rs. 5000</p>
+                <h5>Donate Item:  </h5> <p>-</p>
               </div>
-              <hr>
+              <div class= "col-lg-6 ">
+                  <img class="img-bill" src="<?php echo URLROOT;?>../images/bill.jpg" alt="don-pic">
+                  
+                  <div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block">Accept</button>
+                    
+                    <br>
+                  </div>
+                  <div>
+                  <button type="button" class="btn btn-warning btn-block">Decline</button>
+                  </div>
+              </div>
+
             </div>
-          </form>
-        <?php endforeach; ?>
+            
+            
+          </div>
+          <hr>
+        </div>
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Thrishali Madhushika</h3>
+                <br>
+                <h6>No.118, Nilawadana Road, Homagama, </h6>
+                <h6>Colombo 08</h6>
+                <h6>071 92 54 679</h6>
+                <br>
+                <h5>Request: Request 01 </h5>
+                <p>
+                It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of using 
+                Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                as opposed
+                </p>
+                <h5>Donate Amount:  </h5> <p>-</p>
+                <h5>Donate Item:  </h5> <p>Grocery Items</p>
+              </div>
+              <div class= "col-lg-6 ">
+                  <img class="img-bill" src="<?php echo URLROOT;?>../images/bill.jpg" alt="don-pic">
+                  
+                  <div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block">Verify</button>
+                    
+                    <br>
+                  </div>
+                  <div>
+                  <button type="button" class="btn btn-warning btn-block">Decline</button>
+                  </div>
+              </div>
+
+            </div>
+            
+            
+          </div>
+          <hr>
+        </div>
+        
+        
       
       </div>
 

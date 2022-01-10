@@ -79,11 +79,8 @@
       </div>
 
       <?php endforeach; ?>
-      <div class="card-body text-muted text-center">
-        <?php if(empty($data['requests'])):?>
-          <p>Requests are empty</p>
-          <?php else:?>
-        <?php endif;?>
+      <div class="card-body text-muted text-right">
+        <a href="" class="btn btn-dark">See more Requests</a>
       </div>
     </div>
 
