@@ -3,16 +3,6 @@
     class Users extends Controller{
         public function __construct(){
             $this->userModel = $this->model('User');
-            $this->notificationModel = $this->model('Notification');;
-        }
-
-        public function addadmin(){
-            if(!isAdmin()){
-                redirect('users/signin');
-            }else{
-                $navigationbar = new AdminUserNavbar();
-                $this->view('users/addadmin');
-            }
         }
 
         public function verifyUser($user_id){
@@ -23,7 +13,6 @@
                     if($_POST["accept-button"]=='confirm'){
                         $result = $this->userModel->handleUser($user_id,'confirm');
                         if($result){
-                            $this->notificationModel->addNotification("Your account Verified","Congratulations your account verified. So you can add requests and donation to the Web Site!",$user_id);
                             redirect('users/userverifications');
                         }else{
                             echo 'An error occured!';
@@ -31,7 +20,6 @@
                     }else{
                        $result = $this->userModel->handleUser($user_id,'rejected'); 
                        if($result){
-                           $this->notificationModel->addNotification("Your account Rejected","Sorry your account was rejected from our confimation process and your account will be deleted within next 30 days!. Thank you!",$user_id);
                             redirect('users/userverifications');
                         }else{
                             echo 'An error occured!';
@@ -50,7 +38,8 @@
                 redirect('users/signin');
             }else{
                 if(isAdmin()){
-                    redirect('pages/landinguser');
+                    $navbar = new AdminUserNavbar();
+                    $this->view('users/admin');
                 }else{
                     redirect('');
                 }

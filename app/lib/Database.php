@@ -8,8 +8,6 @@
     */
 
     class Database{
-        private static $db_object;
-
         private $host = DB_HOST;
         private $user = DB_USER;
         private $password = DB_PASSWORD;
@@ -18,15 +16,7 @@
         private $statement;
         private $error;
 
-        public static function getDatabaseInstance(){
-            if(!isset($db_object)){
-                self::$db_object = new Database();
-            }
-
-            return self::$db_object;
-        }
-
-        private function __construct(){
+        public function __construct(){
             // Set the DSN
             $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
             $options = array(
