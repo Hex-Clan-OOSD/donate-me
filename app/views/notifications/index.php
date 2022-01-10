@@ -16,7 +16,106 @@
 
 <body>
     <?php require APPROOT . '/views/inc/request_navbar.php';?>
-    <h1>Notifications Page</h1>
+
+    <section class="colored-section bg-light text-dark">
+        
+    <h1>Notifications</h1>
+        <div class="card w-100">
+            
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                    <i class="fa fa-user fa-fw"></i>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-success">Mark as read</button>
+                </div>
+                <hr>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                    <i class="fa fa-user fa-fw"></i>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-success">Mark as read</button>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                    <i class="fa fa-user fa-fw"></i>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-success">Mark as read</button>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                    <i class="fa fa-user fa-fw"></i>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-success">Mark as read</button>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                    <i class="fa fa-user fa-fw"></i>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-success">Mark as read</button>
+                </div>
+                <hr>
+            </div>
+            
+            
+        </div>
+
+    </section>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
