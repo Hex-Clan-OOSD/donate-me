@@ -41,3 +41,26 @@ hr {
 .img-bill {
     height: 250px;
 }
+.myreq-detail{
+    padding-left: 15%;
+}
+.don-list{
+    line-height: 1em;
+}
+.myrequest-svg {
+    width: 350px;
+    padding-left: 20%;
+}
+.myreq {
+    border-top: 5px solid #e6be0a;
+    width: 40%;
+    margin-left: 0%;
+  }
+  .notificard{
+      margin-left: -10%;
+      margin-right: -10%;
+  }
+
+  .check {
+    margin-left: 2%;
+  }

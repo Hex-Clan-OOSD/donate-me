@@ -19,5 +19,41 @@
             }
             return false;
         }
+
+        // Get pending donations
+        public function getDonations($status){
+            $this->dbAdapter->query('SELECT *,
+                                    donations.id as donationId,
+                                    users.id as userId,
+                                    donations.user_id as donationUser
+                                    From donations 
+                                    INNER JOIN users
+                                    ON donations.user_id = users.id
+                                    INNER JOIN requests
+                                    ON donations.request_id = requests.id
+                                    WHERE donations.status = :status');
+            $this->dbAdapter->bind(':status',$status);
+            if($this->dbAdapter->execute()){
+                return $this->dbAdapter->resultSet();
+            }else{
+                return NULL;
+            }
+        }
+
+        // Get the donations according to the request id
+        public function getDonationsForRequest($request_id){
+            $this->dbAdapter->query('SELECT *,
+                                    donations.id as donationId,
+                                    users.id as userId,
+                                    donations.user_id as donationUser
+                                    From donations 
+                                    INNER JOIN users
+                                    ON donations.user_id = users.id
+                                    WHERE donations.request_id = :request_id AND status=:status');
+            $this->dbAdapter->bind(':request_id',$request_id);
+            $this->dbAdapter->bind(':status','confirm');
+            $results = $this->dbAdapter->resultSet();
+            return $results;
+        }
     }
 ?>
