@@ -43,8 +43,4 @@
         }
     }
 
-    function getLoggedInUserId(){
-        return $_SESSION['user_id'];
-    }
-
 ?>
