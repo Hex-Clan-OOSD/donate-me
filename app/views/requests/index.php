@@ -59,20 +59,23 @@
           <div class="col-lg-6">
             <h6>Total Amount: <?php echo $request->total_amount;?></h6>
           </div>
-          <div class="col-lg-6">
-            <h6>Amount Collected: <?php echo $request->collected_amount;?></h6>
-          </div>
-        </div>
-        <br>
-        <h6 class="text-muted"> 
-        <?php echo $request->description?>
-        </h6>
-        <br>
-        <h6 class="text-muted">Request by <?php echo $request->first_name." ".$request->last_name;?></h6>
-        <a href="" class="btn btn-outline-secondary btn-sm">See more...</a>
-        <hr>
-        
-      </blockquote>
+          <br>
+          <h6 class="text-muted">
+            <?php echo $request->description?>
+          </h6>
+          <br>
+          <h6 class="text-muted">Request by <?php echo $request->first_name." ".$request->last_name;?></h6>
+          <a href="<?php echo URLROOT;?>/donations/adddonation/<?php echo $request->requestId; ?>" type="submit"
+            class="btn btn-outline-secondary btn-sm">See more...</a>
+          <hr>
+
+        </blockquote>
+      </div>
+
+      <?php endforeach; ?>
+      <div class="card-body text-muted text-right">
+        <a href="" class="btn btn-dark">See more Requests</a>
+      </div>
     </div>
     <?php endforeach; ?>
     <div class="card-body text-muted text-right">

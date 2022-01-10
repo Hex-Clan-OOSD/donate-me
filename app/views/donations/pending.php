@@ -16,7 +16,102 @@
 </head>
 <body>
     <?php require APPROOT . '/views/inc/admin_navbar.php';?>
-    <h1>Pending donations</h1>
+    
+    <section class="colored-section bg-light text-dark" id="Home">
+
+      <div class="card card-image">
+        <img class="verify-img" src="<?php echo URLROOT;?>/images/donate-img.jpg" alt="pic" />
+      </div>
+      <br>
+      <h1>Pending Donations</h1>
+      <div class="card">
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Thrishali Madhushika</h3>
+                <br>
+                <h6>No.118, Nilawadana Road, Homagama, </h6>
+                <h6>Colombo 08</h6>
+                <h6>071 92 54 679</h6>
+                <br>
+                <h5>Request: Request 01 </h5>
+                <p>
+                It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of using 
+                Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                as opposed
+                </p>
+                <h5>Donate Amount:  </h5> <p>Rs. 5000</p>
+                <h5>Donate Item:  </h5> <p>-</p>
+              </div>
+              <div class= "col-lg-6 ">
+                  <img class="img-bill" src="<?php echo URLROOT;?>../images/bill.jpg" alt="don-pic">
+                  
+                  <div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block">Accept</button>
+                    
+                    <br>
+                  </div>
+                  <div>
+                  <button type="button" class="btn btn-warning btn-block">Decline</button>
+                  </div>
+              </div>
+
+            </div>
+            
+            
+          </div>
+          <hr>
+        </div>
+        <div class="card1">
+          <div>
+            <div class="row">
+              <div class= "col-lg-6">
+                <h3>Thrishali Madhushika</h3>
+                <br>
+                <h6>No.118, Nilawadana Road, Homagama, </h6>
+                <h6>Colombo 08</h6>
+                <h6>071 92 54 679</h6>
+                <br>
+                <h5>Request: Request 01 </h5>
+                <p>
+                It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of using 
+                Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                as opposed
+                </p>
+                <h5>Donate Amount:  </h5> <p>-</p>
+                <h5>Donate Item:  </h5> <p>Grocery Items</p>
+              </div>
+              <div class= "col-lg-6 ">
+                  <img class="img-bill" src="<?php echo URLROOT;?>../images/bill.jpg" alt="don-pic">
+                  
+                  <div>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block">Verify</button>
+                    
+                    <br>
+                  </div>
+                  <div>
+                  <button type="button" class="btn btn-warning btn-block">Decline</button>
+                  </div>
+              </div>
+
+            </div>
+            
+            
+          </div>
+          <hr>
+        </div>
+        
+        
+      
+      </div>
+
+    </section>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>

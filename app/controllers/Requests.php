@@ -28,6 +28,35 @@
          $_SESSION['not_unr'] = sizeof($unreadNotifications);
          $this->view('requests/index',$data);   
      }
+
+     public function confirm($request_id){
+         if(!isAdmin()){
+             redirect('/signin');
+         }else{
+             if($_SERVER['REQUEST_METHOD']=='POST'){
+                 if($_POST["request-button"] == 'confirm'){
+                     $result = $this->requestModel->handleRequest($request_id,'confirm');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }else{
+                    $result = $this->requestModel->handleRequest($request_id,'reject');
+                     if($result){
+                         redirect('requests/pendingrequests');
+                     }else{
+                         echo 'Error Occured';
+                     }
+                }
+            }else{
+
+            }
+        }
+        
+         
+     }
+
      public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // Process the form
@@ -62,7 +91,39 @@
                 $data['description_err'] = "Description is required!";
             }
 
-            if(empty($data['title_err']) && empty($data['amount_err']) && empty($data['description_err'])){
+            // File handling 
+            $filename = $_FILES["evidence-image"]["name"];
+            $tempname = $_FILES["evidence-image"]["tmp_name"];
+            $error = $_FILES["evidence-image"]["error"];
+            $file_type = $_FILES["evidence-image"]["type"];
+            $file_ext = explode(".",$file_type);
+            $file_actual_ext = strtolower(end($file_ext));
+            $allowed = array('image/jpg','image/jpeg','image/png');
+            
+            if(empty($filename)){
+                $data['file_err'] = "Select an evidence image!";
+            }else{
+                if(in_array($file_actual_ext,$allowed)){
+                    if($error === 0){
+                        $new_file_name = uniqid('',true).'.'.$file_actual_ext;
+                        // Change this path
+                        $file_destination = "/Applications/XAMPP/xamppfiles/htdocs/project/public/upload-images/".$filename;
+                        $result = move_uploaded_file($tempname,$file_destination);
+                        if($result){
+                            $data['file_err'] = "";
+                        }else{
+                            $data['file_err'] = "Error in uploading the file!";
+                        }
+                    }else{
+                        // Error message when uploading image
+                        $data['file_err'] = "Error in uploading the file!";
+                    }
+                }else{
+                    $data['file_err'] = "Different file type!";
+                }   
+            }
+
+            if(empty($data['title_err']) && empty($data['amount_err']) && empty($data['description_err']) && empty($data['file_err'])){
                 // Data is validated
 
                 $result = $this->requestModel->addRequest($data['title'],$data['description'],$data['amount'],$_SESSION['user_id']);
@@ -70,6 +131,7 @@
                     flash('request_add_err','Error in adding the request. Try again!','alert alert-danger');
                     $this->view('requests/add',$data);
                 }else{
+                   
                     flash('request_added','Request added successfully!');
                      // Init data
                     $data = [
