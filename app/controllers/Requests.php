@@ -1,4 +1,5 @@
 <?php
+require_once (APPROOT . '/views/inc/navbar.php');
  class Requests extends Controller{
      public function __construct(){
         if(!isLoggedIn()){
@@ -26,6 +27,7 @@
          ];
          $unreadNotifications = $this->notificationModel->getNotifications($_SESSION['user_id'],'unread');
          $_SESSION['not_unr'] = sizeof($unreadNotifications);
+         $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
 
@@ -72,6 +74,7 @@
                 'title_err' => '',
                 'amount_err' => '',
                 'description_err' => '',
+                'file_err' => '',
             ];
 
             // Validate the title
@@ -125,8 +128,7 @@
 
             if(empty($data['title_err']) && empty($data['amount_err']) && empty($data['description_err']) && empty($data['file_err'])){
                 // Data is validated
-
-                $result = $this->requestModel->addRequest($data['title'],$data['description'],$data['amount'],$_SESSION['user_id']);
+                $result = $this->requestModel->addRequest($data['title'],$data['description'],$data['amount'],$_SESSION['user_id'],$filename);
                 if(!$result){
                     flash('request_add_err','Error in adding the request. Try again!','alert alert-danger');
                     $this->view('requests/add',$data);
@@ -141,6 +143,7 @@
                         'title_err' => '',
                         'amount_err' => '',
                         'description_err' => '',
+                        'file_err'=>'',
                     ];
                     $this->view('requests/add',$data);
                 }
@@ -160,12 +163,12 @@
                 'title_err' => '',
                 'amount_err' => '',
                 'description_err' => '',
+                'file_err'=>'',
             ];
             $this->view('requests/add',$data);
         }
          
      }
-
 
      public function pendingrequests(){
         if(!isLoggedIn()){
@@ -174,7 +177,11 @@
         }if(!isAdmin()){
             redirect('requests');
         }else{
-            $this->view('requests/pending');
+            $requests = $this->requestModel->getUnverifiedRequests();
+            $data = [
+                'requests'=>$requests,
+            ];
+            $this->view('requests/pending',$data);
         }
      }
 

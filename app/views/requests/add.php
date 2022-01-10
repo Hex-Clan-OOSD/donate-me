@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/request_add_form_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/request_add_form_styles.css" />
     <title>Details</title>
     <?php require APPROOT . '/views/inc/favicon.php';?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,16 +21,10 @@
     <div class="card" id="title">
         <h2>Details</h2>
     </div>
-
-
     <div class="card">
-
-
         <div class="allign-items-center">
-
-
             <div style="padding-right: 5%; padding-left: 5%;">
-                <form action="<?php echo URLROOT;?>/requests/add" method="post">
+                <form action="<?php echo URLROOT;?>/requests/add" method="post" enctype="multipart/form-data">
                     <?php flash('request_added')?>
                     <?php flash('request_add_err')?>
                     <div class="form-row">
@@ -41,7 +36,6 @@
                             <span class="invalid-feedback"><?php echo $data['title_err']?></span>
                         </div>
                     </div>
-
                     <div class="form-row">
                         <div class="col">
                             <label for="amount" class="formTitle">Amount</label>
@@ -52,7 +46,6 @@
                             <span class="invalid-feedback"><?php echo $data['amount_err']?></span>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea

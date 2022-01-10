@@ -1,6 +1,6 @@
 <?php
     class Request{
-        private $db;
+        private $dbAdapter;
         public function __construct(){
             $this->dbAdapter = new DatabaseAdapter();
         }
@@ -45,7 +45,20 @@
                 return true;
             }
             return false;
+        }
 
+        // Get all pending requests
+        public function getUnverifiedRequests(){
+            $this->dbAdapter->query('SELECT *,
+                                    requests.id as requestId,
+                                    users.id as userId
+                                    From requests 
+                                    INNER JOIN users
+                                    ON requests.user_id = users.id
+                                    WHERE requests.status = :status');
+            $this->dbAdapter->bind(':status','pending');
+            $results = $this->dbAdapter->resultSet();
+            return $results;
         }
 
         // Get all the requests

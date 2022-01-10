@@ -2,5 +2,6 @@
     background-image: url(../images/signup_page_image.jpg);
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
 }

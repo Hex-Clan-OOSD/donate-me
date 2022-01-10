@@ -1,6 +1,6 @@
 <?php
     class Notification{
-        private $db;
+        private $dbAdapter;
         public function __construct(){
             $this->dbAdapter = new DatabaseAdapter();
         }
@@ -11,7 +11,7 @@
             $this->dbAdapter->bind(':user_id',$userId);
             $this->dbAdapter->bind(':status',$status);
             try{
-                $result = $this->db->resultSet();
+                $result = $this->dbAdapter->resultSet();
                 return $result;
             }catch(Exception $e){
                 return false;

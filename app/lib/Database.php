@@ -12,7 +12,6 @@
         private $user = DB_USER;
         private $password = DB_PASSWORD;
         private $dbname = DB_NAME;
-
         private $database_handler;
         private $statement;
         private $error;

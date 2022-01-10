@@ -1,8 +1,8 @@
 <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark"
   style="padding-left: 15%;padding-right:15%;font-size:1rem;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<?php echo URLROOT ?>/users/admin">
-      <img src="<?php echo URLROOT;?>./images/logo.png" alt="" width="30" height="24"
+    <a class="navbar-brand" href="<?php echo URLROOT ?>/pages/landinguser">
+      <img src="<?php echo URLROOT;?>/images/logo.png" alt="" width="30" height="24"
         class="d-inline-block align-text-top" >
       DONATE ME
     </a>
@@ -22,7 +22,7 @@
           <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/donations/pendingdonations">Pending donations</a>
         </li>
        
-        <!-- <li class="nav-item">
+        <!-- <li class="nav-item">a
           <a class="nav-link active" href="<?php echo URLROOT ?>/notifications"><i class="fa fa-bell"></i><span
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill  <?php echo $_SESSION['not_unr']=='0'?'bg-success':'bg-danger';?>">
               <?php echo $_SESSION['not_unr'];?>
