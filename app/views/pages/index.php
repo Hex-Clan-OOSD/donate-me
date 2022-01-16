@@ -60,17 +60,11 @@
       <h5 class="card-title">Recent Requests</h5>
       </div>
       <div class="card-body">
+        <?php foreach ($data['recent_requests'] as $request):?>
+          <p class="card-text"><?php echo $request->title;?></p>
+          <hr>
+        <?php endforeach;?>
         
-        <p class="card-text">Request 1</p>
-        <hr>
-        <p class="card-text">Request 2</p>
-        <hr>
-        <p class="card-text">Request 3</p>
-        <hr>
-        <p class="card-text">Request 4</p>
-        <hr>
-        <p class="card-text">Request 5</p>
-        <hr>
 
       </div>
     </div>
