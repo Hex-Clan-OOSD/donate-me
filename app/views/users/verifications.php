@@ -34,10 +34,10 @@
             <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i]->id; ?>" method="post">
               <div class="card-in">
                 <div>
-                  <h3><?php echo $data[$i]->first_name." ".$data[$i]->last_name;?></h3>
+                  <h3><?php echo $data[$i]->getFullName();?></h3>
                   <br>
-                  <h5><?php echo $data[$i]->address_line_1." ".$data[$i]->address_line_2;?></h5>
-                  <h5><?php echo $data[$i]->city_town;?></h5>
+                  <h5><?php echo $data[$i]->getAddress();?></h5>
+                  <h5><?php echo $data[$i]->getCityTown();?></h5>
                   <h5><?php echo $data[$i]->state;?></h5>
                   <h5><?php echo $data[$i]->postal_code;?></h5>
                   <h5><?php echo $data[$i]->phone_number;?></h5>
