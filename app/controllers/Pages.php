@@ -40,5 +40,9 @@ require_once (APPROOT . '/views/inc/navbar.php');
         }
     }
     
+    public function settings(){
+        $this->view('pages/settings');
+    }
+    
 
  }

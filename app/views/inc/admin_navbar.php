@@ -35,7 +35,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="<?php echo URLROOT ?>/users/addadmin">Add admin user</a>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="<?php echo URLROOT ?>/pages/settings">Settings</a>
             <a>
               <hr class="dropdown-divider"></a>
             <a class="dropdown-item" href="<?php echo URLROOT ?>/users/signout">Logout</a>
