@@ -20,27 +20,21 @@ require_once (APPROOT . '/views/inc/navbar.php');
 
     public function landinguser(){
         $requestCount = $this->requestModel->getRequestCount();
-        $collectedAmountSet = $this->requestModel->getTotalCollectedAmount();
-        $collectedAmount = 0;
-        foreach ($collectedAmountSet as $item) {
-            $collectedAmount += $item->collected_amount;
-        }
+        $collectedAmount = $this->requestModel->getTotalCollectedAmount();
+        
         if(isLoggedIn() && !isAdmin()){
             $navbar = new NormalUserNavbar();
             $data = [
                  'navbar'=>$navbar,
                  'req_count'=>$requestCount,
                  'amount'=>$collectedAmount,
+                 'recent_requests'=>$this->requestModel->getRecentRequests(),
              ];
              $this->view('pages/index',$data );
         }else if(isLoggedIn() && isAdmin()){
             $navbar = new AdminUserNavbar();
-            $data = [
-                 'navbar'=>$navbar,
-                 'req_count'=>$requestCount,
-                 'amount'=>$collectedAmount,
-             ];
-             $this->view('pages/index',$data );
+            
+             $this->view('pages/admin_landing');
         }else{
             redirect('pages/index');
         }
