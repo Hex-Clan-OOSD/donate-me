@@ -1,4 +1,5 @@
 <?php
+require_once (APPROOT . '/factories/UserFactory.php');
     class User{
         private $dbAdapter;
         public function __construct(){
@@ -11,7 +12,13 @@
             $this->dbAdapter->bind(':role','user');
             $this->dbAdapter->bind(':verified','pending');
             $results = $this->dbAdapter->resultSet();
-            return $results;
+            $users = [];
+            foreach ($results as $user) {
+                $userFactory = new UserFactory();
+                $result_user = $userFactory->getUser($user);
+                $users.array_push($users,$result_user);
+            }
+            return $users;
         }
 
         // Verify the user
