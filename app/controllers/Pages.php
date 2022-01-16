@@ -11,7 +11,10 @@ require_once (APPROOT . '/views/inc/navbar.php');
          $data = [
              'navbar'=>$navbar,
              'req_count'=>$requestCount,
+             'amount'=>$this->requestModel->getTotalCollectedAmount(),
+             'recent_requests'=>$this->requestModel->getRecentRequests(),
          ];
+         
          $this->view('pages/index',$data );
     }
 

@@ -17,6 +17,17 @@
         public function getTotalCollectedAmount(){
             $this->dbAdapter->query('SELECT collected_amount from requests');
             $results = $this->dbAdapter->resultSet();
+            $collected_amount = 0;
+            foreach ($results as $result) {
+                $collected_amount += (float) $result->collected_amount;
+            }
+            return $collected_amount;
+        }
+
+        // Get the recent requests
+        public function getRecentRequests(){
+            $this->dbAdapter->query('SELECT title from requests ORDER BY created_at DESC LIMIT 5');
+            $results = $this->dbAdapter->resultSet();
             return $results;
         }
 
