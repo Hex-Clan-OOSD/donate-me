@@ -14,7 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<?php require APPROOT . '/views/inc/request_navbar.php';?>
     <div class="container py-5">
     <div class="row">
         <div class="col-md-10">

@@ -22,22 +22,25 @@
     <h1>Notifications</h1>
         <div class="card w-100">
             <?php foreach ($data['notifications'] as $notification): ?>
-            <div class="card-body">
-                <div class="row">
-                    <div>
-                    <i class="fa fa-user fa-fw"></i>
+                <form method="POST" action="<?php echo URLROOT;?>/notifications/markAsRead/<?php echo $notification->id; ?>">
+                    <div class="card-body">
+                        <div class="row">
+                            <div>
+                            <i class="fa fa-user fa-fw"></i>
+                            </div>
+                            <div>
+                                <p>
+                                    <?php echo $notification->title?>
+                                </p>
+                                <p><?php echo $notification->description ?></p>
+                            </div>
+                        </div>
+                        <div>
+                        <button type="sumbit" class="btn btn-success">Mark as read</button>
+                        </div>
+                        <hr>
                     </div>
-                    <div>
-                        <p>
-                            <?php echo $notification->title?>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                <button type="button" class="btn btn-success">Mark as read</button>
-                </div>
-                <hr>
-            </div>
+                </form>
             <?php endforeach;?>        
         </div>
 

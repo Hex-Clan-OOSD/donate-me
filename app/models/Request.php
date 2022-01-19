@@ -119,6 +119,14 @@
             $this->dbAdapter->execute();
             return $this->dbAdapter->rowCount();
         }
+
+        // Get the pending request count
+        public function getRequestCountToStatus($status){
+            $this->dbAdapter->query('SELECT * from requests WHERE status=:status');
+            $this->dbAdapter->bind(':status',$status);
+            $this->dbAdapter->execute();
+            return $this->dbAdapter->rowCount();
+        }
         
 
     }

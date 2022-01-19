@@ -29,7 +29,7 @@
               </div>
               <div class="col">
                 <div class="title">Users</div>
-                <div class="value">234</div>
+                <div class="value"><?php echo $data['verified-users-count']?></div>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
               </div>
               <div class="col">
                 <div class="title">Requests</div>
-                <div class="value">326</div>
+                <div class="value"><?php echo $data['verified-requests-count']?></div>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
               </div>
               <div class="col">
                 <div class="title">Donations</div>
-                <div class="value">402</div>
+                <div class="value"><?php echo $data['verified-donations-count']?></div>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
               </div>
               <div class="col">
                 <div class="title">Pending Users</div>
-                <div class="value">34</div>
+                <div class="value"><?php echo $data['pending-users-count'] ?></div>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
               </div>
               <div class="col">
                 <div class="title">Pending Requests</div>
-                <div class="value">98</div>
+                <div class="value"><?php echo $data['pending-requests-count'] ?></div>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
               </div>
               <div class="col">
                 <div class="title">Pending Donations</div>
-                <div class="value">127</div>
+                <div class="value"><?php echo $data['pending-donations-count']?></div>
               </div>
             </div>
           </div>

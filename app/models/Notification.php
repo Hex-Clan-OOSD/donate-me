@@ -43,5 +43,21 @@
                 return false;
             }
         }
+
+        // Update a notification status
+        public function updateNotification($status,$id){
+            $this->dbAdapter->query('UPDATE notifications SET status=:status WHERE id=:id');
+            $this->dbAdapter->bind(':status',$status);
+            $this->dbAdapter->bind(':id',$id);
+            try{
+                if($this->dbAdapter->execute()){
+                    return true;
+                }else{
+                    return false;
+                }
+            }catch (Exception $e){
+                return false;
+            }
+        }
     }
 ?>

@@ -63,7 +63,7 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $data = $this->userModel->getUnVerifiedUsers();
+                $data = $this->userModel->getUsersByRoleAndStatus("user","pending");
                 $this->view('users/verifications',$data);
             }
         }
