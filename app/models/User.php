@@ -7,12 +7,12 @@ require_once (APPROOT . '/factories/UserFactory.php');
         }
 
         // Get unverified users
-        public function getUnVerifiedUsers(){
+        public function getUsersByRoleAndStatus($role,$status){
             $this->dbAdapter->query('SELECT * FROM users WHERE role=:role AND verified=:verified');
-            $this->dbAdapter->bind(':role','user');
-            $this->dbAdapter->bind(':verified','pending');
+            $this->dbAdapter->bind(':role',$role);
+            $this->dbAdapter->bind(':verified',$status);
             $results = $this->dbAdapter->resultSet();
-            $users = [];
+            $users = array();
             foreach ($results as $user) {
                 $userFactory = new UserFactory();
                 $result_user = $userFactory->getUser($user);

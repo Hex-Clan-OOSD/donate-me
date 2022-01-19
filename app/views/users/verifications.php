@@ -31,16 +31,16 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card1">
-            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i]->id; ?>" method="post">
+            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i]->getId(); ?>" method="post">
               <div class="card-in">
                 <div>
                   <h3><?php echo $data[$i]->getFullName();?></h3>
                   <br>
                   <h5><?php echo $data[$i]->getAddress();?></h5>
                   <h5><?php echo $data[$i]->getCityTown();?></h5>
-                  <h5><?php echo $data[$i]->state;?></h5>
-                  <h5><?php echo $data[$i]->postal_code;?></h5>
-                  <h5><?php echo $data[$i]->phone_number;?></h5>
+                  <h5><?php echo $data[$i]->getState();?></h5>
+                  <h5><?php echo $data[$i]->getPostalCode();?></h5>
+                  <h5><?php echo $data[$i]->getPhoneNumber();?></h5>
                 </div>
                 <br>
                 <div class="row">
@@ -62,16 +62,16 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card1">
-            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i+1]->id; ?>" method="post">
+            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i]->getId(); ?>" method="post">
             <div class="card-in">
               <div>
-                <h3><?php echo $data[$i+1]->first_name." ".$data[$i]->last_name;?></h3>
-                <br>
-                <h5><?php echo $data[$i+1]->address_line_1." ".$data[$i]->address_line_2;?></h5>
-                <h5><?php echo $data[$i+1]->city_town;?></h5>
-                <h5><?php echo $data[$i+1]->state;?></h5>
-                <h5><?php echo $data[$i+1]->postal_code;?></h5>
-                <h5><?php echo $data[$i+1]->phone_number;?></h5>
+                <h3><?php echo $data[$i]->getFullName();?></h3>
+                  <br>
+                  <h5><?php echo $data[$i]->getAddress();?></h5>
+                  <h5><?php echo $data[$i]->getCityTown();?></h5>
+                  <h5><?php echo $data[$i]->getState();?></h5>
+                  <h5><?php echo $data[$i]->getPostalCode();?></h5>
+                  <h5><?php echo $data[$i]->getPhoneNumber();?></h5>
               </div>
               <br>
               <div class="row">

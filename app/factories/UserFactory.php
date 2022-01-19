@@ -1,25 +1,35 @@
 <?php
-    interface User{
+    interface IUser{
+        public function getId();
         public function getFullName();
         public function getAddress();
         public function getRole();
-        public function getCityTown();  
+        public function getCityTown();
+        public function getState();
+        public function getPostalCode();  
+        public function getPhoneNumber();
     }
 
-    class NormalUser implements User{
+    class NormalUser implements IUser{
         private $userObject;
 
         function __construct($user){
             $this->userObject = $user;
         }
 
+        public function getId(){
+            return $this->userObject->id;
+        }
+
         public function getFullName(){
-            $fullName = $this->userObject->first_name+" "+$this->userObject->last_name;
+            $fullName = $this->userObject->first_name;
+            $fullName = $fullName." ".$this->userObject->last_name;
             return $fullName;
         }
 
         public function getAddress(){
-            $address = $this->userObject->address_line_1+" "+$this->userObject->address_line_2;
+            $address = $this->userObject->address_line_1;
+            $address = $address." ".$this->userObject->address_line_2;
             return $address;
         }
 
@@ -30,17 +40,34 @@
         public function getCityTown(){
             return $this->userObject->city_town;
         }
+
+        public function getState(){
+            return $this->userObject->state;
+        }
+
+        public function getPostalCode(){
+            return $this->userObject->postal_code;
+        }
+
+        public function getPhoneNumber(){
+            return $this->userObject->phone_number;
+        }
     }
 
-    class AdminUer implements User{
+    class AdminUer implements IUser{
         private $userObject;
 
         function __construct($user){
             $this->userObject = $user;
         }
 
+        public function getId(){
+            return $this->userObject->id;
+        }
+
         public function getFullName(){
-            $fullName = $this->userObject->first_name+" "+$this->userObject->last_name;
+            $fullName = $this->userObject->first_name;
+            $fullName = $fullName." ".$this->userObject->last_name;
             return $fullName;
         }
 
@@ -54,6 +81,18 @@
 
         public function getCityTown(){
             return $this->userObject->city_town;
+        }
+
+         public function getState(){
+            return $this->userObject->state;
+        }
+
+        public function getPostalCode(){
+            return $this->userObject->postal_code;
+        }
+
+        public function getPhoneNumber(){
+            return $this->userObject->phone_number;
         }
     }
 
