@@ -83,6 +83,17 @@ require_once (APPROOT . '/factories/UserFactory.php');
             }
         }
 
+        // Change the password of the user
+        public function changePassword($userEmail,$new_password){
+            $this->dbAdapter->query('UPDATE users SET password = :new_password WHERE email = :email');
+            $this->dbAdapter->bind(':email',$userEmail);
+            $this->dbAdapter->bind(':new_password',$new_password);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
         
     }
 ?>
