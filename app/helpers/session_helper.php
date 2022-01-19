@@ -48,4 +48,9 @@
         return $_SESSION['user_id'];
     }
 
+    // Set the unread notification count
+    function setTheUnreadNotifications($notifications){
+        $_SESSION['not_unr'] = $notifications;
+    }
+
 ?>

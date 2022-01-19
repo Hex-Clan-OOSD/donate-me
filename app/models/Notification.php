@@ -59,5 +59,18 @@
                 return false;
             }
         }
+
+        // Get the unread notifications count
+        public function getUnreadNotificationsCount($user_id){
+            $this->dbAdapter->query('SELECT * FROM notifications WHERE user_id = :user_id AND status=:status');
+            $this->dbAdapter->bind(':status','unread');
+            $this->dbAdapter->bind(':user_id',$user_id);
+            try{
+                $this->dbAdapter->execute();
+                return $this->dbAdapter->rowCount();
+            }catch (Exception $e){
+                return false;
+            }
+        }
     }
 ?>

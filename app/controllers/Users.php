@@ -348,8 +348,7 @@
             $_SESSION['last_name'] = $user->last_name;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
-            
-            
+              
         }
 
 
