@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/request_add_form_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/request_add_form_styles.css" />
     <title>Notifications</title>
     <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
@@ -21,7 +21,7 @@
         
     <h1>Notifications</h1>
         <div class="card w-100">
-            
+            <?php foreach ($data['notifications'] as $notification): ?>
             <div class="card-body">
                 <div class="row">
                     <div>
@@ -29,8 +29,7 @@
                     </div>
                     <div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore
+                            <?php echo $notification->title?>
                         </p>
                     </div>
                 </div>
@@ -39,77 +38,7 @@
                 </div>
                 <hr>
             </div>
-
-            <div class="card-body">
-                <div class="row">
-                    <div>
-                    <i class="fa fa-user fa-fw"></i>
-                    </div>
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore
-                        </p>
-                    </div>
-                </div>
-                <div>
-                <button type="button" class="btn btn-success">Mark as read</button>
-                </div>
-                <hr>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div>
-                    <i class="fa fa-user fa-fw"></i>
-                    </div>
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore
-                        </p>
-                    </div>
-                </div>
-                <div>
-                <button type="button" class="btn btn-success">Mark as read</button>
-                </div>
-                <hr>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div>
-                    <i class="fa fa-user fa-fw"></i>
-                    </div>
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore
-                        </p>
-                    </div>
-                </div>
-                <div>
-                <button type="button" class="btn btn-success">Mark as read</button>
-                </div>
-                <hr>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div>
-                    <i class="fa fa-user fa-fw"></i>
-                    </div>
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore
-                        </p>
-                    </div>
-                </div>
-                <div>
-                <button type="button" class="btn btn-success">Mark as read</button>
-                </div>
-                <hr>
-            </div>
-            
-            
+            <?php endforeach;?>        
         </div>
 
     </section>

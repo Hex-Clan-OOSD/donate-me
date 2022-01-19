@@ -10,7 +10,11 @@
 
         // Render the notification index view
         public function index(){
-            $this->view('notifications/index' );
+            $notifications = $this->notificationModel->getNotificationsByStatus(getLoggedInUserId(),"unread");
+            $data = [
+                'notifications'=>$notifications,
+            ];
+            $this->view('notifications/index',$data);
         }
 
         // Add a notification

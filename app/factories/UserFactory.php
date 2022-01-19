@@ -1,12 +1,12 @@
 <?php
-    interface User{
+    interface IUser{
         public function getFullName();
         public function getAddress();
         public function getRole();
         public function getCityTown();  
     }
 
-    class NormalUser implements User{
+    class NormalUser implements IUser{
         private $userObject;
 
         function __construct($user){
@@ -32,7 +32,7 @@
         }
     }
 
-    class AdminUer implements User{
+    class AdminUer implements IUser{
         private $userObject;
 
         function __construct($user){

@@ -30,5 +30,18 @@
                 return false;
             }
         }
+
+        // Get the notifications by the status
+        public function getNotificationsByStatus($userId,$status){
+            $this->dbAdapter->query('SELECT * FROM notifications WHERE user_id = :user_id and status = :status');
+            $this->dbAdapter->bind(':user_id',$userId);
+            $this->dbAdapter->bind(':status',$status);
+            try{
+                $result = $this->dbAdapter->resultSet();
+                return $result;
+            }catch(Exception $e){
+                return false;
+            }
+        }
     }
 ?>
