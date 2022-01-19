@@ -140,6 +140,38 @@ require_once (APPROOT . '/views/inc/navbar.php');
                         $data['confirm_new_password_err'] = "Error in changing the passwords";
                     }
                 }
+            }elseif($settingType == 'changeEmail'){
+                $data = [
+                    'current_password' => '',
+                    'new_password' => '',  
+                    'confirm_new_password' => '', 
+                    'new_username' => trim($_POST['new_username']), 
+                    'new_phone_number' => '',
+                    'current_password_err' => '',
+                    'new_password_err' => '',
+                    'confirm_new_password_err' =>'',
+                    'new_username_err' => '',
+                    'new_phone_number_err' => '',
+                ];
+                // Validate the email
+                if(empty($data['new_username'])){
+                    $data['new_username_err'] = "Email is Required!";
+                }elseif(!filter_var($data['new_username'],FILTER_VALIDATE_EMAIL)){
+                    $data['new_username_err'] = "Invalid Email!";
+                }elseif($this->userModel->findUserByEmail($data['new_username'])){
+                    $data['new_username_err'] = "User already exists for this email !";
+                }else{
+                    // Validation successfull
+                    $result = $this->userModel->changeEmail($_SESSION['user_email'],$data['new_username']);
+                    if($result){
+                        $data['new_username'] = "";
+                        flash('email-changed',"Email changed successfully!");
+                        $_SESSION['user_email'] = $data['new_username'];
+                    }else{
+                        $data['new_username_err'] = "Error in changing the email";
+                    }
+                }
+               
             }
             $this->view('pages/settings',$data);
         }else{

@@ -94,6 +94,17 @@ require_once (APPROOT . '/factories/UserFactory.php');
             return false;
         }
 
+        // Change the email of the user
+        public function changeEmail($user_email,$new_email){
+            $this->dbAdapter->query('UPDATE users SET email = :new_email WHERE email = :user_email');
+            $this->dbAdapter->bind(':new_email',$new_email);
+            $this->dbAdapter->bind(':user_email',$user_email);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
         
     }
 ?>

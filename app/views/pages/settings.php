@@ -79,14 +79,18 @@
                         <!-- Change User Name -->
                         <div class="card card-outline-secondary">
                             <div class="card-header">
-                                <h3 class="mb-0">Change Username</h3>
+                                <h3 class="mb-0">Change Email</h3>
                             </div>
                             <div class="card-body">
-                                <form class="form" role="form" autocomplete="off">
+                                <?php flash('email-changed')?>
+                                <form class="form" method="POST" action="<?php echo URLROOT;?>/pages/settings/changeEmail">
                                     <div class="form-group">
-                                        <label for="inputName">New User Name</label>
-                                        <input type="text" class="form-control" id="inputName"
-                                            placeholder="New User Name">
+                                        <label for="inputName">New Email</label>
+                                        <input type="text"
+                                            class="form-control <?php echo (!empty($data['new_username_err'])) ? 'is-invalid' : ''; ?>"
+                                            placeholder="New Email" name="new_username"
+                                            value="<?php echo $data['new_username']?>">
+                                            <span class="invalid-feedback"><?php echo $data['new_username_err']?></span>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
