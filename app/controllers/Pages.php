@@ -11,6 +11,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
 
      public function index(){
          $navbar = new AnonymousUserNavbar();
+         $requestCount = $this->requestModel->getRequestCount();
          $data = [
              'navbar'=>$navbar,
              'req_count'=>$requestCount,
