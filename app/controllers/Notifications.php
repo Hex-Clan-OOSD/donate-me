@@ -22,6 +22,7 @@
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $result = $this->notificationModel->updateNotification('read',$notification_id);
                 if($result){
+                    setTheUnreadNotifications($this->notificationModel->getUnreadNotificationsCount(getLoggedInUserId()));
                     redirect('notifications');
                 }else{
                     // Error occured

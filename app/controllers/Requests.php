@@ -27,8 +27,8 @@ require_once (APPROOT . '/factories/RequestFactory.php');
              'message'=>$message,
              'requests' => $requests,
          ];
-         $unreadNotifications = $this->notificationModel->getNotifications($_SESSION['user_id'],'unread');
-         $_SESSION['not_unr'] = sizeof($unreadNotifications);
+         $unreadNotifications = $this->notificationModel->getUnreadNotificationsCount(getLoggedInUserId());
+         setTheUnreadNotifications($unreadNotifications);
          $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
