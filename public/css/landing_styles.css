@@ -37,3 +37,32 @@
     border-radius: 5px;
     margin-top: 2%;
 }
+.detail-box1{
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    color: #fff;
+    
+}
+.detail-box2{
+    background-color: #B9CCED;
+    border-radius: 10px;
+    color: #fff;
+    
+}
+.title{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+.value{
+    font-size: 36px;
+    text-align: right;
+}
+.admin-image{
+    overflow-y: hidden;
+    height: 600px;
+    background-attachment: fixed;
+}
+.admin-landing-img{
+    margin-top: -300px;
+}

@@ -30,9 +30,8 @@
             <i class="fa fa-user"><?php echo " ".$_SESSION['first_name']?></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Recent Donates</a>
-            <a class="dropdown-item" href="#">My Requests</a>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="<?php echo URLROOT ?>/requests/myrequests">My Requests</a>
+            <a class="dropdown-item" href="<?php echo URLROOT ?>/pages/settings">Settings</a>
             <a>
               <hr class="dropdown-divider"></a>
             <a class="dropdown-item" href="<?php echo URLROOT ?>/users/signout">Logout</a>

@@ -8,15 +8,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/home_styles.css" />
-    <link rel="stylesheet" href="<?php echo URLROOT;?>./css/request_add_form_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/home_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/request_add_form_styles.css" />
     <title>Notifications</title>
     <?php require APPROOT . '/views/inc/favicon.php';?>
 </head>
 
 <body>
     <?php require APPROOT . '/views/inc/request_navbar.php';?>
-    <h1>Notifications Page</h1>
+
+    <section class="colored-section bg-light text-dark">
+        
+    <h1>Notifications</h1>
+        <div class="card w-100">
+            <?php foreach ($data['notifications'] as $notification): ?>
+                <form method="POST" action="<?php echo URLROOT;?>/notifications/markAsRead/<?php echo $notification->id; ?>">
+                    <div class="card-body">
+                        <div class="row">
+                            <div>
+                            <i class="fa fa-user fa-fw"></i>
+                            </div>
+                            <div>
+                                <p>
+                                    <?php echo $notification->title?>
+                                </p>
+                                <p><?php echo $notification->description ?></p>
+                            </div>
+                        </div>
+                        <div>
+                        <button type="sumbit" class="btn btn-success">Mark as read</button>
+                        </div>
+                        <hr>
+                    </div>
+                </form>
+            <?php endforeach;?>        
+        </div>
+
+    </section>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

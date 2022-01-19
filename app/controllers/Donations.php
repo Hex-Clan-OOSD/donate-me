@@ -47,9 +47,7 @@
                 }else{
                     if(in_array($file_actual_ext,$allowed)){
                         if($error === 0){
-                            $new_file_name = uniqid('',true).'.'.$file_actual_ext;
-                            // Change this path
-                            $file_destination = "/Applications/XAMPP/xamppfiles/htdocs/project/public/upload-images/".$filename;
+                            $file_destination = UPLOAD_IMAGE_PATH_DONATIONS.$filename;
                             $result = move_uploaded_file($tempname,$file_destination);
                             if($result){
                                 $data['file_err'] = "";

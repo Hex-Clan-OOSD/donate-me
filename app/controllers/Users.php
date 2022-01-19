@@ -52,7 +52,7 @@
                 flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
                 redirect('users/signin');
             }else{
-                $data = $this->userModel->getUnVerifiedUsers();
+                $data = $this->userModel->getUsersByRoleAndStatus("user","pending");
                 $this->view('users/verifications',$data);
             }
         }
@@ -337,8 +337,7 @@
             $_SESSION['last_name'] = $user->last_name;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
-            
-            
+              
         }
 
 

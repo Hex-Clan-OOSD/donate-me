@@ -43,4 +43,14 @@
         }
     }
 
+    // Helper function to get the active user id
+    function getLoggedInUserId(){
+        return $_SESSION['user_id'];
+    }
+
+    // Set the unread notification count
+    function setTheUnreadNotifications($notifications){
+        $_SESSION['not_unr'] = $notifications;
+    }
+
 ?>

@@ -25,8 +25,8 @@ require_once (APPROOT . '/views/inc/navbar.php');
              'message'=>$message,
              'requests' => $requests,
          ];
-         $unreadNotifications = $this->notificationModel->getNotifications($_SESSION['user_id'],'unread');
-         $_SESSION['not_unr'] = sizeof($unreadNotifications);
+         $unreadNotifications = $this->notificationModel->getUnreadNotificationsCount(getLoggedInUserId());
+         setTheUnreadNotifications($unreadNotifications);
          $navbar = new NormalUserNavbar();
          $this->view('requests/index',$data);   
      }
@@ -108,9 +108,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
             }else{
                 if(in_array($file_actual_ext,$allowed)){
                     if($error === 0){
-                        $new_file_name = uniqid('',true).'.'.$file_actual_ext;
-                        // Change this path
-                        $file_destination = "/Applications/XAMPP/xamppfiles/htdocs/project/public/upload-images/".$filename;
+                        $file_destination = UPLOAD_IMAGE_PATH_REQUESTS.$filename;
                         $result = move_uploaded_file($tempname,$file_destination);
                         if($result){
                             $data['file_err'] = "";

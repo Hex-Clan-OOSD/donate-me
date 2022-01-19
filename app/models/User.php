@@ -1,4 +1,5 @@
 <?php
+require_once (APPROOT . '/factories/UserFactory.php');
     class User{
         private $dbAdapter;
         public function __construct(){
@@ -6,12 +7,18 @@
         }
 
         // Get unverified users
-        public function getUnVerifiedUsers(){
+        public function getUsersByRoleAndStatus($role,$status){
             $this->dbAdapter->query('SELECT * FROM users WHERE role=:role AND verified=:verified');
-            $this->dbAdapter->bind(':role','user');
-            $this->dbAdapter->bind(':verified','pending');
+            $this->dbAdapter->bind(':role',$role);
+            $this->dbAdapter->bind(':verified',$status);
             $results = $this->dbAdapter->resultSet();
-            return $results;
+            $users = array();
+            foreach ($results as $user) {
+                $userFactory = new UserFactory();
+                $result_user = $userFactory->getUser($user);
+                $users.array_push($users,$result_user);
+            }
+            return $users;
         }
 
         // Verify the user
@@ -74,6 +81,28 @@
             }else{
                 return false;
             }
+        }
+
+        // Change the password of the user
+        public function changePassword($userEmail,$new_password){
+            $this->dbAdapter->query('UPDATE users SET password = :new_password WHERE email = :email');
+            $this->dbAdapter->bind(':email',$userEmail);
+            $this->dbAdapter->bind(':new_password',$new_password);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
+        // Change the email of the user
+        public function changeEmail($user_email,$new_email){
+            $this->dbAdapter->query('UPDATE users SET email = :new_email WHERE email = :user_email');
+            $this->dbAdapter->bind(':new_email',$new_email);
+            $this->dbAdapter->bind(':user_email',$user_email);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
         }
 
         
