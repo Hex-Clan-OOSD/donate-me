@@ -26,7 +26,7 @@
     </div>
     <br>
     <h1>Pending User Verifications</h1>
-    <?php echo sizeof($data)?>
+  
     <?php for ($i=0; $i <sizeOf($data); $i+=2) {?>
     <div class="row">
       <div class="col-lg-6">
