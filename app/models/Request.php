@@ -50,16 +50,6 @@
 
         }
 
-        // Update the collected amount of the request
-        public function updateCollectedAmount($request_id,$collected_amount,$status){
-            $this->dbAdapter->query('UPDATE requests SET collected_amount=:collected_amount,status=:status WHERE id=:id');
-            $this->dbAdapter->bind(':collected_amount',$collected_amount);
-            $this->dbAdapter->bind(':id',$request_id);
-            $this->dbAdapter->bind(':status',$status);
-            $result = $this->dbAdapter->execute();
-            return $result;
-        }
-
         // Get the request
         public function getRequest($request_id){
             $this->dbAdapter->query('SELECT *,
@@ -104,17 +94,14 @@
         }
 
         // Get all the requests
-        public function getApprovedRequests($user_id){
+        public function getApprovedRequests(){
             $this->dbAdapter->query('SELECT *,
                               requests.id as requestId,
                               users.id as userId
                               FROM requests
                               INNER JOIN users
                               ON requests.user_id = users.id
-                              WHERE requests.status = :status AND requests.user_id != :user_id
                               ORDER BY requests.created_at DESC');
-            $this->dbAdapter->bind(':status','confirm');
-            $this->dbAdapter->bind(':user_id',$user_id);
             $results = $this->dbAdapter->resultSet();
             return $results;
         }

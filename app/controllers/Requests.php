@@ -1,6 +1,5 @@
 <?php
 require_once (APPROOT . '/views/inc/navbar.php');
-require_once (APPROOT . '/factories/RequestFactory.php');
  class Requests extends Controller{
      public function __construct(){
          error_reporting(~E_NOTICE);
@@ -10,7 +9,6 @@ require_once (APPROOT . '/factories/RequestFactory.php');
         }else{
             $this->requestModel = $this->model('Request');
             $this->notificationModel = $this->model('Notification');
-            $this->donationModel = $this->model('Donation');
         }
      }
      public function index(){
@@ -18,7 +16,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
         $monthName = $dateObj->format('F');
         $message = "Have a Good Night!";
         $time = date('H');
-        $requests = $this->requestModel->getApprovedRequests(getLoggedInUserId());
+        $requests = $this->requestModel->getApprovedRequests();
         if($time < 20){
             $message = "Have a Good Day!";
         }
@@ -67,8 +65,6 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                      }
                 }else{
                     $result = $this->requestModel->handleRequest($request_id,'reject');
-                    $this->notificationModel->addNotification('You request rejected!',
-                        'You request of '.$request->title.' was rejected! Please try to submit it again with proper evidenced!',$request->userId);
                      if($result){
                          redirect('requests/pendingrequests');
                      }else{
@@ -161,6 +157,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                     flash('request_add_err','Error in adding the request. Try again!','alert alert-danger');
                     $this->view('requests/add',$data);
                 }else{
+                   
                     flash('request_added','Request added successfully!');
                      // Init data
                     $data = [

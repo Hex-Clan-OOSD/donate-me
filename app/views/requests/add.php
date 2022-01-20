@@ -62,20 +62,19 @@
                             rows="10" name="description" placeholder="Description"></textarea>
                         <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
-
-                    <div class="form-group">
-                        <label for="evidence-image">Upload Evidence</label>
+                    
+                    <!-- <input type="hidden" name="sid" value="1" /> -->
+                    <div>
+                        <p>Upload Evidence</p>
                         <input type="file" name="evidence-image" id="evidence-image" />
-                    </div>
                         
-                   
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Submit
-                        </button>
+                        <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
                     </div>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <p style="color:#dc3545;font-size:16px"><?php echo $data['file_err']?></p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
@@ -107,7 +106,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
         </script>
-         
+         <!-- <script>
+            $(document).ready(function () {
+                $('input[id^=file]').hide();
+                $('#browse').click(function () {
+                    $('input[id^=file]').click();
+                })
+            });
+        </script> -->
 </body>
 
 </html>
