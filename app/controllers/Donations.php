@@ -7,7 +7,8 @@
             }else{
                 $this->donationModel = $this->model('Donation');
                 $this->requestModel = $this->model('Request');
-                $this->notificationModel = $this->model('Notification');;
+                $this->notificationModel = $this->model('Notification');
+                error_reporting(~E_NOTICE);
             }
         }
         

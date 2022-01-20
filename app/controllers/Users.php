@@ -2,6 +2,7 @@
     require_once (APPROOT . '/views/inc/navbar.php');
     class Users extends Controller{
         public function __construct(){
+            error_reporting(~E_NOTICE);
             $this->userModel = $this->model('User');
             $this->notificationModel = $this->model('Notification');;
         }
