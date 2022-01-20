@@ -26,29 +26,28 @@
       
       <div class="card">
         <?php foreach($data['requests'] as $request) : ?>
-          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->requestId; ?>" method="post">
+          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->getRequestId(); ?>" method="post">
             <div class="card1">
             <div>
               <div class="row">
                 <div class= "col-lg-6">
-                  <h3><?php echo $request->title?></h3>
+                  <h3><?php echo $request->getRequestTitle();?></h3>
                   <br>
-                  <h5>Rs: <?php echo $request->total_amount?></h5>
+                  <h5>Rs: <?php echo $request->getTotalAmount();?></h5>
                   <p>Published by,</p>
-                  <h5><? echo $request->first_name.' '.$request->last_name?></h5>
-                  <h5><?php echo $request->phone_number?></h5>
+                  <h5><? echo $request->getOwnerFullName();?></h5>
+                  <h5><?php echo $request->getOwnerPhoneNumber();?></h5>
                   <div>
-                     <h5><?php echo $request->address_line_1?></h5>
-                      <h5><?php echo $request->address_line_2?></h5>
-                      <h5><?php echo $request->city_town?></h5>
-                      <h5><?php echo $request->postal_code?></h5>
-                      <h5><?php echo $request->state?></h5>
+                     <h5><?php echo $request->getOwnerAddress()?></h5>
+                      <h5><?php echo $request->getOwnerCityTown()?></h5>
+                      <h5><?php echo $request->getOwnerPostalCode()?></h5>
+                      <h5><?php echo $request->getOwnerState()?></h5>
                   </div>
                 </div>
                 <div class= "col-lg-6">
                   <p>
-                  <?php echo $request->description?>
-                  <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/requests/<?php echo $request->filename?>" alt="don-pic">
+                  <?php echo $request->getRequestDescription()?>
+                  <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/requests/<?php echo $request->getFileName();?>" alt="don-pic">
                   </p>
                 </div>
               </div>

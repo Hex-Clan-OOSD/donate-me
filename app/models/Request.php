@@ -95,7 +95,12 @@
                                     WHERE requests.status = :status');
             $this->dbAdapter->bind(':status','pending');
             $results = $this->dbAdapter->resultSet();
-            return $results;
+            $result_set = array();
+            $factory = new RequestFactory();
+            foreach ($results as $request) {
+                array_push($result_set,$factory->getRequest($request));
+            }
+            return $result_set;
         }
 
         // Get all the requests
