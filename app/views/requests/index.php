@@ -60,10 +60,10 @@
           <br>
           <div class="row text-muted">
             <div class="col-lg-6">
-              <h6>Total Amount: <?php echo $request->total_amount;?></h6>
+              <h6>Total Amount: Rs: <?php echo $request->total_amount;?></h6>
             </div>
             <div class="col-lg-6">
-              <h6>Amount Collected: <?php echo $request->collected_amount;?></h6>
+              <h6>Amount Collected: Rs: <?php echo $request->collected_amount;?></h6>
             </div>
           </div>
           <br>
