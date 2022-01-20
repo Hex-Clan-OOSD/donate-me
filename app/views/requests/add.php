@@ -38,6 +38,15 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
+                            <select id="req-type" name="req-type" class="form-select form-select-sm" aria-label=".form-select-sm example">                      
+                                <option value="money" selected>Money</option>
+                                <option value="goods">Goods</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
                             <label for="amount" class="formTitle">Amount</label>
                             <input type="text"
                                 class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
@@ -54,16 +63,36 @@
                         <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
 
-                    <form method="get" action="">Upload Evidence
-                        <input type="file" name="file1" id="file1" />
-                        <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
-                    </form>
+                    <div class="form-group">
+                        <label for="evidence-image">Upload Evidence</label>
+                        <input type="file" name="evidence-image" id="evidence-image" />
+                    </div>
+                        
+                   
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Submit
+                        </button>
+                    </div>
 
-
-
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#exampleModal">Submit</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Do you want to add the Request?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Confirm</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>     
             </div>
         </div>
 
@@ -71,46 +100,7 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Submit Confirmation</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Do you want to submit?
-                    
-                    
-                    <p style="color:#dc3545;font-size:16px"><?php echo $data['file_err']?></p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit
-                    </button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Submit Confirmation</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Do you want to submit?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button class="btn btn-primary button-submit" type="submit">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>

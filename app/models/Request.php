@@ -32,9 +32,9 @@
         }
 
         // Add the request
-        public function addRequest($title,$description,$amount,$user_id,$file_name){
-            $this->dbAdapter->query('INSERT INTO requests (title,description,total_amount,collected_amount,user_id,status,filename)
-            VALUES (:title,:description,:total_amount,:collected_amount,:user_id,:status,:filename)');
+        public function addRequest($title,$description,$amount,$user_id,$file_name,$req_type){
+            $this->dbAdapter->query('INSERT INTO requests (title,description,total_amount,collected_amount,user_id,status,filename,req_type)
+            VALUES (:title,:description,:total_amount,:collected_amount,:user_id,:status,:filename,:req_type)');
             $this->dbAdapter->bind(':title',$title);
             $this->dbAdapter->bind(':description',$description);
             $this->dbAdapter->bind(':total_amount',$amount);
@@ -42,6 +42,7 @@
             $this->dbAdapter->bind(':user_id',$user_id);
             $this->dbAdapter->bind(':status','pending');
             $this->dbAdapter->bind(':filename',$file_name);
+            $this->dbAdapter->bind(':req_type',$req_type);
             if($this->dbAdapter->execute()){
                 return true;
             }

@@ -72,7 +72,9 @@
         }
 
         public function getAddress(){
-            
+            $address = $this->userObject->address_line_1;
+            $address = $address." ".$this->userObject->address_line_2;
+            return $address;
         }
 
         public function getRole(){
