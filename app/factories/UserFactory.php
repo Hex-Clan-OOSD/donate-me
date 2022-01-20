@@ -8,6 +8,7 @@
         public function getState();
         public function getPostalCode();  
         public function getPhoneNumber();
+        public function isAdmin();
     }
 
     class NormalUser implements IUser{
@@ -52,6 +53,10 @@
         public function getPhoneNumber(){
             return $this->userObject->phone_number;
         }
+
+        public function isAdmin(){
+            return false;
+        }
     }
 
     class AdminUer implements IUser{
@@ -95,6 +100,10 @@
 
         public function getPhoneNumber(){
             return $this->userObject->phone_number;
+        }
+
+        public function isAdmin(){
+            return true;
         }
     }
 
