@@ -6,7 +6,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
         $this->requestModel = $this->model('Request');
         $this->userModel = $this->model('User');
         $this->donationModel = $this->model('Donation');
-        //error_reporting(~E_NOTICE);
+        error_reporting(~E_NOTICE);
      }
 
      public function index(){
@@ -195,7 +195,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
                     $result = $this->userModel->changePhoneNumber($_SESSION['user_email'],$data['new_phone_number']);
                     if($result){
                         flash('phone_number_changed','Phone number changed succesfully!');
-                        
+
                     }else{
                         $data['phone_number_err'] = "Error in changing the phone number";
                     }
