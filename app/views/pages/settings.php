@@ -111,10 +111,15 @@
                                 <h3 class="mb-0">Change Phone Number</h3>
                             </div>
                             <div class="card-body">
-                                <form class="form" role="form" autocomplete="off">
+                                <?php flash('phone_number_changed')?>
+                                <form class="form" method="POST" action="<?php echo URLROOT;?>/pages/settings/changePhoneNumber">
                                     <div class="form-group">
                                         <label for="inputPasswordOld">New Phone Number</label>
-                                        <input type="password" class="form-control" id="inputPasswordOld" required="">
+                                        <input type="text"
+                                            class="form-control <?php echo (!empty($data['new_phone_number_err'])) ? 'is-invalid' : ''; ?>"
+                                            placeholder="New Phone Number" name="new_phone_number"
+                                            value="<?php echo $data['new_phone_number']?>">
+                                            <span class="invalid-feedback"><?php echo $data['new_phone_number_err']?></span>
                                         <div class="form-group">
                                             <button type="submit"
                                                 class="btn btn-success btn-lg float-right">Save</button>

@@ -105,6 +105,17 @@ require_once (APPROOT . '/factories/UserFactory.php');
             return false;
         }
 
+        // Change the phone number of the user
+        public function changePhoneNumber($user_email,$phone_number){
+            $this->dbAdapter->query('UPDATE users SET phone_number = :new_phone_number WHERE email = :user_email');
+            $this->dbAdapter->bind(':new_phone_number',$phone_number);
+            $this->dbAdapter->bind(':user_email',$user_email);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
         
     }
 ?>
