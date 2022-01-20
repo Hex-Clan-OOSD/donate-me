@@ -39,7 +39,10 @@ require_once (APPROOT . '/factories/RequestFactory.php');
          $requests = $this->requestModel->getUserRequests(getLoggedInUserId());
          foreach ($requests as $request) {
              $donations = $this->donationModel->getDonationsForRequest($request->id);
-             $requestItem = new RequestFactory($donations,$request);
+             $requestItem = [
+                 'request' => $request,
+                 'donations' => $donations,
+             ];
              array_push($data,$requestItem);
          }
          $navbar = new NormalUserNavbar();
@@ -51,11 +54,12 @@ require_once (APPROOT . '/factories/RequestFactory.php');
              redirect('/signin');
          }else{
              $request = $this->requestModel->getRequest($request_id);
+             print_r($request);
              if($_SERVER['REQUEST_METHOD']=='POST'){
                  if($_POST["request-button"] == 'confirm'){
                      $result = $this->requestModel->handleRequest($request_id,'confirm');
-                     $this->notificationModel->addNotification('You request confimed!',
-                        'Congratulations!!! You request of '.$request->title.' was approved!',$request->userId);
+                     $this->notificationModel->addNotification('You request confirmed!',
+                        'Congratulations!!! Your request of '.$request->title.' was approved!',$request->userId);
                      if($result){
                          redirect('requests/pendingrequests');
                      }else{

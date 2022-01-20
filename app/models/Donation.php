@@ -45,7 +45,9 @@
             $this->dbAdapter->query('SELECT *,
                                     donations.id as donationId,
                                     users.id as userId,
-                                    donations.user_id as donationUser
+                                    donations.user_id as donationUser,
+                                    requests.filename as requestFilename,
+                                    donations.filename as donationFileName
                                     From donations 
                                     INNER JOIN users
                                     ON donations.user_id = users.id

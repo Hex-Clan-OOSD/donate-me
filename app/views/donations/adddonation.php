@@ -41,7 +41,7 @@
                     <h6 style="text-align: justify;"><?php echo $data['request']->description?></h6>
                     <div class="card">
                         <img class="bill"
-                            src="<?php echo URLROOT; ?>/upload-images/<?php echo $data['request']->filename?>"
+                            src="<?php echo URLROOT; ?>/upload-images/requests/<?php echo $data['request']->filename?>"
                             alt="pic" />
                     </div>
                 </div>

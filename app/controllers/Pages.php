@@ -3,10 +3,10 @@ require_once (APPROOT . '/views/inc/navbar.php');
  class Pages extends Controller{
 
      public function __construct(){
+         error_reporting(E_ERROR | E_PARSE);
         $this->requestModel = $this->model('Request');
         $this->userModel = $this->model('User');
         $this->donationModel = $this->model('Donation');
-        error_reporting(~E_NOTICE);
      }
 
      public function index(){
@@ -23,6 +23,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
     }
 
     public function landinguser(){
+        
         $requestCount = $this->requestModel->getRequestCount();
         $collectedAmount = $this->requestModel->getTotalCollectedAmount();
         if(isLoggedIn() && !isAdmin()){

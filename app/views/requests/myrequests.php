@@ -33,19 +33,18 @@
             <div class="card-bod">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4 class="card-title">Request <?php echo $request->getRequestId();?></h4>
+                        <h4 class="card-title">Request <?php echo $request['request']->id;?></h4>
                         <p>
-                            <?php echo $request->getRequestDescription()?>
+                            <?php echo $request['request']->description?>
                         </p>
-                        <button type="button" class="btn btn-dark">Edit </button>
-                        <button type="button" class="btn btn-warning">Close</button>
+                       
                     </div>
                     <div class="myreq-detail col-lg-6">
-                        <h6>Amount collected: Rs: <?php echo $request->getCollectedAmount()?></h6>
+                        <h6>Amount collected: Rs: <?php echo $request['request']->collected_amount?></h6>
                         <br>
                         <h5>Donator's list: </h5>
                         <div class="don-list">
-                            <?php foreach($request->getDonations() as $donation): ?>
+                            <?php foreach($request['donations'] as $donation): ?>
                             <p><?php echo $donation->first_name." ".$donation->last_name ?> : Rs: <?php echo $donation->amount ?></p>
                             <?php endforeach ?>
                         </div>

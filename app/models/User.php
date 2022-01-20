@@ -12,11 +12,13 @@ require_once (APPROOT . '/factories/UserFactory.php');
             $this->dbAdapter->bind(':role',$role);
             $this->dbAdapter->bind(':verified',$status);
             $results = $this->dbAdapter->resultSet();
-            $users = array();
+            $users = [];
+            $i = 0;
+            $userFactory = new UserFactory();
             foreach ($results as $user) {
-                $userFactory = new UserFactory();
-                $result_user = $userFactory->getUser($user);
-                $users.array_push($users,$result_user);
+                $result_user = $userFactory->getUser($user);   
+                $users[$i] = $result_user;
+                $i += 1;
             }
             return $users;
         }
