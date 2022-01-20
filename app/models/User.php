@@ -64,7 +64,11 @@ require_once (APPROOT . '/factories/UserFactory.php');
             $this->dbAdapter->bind(':city_town',$city_town);
             $this->dbAdapter->bind(':postal_code',$postal_code);
             $this->dbAdapter->bind(':state',$state);
-            $this->dbAdapter->bind(':verified','pending');
+            if($role == 'admin'){
+                $this->dbAdapter->bind(':verified','confirm');
+            }else{
+                $this->dbAdapter->bind(':verified','pending');
+            }
             if($this->dbAdapter->execute()){
                 return true;
             }
