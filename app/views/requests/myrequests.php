@@ -33,7 +33,7 @@
             <div class="card-bod">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4 class="card-title">1. Request <?php echo $request->getRequestId();?></h4>
+                        <h4 class="card-title">Request <?php echo $request->getRequestId();?></h4>
                         <p>
                             <?php echo $request->getRequestDescription()?>
                         </p>

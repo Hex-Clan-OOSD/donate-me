@@ -47,7 +47,7 @@
                     <h5>Donate Item:  </h5> <p>-</p>
                   </div>
                   <div class= "col-lg-6 ">
-                      <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/<?php echo $donation->filename?>" alt="don-pic">
+                      <img class="img-bill" src="<?php echo URLROOT;?>/upload-images/donations/<?php echo $donation->filename?>" alt="don-pic">
                       
                       <div>
                         <br>
