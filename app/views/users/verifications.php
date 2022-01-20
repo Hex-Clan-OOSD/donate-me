@@ -26,6 +26,7 @@
     </div>
     <br>
     <h1>Pending User Verifications</h1>
+    <?php echo sizeof($data)?>
     <?php for ($i=0; $i <sizeOf($data); $i+=2) {?>
     <div class="row">
       <div class="col-lg-6">
@@ -58,20 +59,20 @@
           </div>
         </div>
       </div>
-      <?php if(sizeof($data)<$i+1):?>
+      <?php if(sizeof($data)> $i+1):?>
       <div class="col-lg-6">
         <div class="card">
           <div class="card1">
-            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i]->getId(); ?>" method="post">
+            <form action="<?php echo URLROOT;?>/users/verifyUser/<?php echo $data[$i+1]->getId(); ?>" method="post">
             <div class="card-in">
               <div>
-                <h3><?php echo $data[$i]->getFullName();?></h3>
+                <h3><?php echo $data[$i+1]->getFullName();?></h3>
                   <br>
-                  <h5><?php echo $data[$i]->getAddress();?></h5>
-                  <h5><?php echo $data[$i]->getCityTown();?></h5>
-                  <h5><?php echo $data[$i]->getState();?></h5>
-                  <h5><?php echo $data[$i]->getPostalCode();?></h5>
-                  <h5><?php echo $data[$i]->getPhoneNumber();?></h5>
+                  <h5><?php echo $data[$i+1]->getAddress();?></h5>
+                  <h5><?php echo $data[$i+1]->getCityTown();?></h5>
+                  <h5><?php echo $data[$i+1]->getState();?></h5>
+                  <h5><?php echo $data[$i+1]->getPostalCode();?></h5>
+                  <h5><?php echo $data[$i+1]->getPhoneNumber();?></h5>
               </div>
               <br>
               <div class="row">

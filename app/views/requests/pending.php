@@ -26,7 +26,7 @@
       
       <div class="card">
         <?php foreach($data['requests'] as $request) : ?>
-          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->getRequestId(); ?>" method="post">
+          <form action="<?php echo URLROOT;?>/requests/confirm/<?php echo $request->getRequestId() ?>" method="post">
             <div class="card1">
             <div>
               <div class="row">
@@ -35,7 +35,8 @@
                   <br>
                   <h5>Rs: <?php echo $request->getTotalAmount();?></h5>
                   <p>Published by,</p>
-                  <h5><? echo $request->getOwnerFullName();?></h5>
+                  
+                  <h5><?php echo $request->getOwnerFullName() ?></h5>
                   <h5><?php echo $request->getOwnerPhoneNumber();?></h5>
                   <div>
                      <h5><?php echo $request->getOwnerAddress()?></h5>

@@ -41,7 +41,7 @@
                     <h6 style="text-align: justify;"><?php echo $data['request']->description?></h6>
                     <div class="card">
                         <img class="bill"
-                            src="<?php echo URLROOT; ?>/upload-images/<?php echo $data['request']->filename?>"
+                            src="<?php echo URLROOT; ?>/upload-images/requests/<?php echo $data['request']->filename?>"
                             alt="pic" />
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     
                     <div class="form-row">
                         <div class="col">
-                            <label for="amount" class="formTitle">Amount</label>
+                            <label for="amount" class="formTitle">Amount in Rupees</label>
                             <input type="text"
                                 class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
                                 placeholder="Donation Amount" name="amount" value="<?php echo $data['amount'] ?>">

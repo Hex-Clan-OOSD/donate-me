@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label for="amount" class="formTitle">Amount</label>
+                            <label for="amount" class="formTitle">Amount in Rupees</label>
                             <input type="text"
                                 class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
                                 placeholder="Amount or Estimated Amount" name="amount"

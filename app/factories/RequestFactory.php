@@ -30,7 +30,7 @@
         }
 
         function getRequestId(){
-            return $this->request->id;
+            return $this->request->requestId;
         }
 
         public function getRequestTitle(){
@@ -95,7 +95,7 @@
         }
 
         function getRequestId(){
-            return $this->request->id;
+            return $this->request->requestId;
         }
 
         public function getRequestTitle(){

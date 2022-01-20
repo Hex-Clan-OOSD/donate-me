@@ -16,17 +16,17 @@
           <a class="nav-link active" aria-current="page"  href="<?php echo URLROOT ?>/users/userverifications">User verifications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page"  href="<?php echo URLROOT ?>/requests/pendingrequests">Pending requests</a>
+          <a class="nav-link active" aria-current="page"  href="<?php echo URLROOT ?>/requests/pendingrequests">Pending requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/donations/pendingdonations">Pending donations</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo URLROOT ?>/donations/pendingdonations">Pending donations</a>
         </li>
         <li class="nav-item dropdown" style="margin-left: 20px;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
             data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user"><?php echo " ".$_SESSION['first_name']?></i>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu active" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="<?php echo URLROOT ?>/users/addadmin">Add admin user</a>
             <a class="dropdown-item" href="<?php echo URLROOT ?>/pages/settings">Settings</a>
             <a>
