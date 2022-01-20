@@ -38,10 +38,9 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label for="req-type" class="formTitle">Select type</label>
                             <select id="req-type" name="req-type" class="form-select form-select-sm" aria-label=".form-select-sm example">                      
                                 <option value="money" selected>Money</option>
-                                <option value="goods" selected>Goods</option>
+                                <option value="goods">Goods</option>
                             </select>
 
                         </div>
@@ -64,13 +63,17 @@
                         <span class="invalid-feedback"><?php echo $data['description_err']?></span>
                     </div>
 
-                    <form method="get" action="">Upload Evidence
-                        <input type="file" name="file1" id="file1" />
-                    </form>
-                    
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Submit
-                    </button>
+                    <div class="form-group">
+                        <label for="evidence-image">Upload Evidence</label>
+                        <input type="file" name="evidence-image" id="evidence-image" />
+                    </div>
+                        
+                   
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Submit
+                        </button>
+                    </div>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">

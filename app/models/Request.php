@@ -42,7 +42,7 @@
             $this->dbAdapter->bind(':user_id',$user_id);
             $this->dbAdapter->bind(':status','pending');
             $this->dbAdapter->bind(':filename',$file_name);
-            $this->dbAdapter->bind(':req-type',$req_type);
+            $this->dbAdapter->bind(':req_type',$req_type);
             if($this->dbAdapter->execute()){
                 return true;
             }
