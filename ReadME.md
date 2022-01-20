@@ -69,3 +69,9 @@ Donations table modification query
 ```sql
 ALTER TABLE `donations` ADD `filename` VARCHAR(100) NOT NULL AFTER `status`;
 ```
+
+Request table modification query
+
+```sql
+ALTER TABLE `requests` ADD `req_type` VARCHAR(10) NULL DEFAULT NULL AFTER `filename`;
+```

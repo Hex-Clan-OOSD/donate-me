@@ -89,6 +89,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
                 'title'=>trim($_POST['title']),
                 'amount'=>trim($_POST['amount']),
                 'description'=>trim($_POST['description']),
+                'req_type'=>trim($_POST['re-type']),
                 'title_err' => '',
                 'amount_err' => '',
                 'description_err' => '',
@@ -144,7 +145,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
 
             if(empty($data['title_err']) && empty($data['amount_err']) && empty($data['description_err']) && empty($data['file_err'])){
                 // Data is validated
-                $result = $this->requestModel->addRequest($data['title'],$data['description'],$data['amount'],$_SESSION['user_id'],$filename);
+                $result = $this->requestModel->addRequest($data['title'],$data['description'],$data['amount'],$_SESSION['user_id'],$filename,$data['req-type']);
                 if(!$result){
                     flash('request_add_err','Error in adding the request. Try again!','alert alert-danger');
                     $this->view('requests/add',$data);
