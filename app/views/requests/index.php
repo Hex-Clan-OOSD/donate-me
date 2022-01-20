@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-
+  
     <div class="card2 card text-center">
       <div class="card-header">
         <h5 class="card-title">
@@ -44,6 +44,7 @@
           to help. </p>
         <a href="<?php echo URLROOT ?>/requests/add" class="btn btn-primary"><i class="fa fa-pencil"></i> Create New
           Request</a>
+          <?php flash('not-verified')?>
       </div>
     </div>
 

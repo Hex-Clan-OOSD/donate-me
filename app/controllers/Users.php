@@ -528,6 +528,7 @@
             unset($_SESSION['last_name']);
             unset($_SESSION['user_email']);
             unset($_SESSION['user_role']);
+            unset($_SESSION['verified']);
             session_destroy();
             redirect('users/signin');
         }
@@ -538,7 +539,7 @@
             $_SESSION['last_name'] = $user->last_name;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
-              
+            $_SESSION['verified'] = $user->verified;
         }
 
 

@@ -80,6 +80,11 @@ require_once (APPROOT . '/factories/RequestFactory.php');
      }
 
      public function add(){
+         if($_SESSION['verified'] == 'pending'){
+             flash('not-verified','You cannot post requests until your account get verified','alert alert-danger');
+             redirect('requests/index');
+             return;
+         }
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // Process the form
            
