@@ -3,6 +3,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
 require_once (APPROOT . '/factories/RequestFactory.php');
  class Requests extends Controller{
      public function __construct(){
+         error_reporting(~E_NOTICE);
         if(!isLoggedIn()){
             flash('not_sign_in','You are not authorized! Sign in to continue!','alert alert-danger');
             redirect('users/signin');

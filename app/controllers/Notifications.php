@@ -1,6 +1,7 @@
 <?php 
     class Notifications extends Controller{
         public function __construct(){
+            error_reporting(~E_NOTICE);
             if(!isLoggedIn()){
                 redirect('');
             }else{
