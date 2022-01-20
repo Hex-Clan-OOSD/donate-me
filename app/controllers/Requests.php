@@ -41,6 +41,7 @@ require_once (APPROOT . '/factories/RequestFactory.php');
              $requestItem = new RequestFactory($donations,$request);
              array_push($data,$requestItem);
          }
+         $navbar = new NormalUserNavbar();
          $this->view('requests/myrequests',$data);
      }
 
