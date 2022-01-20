@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>HexClan</title>
     <?php require APPROOT . '/views/inc/favicon.php';?>
-    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/signup_styles.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT;?>/css/admin_add_styles.css" />
 </head>
 
-<body class="hero-image">
-    <div style="padding-left: 15%; padding-top:50px; width:40%;margin-bottom:20px;">
+<body class="add-admin-image">
+    <div class="content" >
+    <div style="padding-left: 22%; padding-top:50px; width:55%;margin-bottom:20px;">
         <h2 class="text-left">Add New Admin User</h2>
     </div>
-    <div style="margin-right: 3%; padding-left: 15%; width: 45%;">
+    <div style="margin-right: 3%; padding-left: 15%; width: 55%;">
     <?php flash('admin-user-added')?>
         <form action="<?php echo URLROOT;?>/users/addadmin" method="post">
             <div class="form-row">
@@ -134,6 +135,7 @@
             <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top: 10px; margin-bottom: 10px;">Add</button>
         </form>
         <br>
+    </div>
     </div>
 
 
