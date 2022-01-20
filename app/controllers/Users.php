@@ -3,6 +3,205 @@
     class Users extends Controller{
         public function __construct(){
             $this->userModel = $this->model('User');
+            $this->notificationModel = $this->model('Notification');;
+        }
+
+        public function addadmin(){
+            if(!isAdmin()){
+                redirect('users/signin');
+            }else{
+                $navigationbar = new AdminUserNavbar();
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                // Process the form
+               
+                // Sanitize the POST data
+                $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+
+
+                 // Init data
+                 $data = [
+                    'first_name' => trim($_POST['first_name']),
+                    'last_name' => trim($_POST['last_name']),
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'confirm_password' => trim($_POST['confirm_password']),
+                    'phone_number' => trim($_POST['phone_number']),
+                    'address_line_1' => trim($_POST['address_line_1']),
+                    'address_line_2' => trim($_POST['address_line_2']),
+                    'city_town' => trim($_POST['city_town']),
+                    'postal_code' => trim($_POST['postal_code']),
+                    'state' => trim($_POST['state']),
+                    'first_name_err' => '',
+                    'last_name_err' => '',
+                    'email_err' => '',
+                    'password_err' =>'',
+                    'confirm_password_err' => '',
+                    'phone_number_err' => '',
+                    'address_line_1_err' => '',
+                    'address_line_2_err' => '',
+                    'city_town_err' => '',
+                    'postal_code_err' => '',
+                    'state_err' => '',
+                ];
+
+                 // Validate the First Name
+                if(empty($data['first_name'])){
+                    $data['first_name_err'] = "First Name is Required!";
+                }
+                 // Validate the Last Name
+                if(empty($data['last_name'])){
+                    $data['last_name_err'] = "Last Name is Required!";
+                }
+                // Validate the email
+                if(empty($data['email'])){
+                    $data['email_err'] = "Email is Required!";
+                }elseif(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
+                    $data['email_err'] = "Invalid Email!";
+                }else{
+                    // Check whether the email is already in the database
+                    if($this->userModel->findUserByEmail($data['email'])){
+                        $data['email_err'] = "Email is already taken";
+                    }
+                }
+                // Validate the Password
+                if(empty($data['password'])){
+                    $data['password_err'] = "Password is Required!";
+                }elseif(strlen($data['password'])<=8){
+                    $data['password_err'] = "Password must be at least 8 characters!";
+                }elseif(strlen($data['password'])>15){
+                    $data['password_err'] = "Password cannot be more than 15 characters!";
+                }elseif(!preg_match("#[0-9]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 number!";
+                }else if(!preg_match("#[A-Z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Capital character!";
+                }else if(!preg_match("#[a-z]+#",$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 Lowercase character!";
+                }else if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/',$data['password'])){
+                    $data['password_err'] = "Password Must Contain At Least 1 special character!";
+                }
+
+                // Validate the Confirm Password
+                if(empty($data['confirm_password'])){
+                    $data['confirm_password_err'] = "Confirm Password is Required!";
+                }else{
+                    if($data['password'] != $data['confirm_password']){
+                        $data['confirm_password_err'] = "Passwords do not match!";
+                    }
+                }
+
+                // Phone number validation
+                if(empty($data['phone_number'])){
+                    $data['phone_number_err'] = "Phone number is required!";
+                }elseif(strlen($data['phone_number'])!=10){
+                    $data['phone_number_err'] = "Invalid phone number!";
+                }
+
+                // Address line validation
+                if(empty($data['address_line_1'])){
+                    $data['address_line_1_err'] = "Address line 1 is required!";
+                }
+                if(empty($data['address_line_2'])){
+                    $data['address_line_2_err'] = "Address line 2 is required!";
+                }
+
+                // City town validation
+                if(empty($data['city_town'])){
+                    $data['city_town_err'] = "City/Town is required!";
+                }
+
+                // Postal code validation
+                if(empty($data['postal_code'])){
+                    $data['postal_code_err'] = "Postal Code is required!";
+                }
+
+                // State validation
+                if(empty($data['state'])){
+                    $data['state_err'] = "State is required!";
+                }
+
+                // Make sure that all the errors are empty
+                if(empty($data['first_name_err']) && empty($data['last_name_err']) &&empty($data['email_err']) && 
+                    empty($data['password_err']) && empty($data['confirm_password_err']) && 
+                    empty($data['phone_number_err']) && empty($data['address_line_1_err']) && 
+                    empty($data['address_line_2_err']) && empty($data['city_town_err']) &&
+                        empty($data['postal_code_err']) && empty($data['state_err'])){
+                        // Validation sucessful
+                        // Hashed the Password
+                        $hash_password = password_hash($data['password'],PASSWORD_DEFAULT);
+                        $result = $this->userModel->registerUser($data['first_name'],$data['last_name'],$data['email'],
+                        $hash_password,'admin',$data['phone_number'],$data['address_line_1'],$data['address_line_2'],
+                        $data['city_town'],$data['postal_code'],$data['state']);
+                        if($result){
+                            // Admin user added succesfully   
+                            flash('admin-user-added',"Admin user added succesfully!");
+                            $data = [
+                                'first_name' => '',
+                                'last_name' => '',
+                                'email' => '',
+                                'password' => '',
+                                'confirm_password' => '',
+                                'phone_number' => '',
+                                'address_line_1' => '',
+                                'address_line_2' => '',
+                                'city_town' => '',
+                                'postal_code' => '',
+                                'state' => '',
+                                'first_name_err' => '',
+                                'last_name_err' => '',
+                                'email_err' => '',
+                                'password_err' => '',
+                                'confirm_password_err' => '',
+                                'phone_number_err' => '',
+                                'address_line_1_err' => '',
+                                'address_line_2_err' => '',
+                                'city_town_err' => '',
+                                'postal_code_err' => '',
+                                'state_err' => '',
+                            ];
+                            $this->view('users/addadmin',$data);
+                        }else{
+                            // Todo : Show a flash message
+                            die("Error in adding the user!");
+                        }
+                        
+                }else{
+                    // Load the view with errors
+                    $this->view('users/addadmin',$data);
+                }
+                
+
+            }else{
+                // Init data
+                $data = [
+                    'first_name' => '',
+                    'last_name' => '',
+                    'email' => '',
+                    'password' => '',
+                    'confirm_password' => '',
+                    'phone_number' => '',
+                    'address_line_1' => '',
+                    'address_line_2' => '',
+                    'city_town' => '',
+                    'postal_code' => '',
+                    'state' => '',
+                    'first_name_err' => '',
+                    'last_name_err' => '',
+                    'email_err' => '',
+                    'password_err' => '',
+                    'confirm_password_err' => '',
+                    'phone_number_err' => '',
+                    'address_line_1_err' => '',
+                    'address_line_2_err' => '',
+                    'city_town_err' => '',
+                    'postal_code_err' => '',
+                    'state_err' => '',
+                ];
+
+                $this->view('users/addadmin',$data);
+                
+            }
+                
+        }
         }
 
         public function verifyUser($user_id){

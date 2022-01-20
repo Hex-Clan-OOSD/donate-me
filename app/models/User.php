@@ -64,7 +64,11 @@ require_once (APPROOT . '/factories/UserFactory.php');
             $this->dbAdapter->bind(':city_town',$city_town);
             $this->dbAdapter->bind(':postal_code',$postal_code);
             $this->dbAdapter->bind(':state',$state);
-            $this->dbAdapter->bind(':verified','pending');
+            if($role == 'admin'){
+                $this->dbAdapter->bind(':verified','confirm');
+            }else{
+                $this->dbAdapter->bind(':verified','pending');
+            }
             if($this->dbAdapter->execute()){
                 return true;
             }
@@ -98,6 +102,17 @@ require_once (APPROOT . '/factories/UserFactory.php');
         public function changeEmail($user_email,$new_email){
             $this->dbAdapter->query('UPDATE users SET email = :new_email WHERE email = :user_email');
             $this->dbAdapter->bind(':new_email',$new_email);
+            $this->dbAdapter->bind(':user_email',$user_email);
+            if($this->dbAdapter->execute()){
+                return true;
+            }
+            return false;
+        }
+
+        // Change the phone number of the user
+        public function changePhoneNumber($user_email,$phone_number){
+            $this->dbAdapter->query('UPDATE users SET phone_number = :new_phone_number WHERE email = :user_email');
+            $this->dbAdapter->bind(':new_phone_number',$phone_number);
             $this->dbAdapter->bind(':user_email',$user_email);
             if($this->dbAdapter->execute()){
                 return true;

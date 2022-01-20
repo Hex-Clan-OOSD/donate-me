@@ -6,7 +6,7 @@ require_once (APPROOT . '/views/inc/navbar.php');
         $this->requestModel = $this->model('Request');
         $this->userModel = $this->model('User');
         $this->donationModel = $this->model('Donation');
-        //error_reporting(~E_NOTICE);
+        error_reporting(~E_NOTICE);
      }
 
      public function index(){
@@ -165,13 +165,41 @@ require_once (APPROOT . '/views/inc/navbar.php');
                     $result = $this->userModel->changeEmail($_SESSION['user_email'],$data['new_username']);
                     if($result){
                         $data['new_username'] = "";
-                        flash('email-changed',"Email changed successfully!");
+                        flash('email-changed',"Email changed succesfully!");
                         $_SESSION['user_email'] = $data['new_username'];
                     }else{
                         $data['new_username_err'] = "Error in changing the email";
                     }
                 }
                
+            }elseif($settingType == 'changePhoneNumber'){
+                $data = [
+                    'current_password' => '',
+                    'new_password' => '',  
+                    'confirm_new_password' => '', 
+                    'new_username' => '', 
+                    'new_phone_number' => trim($_POST['new_phone_number']),
+                    'current_password_err' => '',
+                    'new_password_err' => '',
+                    'confirm_new_password_err' =>'',
+                    'new_username_err' => '',
+                    'new_phone_number_err' => '',
+                ];
+
+                // Phone number validation
+                if(empty($data['new_phone_number'])){
+                    $data['new_phone_number_err'] = "Phone number is required!";
+                }elseif(strlen($data['new_phone_number'])!=10){
+                    $data['phone_number_err'] = "Invalid phone number!";
+                }else{
+                    $result = $this->userModel->changePhoneNumber($_SESSION['user_email'],$data['new_phone_number']);
+                    if($result){
+                        flash('phone_number_changed','Phone number changed succesfully!');
+
+                    }else{
+                        $data['phone_number_err'] = "Error in changing the phone number";
+                    }
+                }
             }
             $this->view('pages/settings',$data);
         }else{
