@@ -44,19 +44,21 @@
                     <h5>Remaining Amount : Rs.</h5>
                     <h5><?php echo (float) $data['request']->total_amount - (float)$data['request']->collected_amount?>.00</h5>
                 </div>
-
-                <div>
-                    <h3 style="margin-top: 30px;"> Description </h3>
-                    <h6 style="text-align: justify;"><?php echo $data['request']->description?></h6>
-                    <h3 style="margin-top: 30px;">Request Type </h3>
-                    <h6 style="text-align: justify;"><?php echo $data['request']->req_type?> Request</h6>
-                    <div style="margin-top: 30px;">
-                        <h3>Evidence Image</h3>
-                        <img class="bill" style="width: 80%;"
-                            src="<?php echo URLROOT; ?>/upload-images/requests/<?php echo $data['request']->filename?>"
-                            alt="pic" />
+              
+             
+                    <div>
+                        <h3 style="margin-top: 30px;"> Description </h3>
+                        <h6 style="text-align: justify;"><?php echo $data['request']->description?></h6>
+                        <h3 style="margin-top: 30px;">Request Type </h3>
+                        <h6 style="text-align: justify;"><?php echo $data['request']->req_type?> Request</h6>
+                        <div style="margin-top: 30px;">
+                            <h3>Evidence Image</h3>
+                            <img class="bill" style="width: 80%;"
+                                src="<?php echo URLROOT; ?>/upload-images/requests/<?php echo $data['request']->filename?>"
+                                alt="pic" />
+                        </div>
                     </div>
-                </div>
+                
             </div>
         </div>
 
@@ -68,7 +70,7 @@
             <div style="padding-right: 5%; padding-left: 5%;">
                 <form action="<?php echo URLROOT; ?>/donations/adddonation/<?php echo $data['request']->requestId?>"
                     method="post" enctype="multipart/form-data">
-                    
+                    <?php if(((float) $data['request']->total_amount - (float)$data['request']->collected_amount) > 0):?>
                     <div class="form-row">
                         <?php if($data['request']->req_type == 'money'){ ?>
                             <h6 style="text-align: justify;">Enter the amount that you can donate for this money request</h6>
@@ -76,16 +78,18 @@
                             <h6 style="text-align: justify;">Enter the amount that you can donate for this goods request</h6>
                         <?php } ?>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
+                    
+                        <div class="form-row">
+                            <div class="col">
 
-                            <label for="amount" class="formTitle">Amount in Rupees</label>
-                            <input type="text"
-                                class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
-                                placeholder="Donation Amount" name="amount" value="<?php echo $data['amount'] ?>">
-                            <span class="invalid-feedback"><?php echo $data['amount_err'] ?></span>
+                                <label for="amount" class="formTitle">Amount in Rupees</label>
+                                <input type="text"
+                                    class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
+                                    placeholder="Donation Amount" name="amount" value="<?php echo $data['amount'] ?>">
+                                <span class="invalid-feedback"><?php echo $data['amount_err'] ?></span>
+                            </div>
                         </div>
-                    </div>
+                    
                     <br>
                     <div>
                         <p>Upload Evidence</p>
@@ -93,7 +97,7 @@
 
                         <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
                     </div>
-
+                   
                     <br>
 
 
@@ -119,7 +123,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <?php else:?>
+                        <h1>Request is ccompleted</h1>
+                    <?php endif;?>
                 </form>
             </div>
         </div>
