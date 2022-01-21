@@ -22,7 +22,7 @@
                 <h2 class="text-center mb-5">Settings</h2>
                 <ul class="nav nav-fill">
                     <a class="nav-item" href="#formChangePassword">Change Password</a>
-                    <a class="nav-item" href="#formChangeUserName">Change User Name</a>
+                    <a class="nav-item" href="#formChangeUserName">Change Email</a>
                     <a class="nav-item" href="#formChangeNumber">Change Phone Number</a>
                 </ul>
                 <hr class="mb-5">
