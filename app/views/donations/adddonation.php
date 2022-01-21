@@ -28,19 +28,31 @@
         <div>
             <div style="padding-right: 5%; padding-left: 5%;">
                 <div class="form-row">
-                    <h3><?php echo $data['request']->first_name.' '.$data['request']->last_name?></h3>
+                    <h5>Requested person: </h5>
+                    <h5> <?php echo $data['request']->first_name.' '.$data['request']->last_name?></h5>
                 </div>
 
                 <div class="form-row">
-                    <h5> Amount : Rs.</h5>
-                    <h5><?php echo $data['request']->total_amount?></h5>
+                    <h5>Request Amount : Rs.</h5>
+                    <h5><?php echo $data['request']->total_amount?>.00</h5>
+                </div>
+                 <div class="form-row">
+                    <h5>Collected Amount : Rs.</h5>
+                    <h5><?php echo $data['request']->collected_amount?>.00</h5>
+                </div>
+                 <div class="form-row">
+                    <h5>Remaining Amount : Rs.</h5>
+                    <h5><?php echo (float) $data['request']->total_amount - (float)$data['request']->collected_amount?>.00</h5>
                 </div>
 
                 <div>
-                    <h3> Description </h3>
+                    <h3 style="margin-top: 30px;"> Description </h3>
                     <h6 style="text-align: justify;"><?php echo $data['request']->description?></h6>
-                    <div class="card">
-                        <img class="bill"
+                    <h3 style="margin-top: 30px;">Request Type </h3>
+                    <h6 style="text-align: justify;"><?php echo $data['request']->req_type?> Request</h6>
+                    <div style="margin-top: 30px;">
+                        <h3>Evidence Image</h3>
+                        <img class="bill" style="width: 80%;"
                             src="<?php echo URLROOT; ?>/upload-images/requests/<?php echo $data['request']->filename?>"
                             alt="pic" />
                     </div>
@@ -58,7 +70,15 @@
                     method="post" enctype="multipart/form-data">
                     
                     <div class="form-row">
+                        <?php if($data['request']->req_type == 'money'){ ?>
+                            <h6 style="text-align: justify;">Enter the amount that you can donate for this money request</h6>
+                        <?php }else{ ?>
+                            <h6 style="text-align: justify;">Enter the amount that you can donate for this goods request</h6>
+                        <?php } ?>
+                    </div>
+                    <div class="form-row">
                         <div class="col">
+
                             <label for="amount" class="formTitle">Amount in Rupees</label>
                             <input type="text"
                                 class="form-control <?php echo (!empty($data['amount_err'])) ? 'is-invalid' : ''; ?>"
