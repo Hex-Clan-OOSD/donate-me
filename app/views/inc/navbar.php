@@ -8,7 +8,7 @@ abstract class Navbar{
 class AnonymousUserNavbar extends Navbar{
     public function __construct()
     {
-        $this->html_component = require_once (APPROOT . '/views/inc/land_navbar.php');;
+        $this->html_component = require_once (APPROOT . '/views/inc/land_navbar.php');
     }
 
 }
@@ -17,7 +17,7 @@ class AnonymousUserNavbar extends Navbar{
 class NormalUserNavbar extends Navbar{
     public function __construct()
     {
-        $this->html_component = require_once (APPROOT . '/views/inc/request_navbar.php');;
+        $this->html_component = require_once (APPROOT . '/views/inc/request_navbar.php');
     }
 
 }
@@ -25,6 +25,6 @@ class NormalUserNavbar extends Navbar{
 class AdminUserNavbar extends Navbar{
     public function __construct()
     {
-        $this->html_component = require_once (APPROOT . '/views/inc/admin_navbar.php');;
+        $this->html_component = require_once (APPROOT . '/views/inc/admin_navbar.php');
     }
 }

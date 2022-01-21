@@ -117,6 +117,8 @@ require_once (APPROOT . '/factories/RequestFactory.php');
             // Validate the amount
             if(empty($data['amount'])){
                 $data['amount_err'] = "Amount is required!";
+            }elseif(!is_numeric($data['amount'])){
+                $data['amount_err'] = "Invalid value for amount!";
             }
 
             // Validate the description

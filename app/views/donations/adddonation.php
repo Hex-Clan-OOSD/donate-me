@@ -97,7 +97,7 @@
 
                         <!-- <button type="button" id="browse" class="btn btn-primary">Upload</button> -->
                     </div>
-                   
+                    <p style="color: red;"><?php echo $data['file_err']?></p> 
                     <br>
 
 

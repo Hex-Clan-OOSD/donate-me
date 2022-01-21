@@ -66,8 +66,9 @@
                     <div class="form-group">
                         <label for="evidence-image">Upload Evidence</label>
                         <input type="file" name="evidence-image" id="evidence-image" />
-                    </div>
                         
+                    </div>
+                       <p style="color: red;"><?php echo $data['file_err']?></p> 
                    
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
