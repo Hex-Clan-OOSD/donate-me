@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <?php else:?>
-                        <h1>Request is ccompleted</h1>
+                        <h1>Request is Completed</h1>
                     <?php endif;?>
                 </form>
             </div>
