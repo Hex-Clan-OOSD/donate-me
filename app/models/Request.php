@@ -13,7 +13,7 @@
             return $results;
         }
 
-        // Get the total collected donation amount
+        // Get the total collected donation 
         public function getTotalCollectedAmount(){
             $this->dbAdapter->query('SELECT collected_amount from requests');
             $results = $this->dbAdapter->resultSet();
