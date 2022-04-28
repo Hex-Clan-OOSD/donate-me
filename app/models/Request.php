@@ -24,7 +24,7 @@
             return $collected_amount;
         }
 
-        // Get the recent requests
+      
         public function getRecentRequests(){
             $this->dbAdapter->query('SELECT title from requests ORDER BY created_at DESC LIMIT 5');
             $results = $this->dbAdapter->resultSet();
